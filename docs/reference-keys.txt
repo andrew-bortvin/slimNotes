@@ -1,4 +1,4 @@
-available-course-formats
+homepage
 introduction
 motivation
 target-audience
