@@ -7,3 +7,5 @@ ottrpal::set_knitr_image_path()
 I AM TESTING RENDING
 
 PLEASE RENDER
+
+PLEASE RENDER
