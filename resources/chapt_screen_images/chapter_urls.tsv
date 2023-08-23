@@ -1,6 +1,7 @@
 url	chapt_title	img_path
 https://andrew-bortvin.github.io/slimNotes/no_toc/index.html	About this Course	resources/chapt_screen_images/index.png
-https://andrew-bortvin.github.io/slimNotes/no_toc/introduction.html	1 Introduction	resources/chapt_screen_images/introduction.png
-https://andrew-bortvin.github.io/slimNotes/no_toc/a-new-chapter.html	2 A new chapter	resources/chapt_screen_images/a-new-chapter.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/test.html	1 TEST	resources/chapt_screen_images/test.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/introduction.html	2 Introduction	resources/chapt_screen_images/introduction.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/a-new-chapter.html	3 A new chapter	resources/chapt_screen_images/a-new-chapter.png
 https://andrew-bortvin.github.io/slimNotes/no_toc/about-the-authors.html	About the Authors	resources/chapt_screen_images/about-the-authors.png
-https://andrew-bortvin.github.io/slimNotes/no_toc/references.html	3 References	resources/chapt_screen_images/references.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/references.html	4 References	resources/chapt_screen_images/references.png
