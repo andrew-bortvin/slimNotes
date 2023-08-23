@@ -1,8 +1,8 @@
-# {Course Name}
+# SLiM Notes
 
 This course was created from [this GitHub template](https://github.com/jhudsl/OTTR_Template).
 
-You can see the rendered course material here: {Link to rendered bookdown and/or to the Leanpub.}
+You can see the rendered course material here: andrew-bortvin.github.io/slimNotes/ 
 
 If you would like to contribute to this course material, take a look at the [OTTR documentation](https://www.ottrproject.org/).
 
