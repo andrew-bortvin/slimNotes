@@ -1,4 +1,5 @@
 available-course-formats
+test
 introduction
 motivation
 target-audience
