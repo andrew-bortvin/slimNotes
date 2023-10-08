@@ -1,6 +1,2 @@
 homepage
-introduction
-motivation
-target-audience
-curriculum
 references
