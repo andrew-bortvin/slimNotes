@@ -2,6 +2,7 @@ book_filename: "SLiM"
 chapter_name: ""
 repo: https://github.com/andrew-bortvin/slimNotes
 rmd_files: ["index.Rmd",
+            "slimChapters/Syllabus.Rmd",
             "About.Rmd",
             "References.Rmd"]
 #new_session: yes
