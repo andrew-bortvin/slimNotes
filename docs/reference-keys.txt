@@ -1,3 +1,10 @@
 homepage
+common-slim-functions
+initialize-functions
 initializing-a-simulation
+global-mutation-rates
+mutation-types
+types-of-dna
+genomic-regions
+recombination-rates
 references
