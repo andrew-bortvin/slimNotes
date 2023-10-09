@@ -1,0 +1,7 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+## Initializing a Simulation
+
+The first step in running a simulation is defining all of the parameters that characterize our populations - how many populations are we studying? How big are they? What do individual genomes look like? We use an `initialize()` block to define any parameters like this.
