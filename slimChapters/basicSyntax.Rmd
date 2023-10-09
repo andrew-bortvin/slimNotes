@@ -1,0 +1,11 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+1. line termination with `;`
+2. code blocks, brackets
+3. vectors (`c()`)
+4. Data Types
+5. Functions and Arguments
+6. Scientific Notation
+7. Function signatures (currently in initialize section)

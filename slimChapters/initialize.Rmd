@@ -4,4 +4,40 @@ ottrpal::set_knitr_image_path()
 
 ## Initializing a Simulation
 
-The first step in running a simulation is defining all of the parameters that characterize our populations - how many populations are we studying? How big are they? What do individual genomes look like? We use an `initialize()` block to define any parameters like this.
+The first step in running a simulation is defining all of the parameters that characterize our populations - how many populations are we studying? How big are they? What do individual genomes look like? We use an `initialize()` block to define any parameters like this. 
+
+In almost every simulation, we will define a core set of common parameters. They are: 
+
+### Global Mutation Rates
+
+The mutation rate is set by the command `initializeMutationRate()`. In its simplest form, we run this function with a single argument, the mutation, as such: `initializeMutationRate(1e-7);`. Now, when executing the simulation, SLiM will go through each gamete base by base, and will introduce a mutation with a probability of `1e-7`.
+
+### Mutation Types
+
+When running our simulation, we can distinguish between multiple kinds of mutations, each with their own prevalence and impact - for example, a neutral substitution, or a lethal deletion, or a rare variant that confers a selective advantage. To create a mutation type, we use the `initializeMutationType()` command. For example, this following line of code creates a deleterious mutation: 
+
+```{r, engine='python', eval=FALSE}
+initializeMutationType("m1", 0.5, "f", -0.02); 
+```
+
+Let's break the arguments to `initializeMutationType` down: 
+
+* the mutation id: this can be any integer, or a string in the format `m<integer>`. This is the name that you will use to keep track of your mutation.
+* the dominance coefficient: Here, `0.5`. This is used when determining how a mutation impacts the fitness of your individual. A mutation with a dominance coefficient of `1.0` is completely dominant; a mutation with a dominance coefficient of `0.0` is recessive. Mutations with values in between represent incomplete dominance - in our case, `0.5` indicates that heterozygotes have half the fitness effect of the mutation
+* the last two arguments, `"f"` and `-0.02` denote the distribution and magnitude of how our mutation impacts fitness. `f` indicates that the effect is *fixed* - that is, the mutation impacts all affected individuals identically. The value `-0.02` indicates that this effect is a fitness reduction of 0.02 - any individual homozygous for this allele is expected to have offspring at 0.98 the frequency of an individual without this allele, all else being equal. While this allele has the same effect on all carriers, we can also create alleles with different fitness effect distributions - for example `"n"` indicates that for each individual with this mutation, we draw the fitness effect from a normal distribution, `"e"` indicates that we draw fitness effects from the exponential distribution. For some of these, e.g. the normal distribution, we may need to provide more than one numerical parameter.  
+
+### Types of DNA 
+
+### Genomic Regions 
+
+### Recombination Rates 
+
+
+
+
+Putting this all together: 
+
+```{r, engine='python', eval=FALSE}
+initialize() {
+} 
+```
