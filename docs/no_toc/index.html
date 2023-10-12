@@ -53,6 +53,69 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
@@ -73,7 +136,19 @@
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Homepage</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#initializing-a-simulation"><i class="fa fa-check"></i><b>1.1</b> Initializing a Simulation</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#common-slim-functions"><i class="fa fa-check"></i><b>1.1</b> Common SLiM Functions</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#initialize-functions"><i class="fa fa-check"></i><b>1.1.1</b> Initialize functions</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.2</b> Introduction</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#initializing-a-simulation"><i class="fa fa-check"></i><b>1.3</b> Initializing a Simulation</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#global-mutation-rates"><i class="fa fa-check"></i><b>1.3.1</b> Global Mutation Rates</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#mutation-types"><i class="fa fa-check"></i><b>1.3.2</b> Mutation Types</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#types-of-dna"><i class="fa fa-check"></i><b>1.3.3</b> Types of DNA</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#genomic-regions"><i class="fa fa-check"></i><b>1.3.4</b> Genomic Regions</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#recombination-rates"><i class="fa fa-check"></i><b>1.3.5</b> Recombination Rates</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="2" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>2</b> References</a></li>
@@ -107,11 +182,67 @@
 <p>Notes on usage of SLiM for evolutionary modeling. Adapted from the SLiM manual: <a href="http://benhaller.com/slim/SLiM_Manual.pdf" class="uri">http://benhaller.com/slim/SLiM_Manual.pdf</a></p>
 
 
+<div id="common-slim-functions" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Common SLiM Functions</h2>
+<div id="initialize-functions" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Initialize functions</h3>
+<p>Set a mutation rate: <code>initializeMutationRate(numeric rates, [Ni ends = NULL], [string$ sex = "*"])</code></p>
 
-<div id="initializing-a-simulation" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Initializing a Simulation</h2>
+</div>
+</div>
+<div id="introduction" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Introduction</h2>
+<p>Coding concepts to introduce</p>
+<ol style="list-style-type: decimal">
+<li>line termination with <code>;</code></li>
+<li>code blocks, brackets</li>
+<li>vectors (<code>c()</code>)</li>
+<li>Data Types</li>
+<li>Functions and Arguments</li>
+<li>Scientific Notation</li>
+<li>Function signatures (currently in initialize section)</li>
+</ol>
+<p>Bio concepts?</p>
+<ol style="list-style-type: decimal">
+<li>Mutation types - SNPs, indels</li>
+<li>Genomic regions - centromeres, telomeres, introns, exons, etc.</li>
+</ol>
+
+</div>
+<div id="initializing-a-simulation" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Initializing a Simulation</h2>
 <p>The first step in running a simulation is defining all of the parameters that characterize our populations - how many populations are we studying? How big are they? What do individual genomes look like? We use an <code>initialize()</code> block to define any parameters like this.</p>
+<p>In almost every simulation, we will define a core set of common parameters. They are:</p>
+<div id="global-mutation-rates" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Global Mutation Rates</h3>
+<p>The mutation rate is set by the command <code>initializeMutationRate()</code>. In its simplest form, we run this function with a single argument, the mutation, as such: <code>initializeMutationRate(1e-7);</code>. Now, when executing the simulation, SLiM will go through each gamete base by base, and will introduce a mutation with a probability of <code>1e-7</code>.</p>
+</div>
+<div id="mutation-types" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Mutation Types</h3>
+<p>When running our simulation, we can distinguish between multiple kinds of mutations, each with their own prevalence and impact - for example, a neutral substitution, or a lethal deletion, or a rare variant that confers a selective advantage. To create a mutation type, we use the <code>initializeMutationType()</code> command. For example, this following line of code creates a deleterious mutation:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a>initializeMutationType(<span class="st">&quot;m1&quot;</span>, <span class="fl">0.5</span>, <span class="st">&quot;f&quot;</span>, <span class="op">-</span><span class="fl">0.02</span>)<span class="op">;</span> </span></code></pre></div>
+<p>Let’s break the arguments to <code>initializeMutationType</code> down:</p>
+<ul>
+<li>the mutation id: this can be any integer, or a string in the format <code>m&lt;integer&gt;</code>. This is the name that you will use to keep track of your mutation.</li>
+<li>the dominance coefficient: Here, <code>0.5</code>. This is used when determining how a mutation impacts the fitness of your individual. A mutation with a dominance coefficient of <code>1.0</code> is completely dominant; a mutation with a dominance coefficient of <code>0.0</code> is recessive. Mutations with values in between represent incomplete dominance - in our case, <code>0.5</code> indicates that heterozygotes have half the fitness effect of the mutation</li>
+<li>the last two arguments, <code>"f"</code> and <code>-0.02</code> denote the distribution and magnitude of how our mutation impacts fitness. <code>f</code> indicates that the effect is <em>fixed</em> - that is, the mutation impacts all affected individuals identically. The value <code>-0.02</code> indicates that this effect is a fitness reduction of 0.02 - any individual homozygous for this allele is expected to have offspring at 0.98 the frequency of an individual without this allele, all else being equal. While this allele has the same effect on all carriers, we can also create alleles with different fitness effect distributions - for example <code>"n"</code> indicates that for each individual with this mutation, we draw the fitness effect from a normal distribution, <code>"e"</code> indicates that we draw fitness effects from the exponential distribution. For some of these, e.g. the normal distribution, we may need to provide more than one numerical parameter.</li>
+</ul>
+</div>
+<div id="types-of-dna" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Types of DNA</h3>
+<p>Now that we have defined the types of mutations we can encounter in our simulation, we can no specify the types of genomic regions that we are working with. For example, we can create genomic regions that represent telomeres, centromeres, introns, exons, etc. And intuitively, we can anticipate that mutations are likely to have different effects in different regions (for example, a SNP in an exon is more likely to have a dramatic phenotypic impact than a SNP in a centromere).</p>
+<p>We can define a genomic region using the <code>initializeGenomicElementType()</code> function.</p>
+</div>
+<div id="genomic-regions" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> Genomic Regions</h3>
+</div>
+<div id="recombination-rates" class="section level3" number="1.3.5">
+<h3><span class="header-section-number">1.3.5</span> Recombination Rates</h3>
+<p>Putting this all together:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a>initialize() {</span>
+<span id="cb2-2"><a href="index.html#cb2-2" aria-hidden="true" tabindex="-1"></a>} </span></code></pre></div>
 
+</div>
 </div>
 </div>
 <hr>
