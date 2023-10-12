@@ -1,6 +1,7 @@
 homepage
 common-slim-functions
 initialize-functions
+introduction
 initializing-a-simulation
 global-mutation-rates
 mutation-types
