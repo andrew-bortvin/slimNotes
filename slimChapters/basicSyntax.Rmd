@@ -2,6 +2,10 @@
 ottrpal::set_knitr_image_path()
 ```
 
+## Introduction
+
+Coding concepts to introduce
+
 1. line termination with `;`
 2. code blocks, brackets
 3. vectors (`c()`)
@@ -9,3 +13,10 @@ ottrpal::set_knitr_image_path()
 5. Functions and Arguments
 6. Scientific Notation
 7. Function signatures (currently in initialize section)
+
+
+
+Bio concepts? 
+
+1. Mutation types - SNPs, indels
+2. Genomic regions - centromeres, telomeres, introns, exons, etc. 

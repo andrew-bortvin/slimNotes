@@ -28,6 +28,10 @@ Let's break the arguments to `initializeMutationType` down:
 
 ### Types of DNA 
 
+Now that we have defined the types of mutations we can encounter in our simulation, we can no specify the types of genomic regions that we are working with. For example, we can create genomic regions that represent telomeres, centromeres, introns, exons, etc. And intuitively, we can anticipate that mutations are likely to have different effects in different regions (for example, a SNP in an exon is more likely to have a dramatic phenotypic impact than a SNP in a centromere). 
+
+We can define a genomic region using the `initializeGenomicElementType()` function.
+
 ### Genomic Regions 
 
 ### Recombination Rates 
