@@ -1,4 +1,5 @@
-homepage
+syllabus
+slim-guide
 common-slim-functions
 initialize-functions
 introduction
