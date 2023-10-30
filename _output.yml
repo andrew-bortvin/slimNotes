@@ -8,6 +8,7 @@ bookdown::gitbook:
     toc:
       depth: 2
       collapse: section
+      split_bib: 3
       before: |
        <a href="https://andrew-bortvin.github.io/slimNotes/"><img src="assets/peppa.png" style=" width: 80%; padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
       after: |
