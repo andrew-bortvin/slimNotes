@@ -6,9 +6,9 @@ bookdown::gitbook:
   split_by: section
   config:
     toc:
-      depth: 2
+      depth: 1
       collapse: section
-      split_bib: 2
+      split_bib: 1
       before: |
        <a href="https://andrew-bortvin.github.io/slimNotes/"><img src="assets/peppa.png" style=" width: 80%; padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
       after: |
