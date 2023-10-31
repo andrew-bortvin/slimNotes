@@ -9,11 +9,11 @@ These credits are based on our [course contributors table guidelines](https://ww
 |Credits|Names|
 |-------|-----|
 |**Pedagogy**|
-| Content Author | [Andrew Bortvin] |
-| Content Author | [Sara Carioscia] |
+| Content Author | Andrew Bortvin |
+| Content Author | Sara Carioscia |
 |**Website**|
-| Template | [Jeff Leek] & [The Johns Hopkins Data Science Lab]|
-| Design Inspiration | [Stephanie Yan] & [Ali Madooei] & [JHU Data Structures] |
+| Template | Jeff Leek & The Johns Hopkins Data Science Lab|
+| Design Inspiration | Stephanie Yan & Ali Madooei & JHU Data Structures |
 
 
 &nbsp;
