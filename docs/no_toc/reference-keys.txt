@@ -1,6 +1,6 @@
 syllabus
 slim-guide
-population-genetics-simulation-visualization
+syllabus-population-genetics-simulation-visualization
 course-description
 class-structure
 schedule
