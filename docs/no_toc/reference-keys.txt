@@ -3,10 +3,15 @@ slim-guide
 common-slim-functions
 initialize-functions
 introduction
-initializing-a-simulation
+a-basic-slim-simulation
+initliazing-a-simulation
 global-mutation-rates
 mutation-types
 types-of-dna
 genomic-regions
 recombination-rates
+running-a-simulation
+adding-subpopulations
+events-that-occur-every-generation
+ending-a-simulation
 references
