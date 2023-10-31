@@ -207,10 +207,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Create a genomic region with both of these mutation types. Recall that we can use the syntax <code>c(m1, m2)</code> to provide multiple items together to an argument. For example, we can initialize a genomic element type with two mutation types at relative frequencies of 0.2 and 0.8 as such: <code>initializeGenomicElementType("g2", c(m1, m2), c(0.2, 0.8));</code>.</p>
 <p>Run this a few times and look to see if your deleterious mutation ever reaches fixation. How could you explain this behavior? Does it still happen if you raise your recombination rate higher (e.g. a biologically unrelatstic value of 1e-2)? Why or why not?</p>
 <p>Note that the following code block will print the number of fixed mutations of type <code>m2</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="week-1-assignment.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span> late() { </span>
-<span id="cb9-2"><a href="week-1-assignment.html#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;Number of type 2 fixed mutations:&#39;</span>)<span class="op">;</span></span>
-<span id="cb9-3"><a href="week-1-assignment.html#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">sum</span>(sim.substitutions.mutationType <span class="op">==</span> m2))<span class="op">;</span></span>
-<span id="cb9-4"><a href="week-1-assignment.html#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="week-1-assignment.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span> late() { </span>
+<span id="cb8-2"><a href="week-1-assignment.html#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;Number of type 2 fixed mutations:&#39;</span>)<span class="op">;</span></span>
+<span id="cb8-3"><a href="week-1-assignment.html#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">sum</span>(sim.substitutions.mutationType <span class="op">==</span> m2))<span class="op">;</span></span>
+<span id="cb8-4"><a href="week-1-assignment.html#cb8-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 
 </div>
 </div>
