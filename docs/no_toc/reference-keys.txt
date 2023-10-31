@@ -1,12 +1,11 @@
-syllabus
-slim-guide
+population-genetics-simulation-and-visualization
 syllabus-population-genetics-simulation-visualization
 course-description
 class-structure
 schedule
 grading
 student-hours
-introduction
+slim-guide
 a-basic-slim-simulation
 initliazing-a-simulation
 global-mutation-rates
