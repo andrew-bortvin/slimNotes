@@ -202,13 +202,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-3"><a href="ending-a-simulation.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">p1.outputSample</span><span class="er">(</span><span class="ex">500</span><span class="kw">);</span></span>
 <span id="cb6-4"><a href="ending-a-simulation.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
 <p>where <code>500</code> is the number of individuals to output from population <code>p1</code>. This outputs a lot of information that is typically sent to a downstream application.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="ending-a-simulation.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Mutations:</span></span>
-<span id="cb7-2"><a href="ending-a-simulation.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span> 16278 m1 4497 0.0500000007 0.5 p1 1632 27</span></code></pre></div>
 <p>A simpler output is to use the function <code>sim.outputFixedMutations()</code>, which outputs a list of all mutations that have reached fixation (are present in two copies in all individuals).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="ending-a-simulation.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> early<span class="er">(</span><span class="kw">)</span></span>
-<span id="cb8-2"><a href="ending-a-simulation.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
-<span id="cb8-3"><a href="ending-a-simulation.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sim.outputFixedMutations()</span><span class="kw">;</span></span>
-<span id="cb8-4"><a href="ending-a-simulation.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="ending-a-simulation.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> early<span class="er">(</span><span class="kw">)</span></span>
+<span id="cb7-2"><a href="ending-a-simulation.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
+<span id="cb7-3"><a href="ending-a-simulation.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sim.outputFixedMutations()</span><span class="kw">;</span></span>
+<span id="cb7-4"><a href="ending-a-simulation.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
 
 </div>
 <hr>
