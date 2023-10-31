@@ -1,0 +1,11 @@
+1-Syllabus.md
+2-SLiM-Guide.md
+3-Syllabus:-Population-Genetics-Simulation-&-Visualization.md
+3.1-Introduction.md
+3.2-A-Basic-SLiM-Simulation.md
+3.3-Initliazing-a-Simulation.md
+3.4-Running-a-simulation.md
+3.5-Ending-a-simulation.md
+3.6-Week-1-Assignment.md
+4-References.md
+About-the-Authors.md
