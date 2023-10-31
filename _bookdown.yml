@@ -3,7 +3,7 @@ chapter_name: ""
 repo: https://github.com/andrew-bortvin/slimNotes
 rmd_files: ["index.Rmd",
             "slimChapters/Syllabus.Rmd",
-            "slimChapters/cheatSheet.Rmd", 
+            #"slimChapters/cheatSheet.Rmd", 
             "slimChapters/basicSyntax.Rmd",
             "slimChapters/initialize.Rmd",
             "slimChapters/runningSim.Rmd",
