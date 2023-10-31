@@ -1,0 +1,43 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+## Running a simulation
+
+Now that we have initialized a simulation, we can define the events that happen during our simulation. Our simulation is organized into generations (used interchangeably with `tick cycles`), and within each generation, a predefined set of events happen in a fixed order: 
+
+1. If you have defined any events as occurring `'early'` in a generation, they are executed first
+2. Offspring are generated 
+3. Fixed mutations are removed in the offspring - that is, if all individuals have two copies of a mutation, SLiM stops keeping track of it
+4. Parents die, offspring become the new parents
+5. If you have defined any events as occurring `'late'` in a generation, they are now executed 
+
+### Adding subpopulations
+
+We have used the `initialize` block to precisely define how the DNA of all of our organisms is structured. Now, we can create a subpopulation. This is conventionaly done as an `early` event in the first generation (that is, this will be the first thing that happens in your simulation). For example:  
+
+```{r, engine='bash', eval=FALSE}
+1 early()
+{
+  sim.addSubpop("p1", 500);
+} 
+```
+
+A few things to note here: 
+
+* The first line (`1 early()`) defines **when** this event occurs. The `1` indicates that this will happen in the first generation. The `early()` indicates that this is an `early` event in the generation (i.e. it happens before generation of offspring)
+* The command `sim.addSubpop("p1", 500);` creates a subpopulation with the name `"p1"`, which contains 500 individuals. 
+
+### Events that occur every generation 
+
+The above `sim.addSubpop()` command was only executed in the first generation. What if we want an event that runs every generation? To do this, we simply create an event without specifying a generation number. For example, let's say that in each generation, we want to print the list of all mutations that have reached fixation. We can do this with the following command: 
+
+```{r, engine='bash', eval=FALSE}
+late() {
+	sim.outputFixedMutations();
+}
+```
+
+In the first line of this command (`late()`), we do not specify the generation at which this happens. As a result, it will happen as a late event in *every* generation. 
+
+## Ending a simulation
