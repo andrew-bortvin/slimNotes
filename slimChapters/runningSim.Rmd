@@ -62,11 +62,6 @@ This simply ends the simulation. Typically, we want to output something for the 
 
 where `500` is the number of individuals to output from population `p1`. This outputs a lot of information that is typically sent to a downstream application. 
 
-```{r, engine='bash', eval=FALSE}
-Mutations:
-2 16278 m1 4497 0.0500000007 0.5 p1 1632 27
-```
-
 A simpler output is to use the function `sim.outputFixedMutations()`, which outputs a list of all mutations that have reached fixation (are present in two copies in all individuals).
 
 ```{r, engine='bash', eval=FALSE}
