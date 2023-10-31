@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 SLiM Guide | SLiM Notes</title>
+  <title>2.5 Running a simulation | SLiM Notes</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 SLiM Guide | SLiM Notes" />
+  <meta property="og:title" content="2.5 Running a simulation | SLiM Notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 SLiM Guide | SLiM Notes" />
+  <meta name="twitter:title" content="2.5 Running a simulation | SLiM Notes" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="common-slim-functions.html"/>
+<link rel="prev" href="initliazing-a-simulation.html"/>
+<link rel="next" href="ending-a-simulation.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -180,11 +180,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="slim-guide" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> SLiM Guide</h1>
-<p>Notes on usage of SLiM for evolutionary modeling. Adapted from the SLiM manual: <a href="http://benhaller.com/slim/SLiM_Manual.pdf" class="uri">http://benhaller.com/slim/SLiM_Manual.pdf</a></p>
-
-<!--chapter:end:slimChapters/Syllabus.Rmd-->
+<div id="running-a-simulation" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Running a simulation</h2>
+<p>Now that we have initialized a simulation, we can define the events that happen during our simulation. Our simulation is organized into generations (used interchangeably with <code>tick cycles</code>), and within each generation, a predefined set of events happen in a fixed order:</p>
+<ol style="list-style-type: decimal">
+<li>If you have defined any events as occurring <code>'early'</code> in a generation, they are executed first</li>
+<li>Offspring are generated</li>
+<li>Fixed mutations are removed in the offspring - that is, if all individuals have two copies of a mutation, SLiM stops keeping track of it</li>
+<li>Parents die, offspring become the new parents</li>
+<li>If you have defined any events as occurring <code>'late'</code> in a generation, they are now executed</li>
+</ol>
+<div id="adding-subpopulations" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Adding subpopulations</h3>
+<p>We have used the <code>initialize</code> block to precisely define how the DNA of all of our organisms is structured. Now, we can create a subpopulation. This is conventionaly done as an <code>early</code> event in the first generation (that is, this will be the first thing that happens in your simulation). For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="running-a-simulation.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span></span>
+<span id="cb3-2"><a href="running-a-simulation.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
+<span id="cb3-3"><a href="running-a-simulation.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb3-4"><a href="running-a-simulation.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
+<p>A few things to note here:</p>
+<ul>
+<li>The first line (<code>1 early()</code>) defines <strong>when</strong> this event occurs. The <code>1</code> indicates that this will happen in the first generation. The <code>early()</code> indicates that this is an <code>early</code> event in the generation (i.e. it happens before generation of offspring)</li>
+<li>The command <code>sim.addSubpop("p1", 500);</code> creates a subpopulation with the name <code>"p1"</code>, which contains 500 individuals.</li>
+</ul>
+</div>
+<div id="events-that-occur-every-generation" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Events that occur every generation</h3>
+<p>The above <code>sim.addSubpop()</code> command was only executed in the first generation. What if we want an event that runs every generation? To do this, we simply create an event without specifying a generation number. For example, let’s say that in each generation, we want to print the list of all mutations that have reached fixation. We can do this with the following command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="running-a-simulation.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">late()</span> <span class="kw">{</span></span>
+<span id="cb4-2"><a href="running-a-simulation.html#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sim.outputFixedMutations()</span><span class="kw">;</span></span>
+<span id="cb4-3"><a href="running-a-simulation.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>In the first line of this command (<code>late()</code>), we do not specify the generation at which this happens. As a result, it will happen as a late event in <em>every</em> generation.</p>
+</div>
 </div>
 <hr>
 <center> 
@@ -199,8 +225,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="common-slim-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="initliazing-a-simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ending-a-simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

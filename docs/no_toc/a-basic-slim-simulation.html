@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 SLiM Guide | SLiM Notes</title>
+  <title>2.3 A Basic SLiM Simulation | SLiM Notes</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 SLiM Guide | SLiM Notes" />
+  <meta property="og:title" content="2.3 A Basic SLiM Simulation | SLiM Notes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 SLiM Guide | SLiM Notes" />
+  <meta name="twitter:title" content="2.3 A Basic SLiM Simulation | SLiM Notes" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="common-slim-functions.html"/>
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="initliazing-a-simulation.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -180,11 +180,32 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="slim-guide" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> SLiM Guide</h1>
-<p>Notes on usage of SLiM for evolutionary modeling. Adapted from the SLiM manual: <a href="http://benhaller.com/slim/SLiM_Manual.pdf" class="uri">http://benhaller.com/slim/SLiM_Manual.pdf</a></p>
-
-<!--chapter:end:slimChapters/Syllabus.Rmd-->
+<div id="a-basic-slim-simulation" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> A Basic SLiM Simulation</h2>
+<p>Our first simulation will be a lightly modified version of the script that comes up when we first open the SLiM graphical user interface (GUI). It is a simple simulation tracking one population, with no selection:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="a-basic-slim-simulation.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> set up a simple neutral simulation</span>
+<span id="cb1-2"><a href="a-basic-slim-simulation.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span> <span class="kw">{</span></span>
+<span id="cb1-3"><a href="a-basic-slim-simulation.html#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
+<span id="cb1-4"><a href="a-basic-slim-simulation.html#cb1-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-5"><a href="a-basic-slim-simulation.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> m1 mutation type: neutral</span>
+<span id="cb1-6"><a href="a-basic-slim-simulation.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
+<span id="cb1-7"><a href="a-basic-slim-simulation.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-8"><a href="a-basic-slim-simulation.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> g1 genomic element type: uses m1 for all mutations</span>
+<span id="cb1-9"><a href="a-basic-slim-simulation.html#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1.0<span class="kw">);</span></span>
+<span id="cb1-10"><a href="a-basic-slim-simulation.html#cb1-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-11"><a href="a-basic-slim-simulation.html#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> uniform chromosome of length 100 kb with uniform recombination</span>
+<span id="cb1-12"><a href="a-basic-slim-simulation.html#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 99999<span class="kw">);</span></span>
+<span id="cb1-13"><a href="a-basic-slim-simulation.html#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
+<span id="cb1-14"><a href="a-basic-slim-simulation.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb1-15"><a href="a-basic-slim-simulation.html#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="a-basic-slim-simulation.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> create a population of 500 individuals</span>
+<span id="cb1-17"><a href="a-basic-slim-simulation.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb1-18"><a href="a-basic-slim-simulation.html#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb1-19"><a href="a-basic-slim-simulation.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb1-20"><a href="a-basic-slim-simulation.html#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="a-basic-slim-simulation.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ex">2000</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span> </span>
+<span id="cb1-22"><a href="a-basic-slim-simulation.html#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sim.outputFixedMutations()</span><span class="kw">;</span> </span>
+<span id="cb1-23"><a href="a-basic-slim-simulation.html#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
 </div>
 <hr>
 <center> 
@@ -199,8 +220,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="common-slim-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="initliazing-a-simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
