@@ -4,7 +4,7 @@ repo: https://github.com/andrew-bortvin/slimNotes
 rmd_files: ["index.Rmd",
             "syllabus.md",
             #"slimChapters/cheatSheet.Rmd", 
-            "slimChapters/basicSyntax.Rmd",
+            #"slimChapters/basicSyntax.Rmd",
             "slimChapters/initialize.Rmd",
             "slimChapters/runningSim.Rmd",
             "slimChapters/assignment1.Rmd",
