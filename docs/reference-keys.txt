@@ -14,4 +14,8 @@ running-a-simulation
 adding-subpopulations
 events-that-occur-every-generation
 ending-a-simulation
+week-1-assignment
+population-size
+selection
+multiple-mutation-types-multiple-genomic-regions
 references
