@@ -16,7 +16,7 @@ So far, we focused on simulations where all mutations were neutral. Change the s
 
 Do the same with a slightly deleterious mutation. 
 
-### 1.3 Multiple mutation types; multiple genomic regions
+### 1.3 - Multiple mutation types; multiple genomic regions
 
 Create two mutation types, one of which is highly (perhaps a selection coefficient around ~0.05) and one of which is deleterious (selection coefficient ~-0.01). 
 
