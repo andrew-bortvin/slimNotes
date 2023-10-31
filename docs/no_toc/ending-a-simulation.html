@@ -192,18 +192,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="ending-a-simulation" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Ending a simulation</h2>
 <p>We can explicitly end a simulation using the command <code>sim.simulationFinished()</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="ending-a-simulation.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> early<span class="er">(</span><span class="kw">)</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="ending-a-simulation.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> late<span class="er">(</span><span class="kw">)</span></span>
 <span id="cb5-2"><a href="ending-a-simulation.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
 <span id="cb5-3"><a href="ending-a-simulation.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sim.simulationFinished()</span><span class="kw">;</span></span>
 <span id="cb5-4"><a href="ending-a-simulation.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
 <p>This simply ends the simulation. Typically, we want to output something for the user. We’ll go into more options throughout the course. For now, know that we can output a sample of our population using the following syntax:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="ending-a-simulation.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> early<span class="er">(</span><span class="kw">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="ending-a-simulation.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> late<span class="er">(</span><span class="kw">)</span></span>
 <span id="cb6-2"><a href="ending-a-simulation.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
 <span id="cb6-3"><a href="ending-a-simulation.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">p1.outputSample</span><span class="er">(</span><span class="ex">500</span><span class="kw">);</span></span>
 <span id="cb6-4"><a href="ending-a-simulation.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
 <p>where <code>500</code> is the number of individuals to output from population <code>p1</code>. This outputs a lot of information that is typically sent to a downstream application.</p>
 <p>A simpler output is to use the function <code>sim.outputFixedMutations()</code>, which outputs a list of all mutations that have reached fixation (are present in two copies in all individuals).</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="ending-a-simulation.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> early<span class="er">(</span><span class="kw">)</span></span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="ending-a-simulation.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> late<span class="er">(</span><span class="kw">)</span></span>
 <span id="cb7-2"><a href="ending-a-simulation.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
 <span id="cb7-3"><a href="ending-a-simulation.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sim.outputFixedMutations()</span><span class="kw">;</span></span>
 <span id="cb7-4"><a href="ending-a-simulation.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
