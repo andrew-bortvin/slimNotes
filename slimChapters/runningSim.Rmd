@@ -45,7 +45,7 @@ In the first line of this command (`late()`), we do not specify the generation a
 We can explicitly end a simulation using the command `sim.simulationFinished()`. 
 
 ```{r, engine='bash', eval=FALSE}
-10000 early()
+10000 late()
 {
   sim.simulationFinished();
 } 
@@ -54,7 +54,7 @@ We can explicitly end a simulation using the command `sim.simulationFinished()`.
 This simply ends the simulation. Typically, we want to output something for the user. We'll go into more options throughout the course. For now, know that we can output a sample of our population using the following syntax: 
 
 ```{r, engine='bash', eval=FALSE}
-10000 early()
+10000 late()
 {
   p1.outputSample(500);
 } 
@@ -65,7 +65,7 @@ where `500` is the number of individuals to output from population `p1`. This ou
 A simpler output is to use the function `sim.outputFixedMutations()`, which outputs a list of all mutations that have reached fixation (are present in two copies in all individuals).
 
 ```{r, engine='bash', eval=FALSE}
-10000 early()
+10000 late()
 {
   sim.outputFixedMutations();
 } 
