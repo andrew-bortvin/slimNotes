@@ -1,7 +1,0 @@
-1-Syllabus.md
-2-SLiM-Guide.md
-2.1-Common-SLiM-Functions.md
-2.2-Introduction.md
-2.3-Initializing-a-Simulation.md
-3-References.md
-About-the-Authors.md
