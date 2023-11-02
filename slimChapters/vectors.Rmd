@@ -1,0 +1,62 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Multiple Mutations, Elements and Regions 
+
+So far, we have looked at simulations where we only have one mutation type, one genomic element type, and one genomic region. Now, let's look at how to create multiple mutation types and genomic regions.
+
+Here is a simulation that creates three mutation types, each with their own fitness effects
+
+```{r, engine='bash', eval=FALSE}
+initialize(){
+	initializeMutationRate(1e-7);
+	
+	initializeMutationType("m1", 1.0, "f", 0.0); // Neutral mutation
+	initializeMutationType("m2", 1.0, "f", 0.02); // favorable mutation
+	initializeMutationType("m3", 1.0, "f", -0.01); // Deleterious mutation	
+	
+	initializeGenomicElementType("g1", c(m1, m2, m3), c(50, 1, 10)); 
+	initializeGenomicElementType("g2", m1, 1); 
+	initializeGenomicElement(g1, 0, 9999);
+	initializeGenomicElement(g2, 10000, 15000);
+	initializeGenomicElement(g1, 15001, 25000);
+	
+	initializeRecombinationRate(1e-8);
+}
+
+1 early(){
+	sim.addSubpop("p1", 500);
+}
+
+10000 early()
+{
+  sim.outputFixedMutations();
+} 
+```
+
+### Making multiple mutations
+
+We can make multiple mutation types using repeated calls to the `initializeMutationType()` statement. From the script above:
+
+```{r, engine='bash', eval=FALSE}
+initializeMutationType("m1", 1.0, "f", 0.0); // Neutral mutation
+initializeMutationType("m2", 1.0, "f", 0.02); // favorable mutation
+initializeMutationType("m3", 1.0, "f", -0.01); // Deleterious mutation	
+```
+
+Notice that each mutation type has its own name. The three mutations represent neutral, favorable, and deleterious mutations, respectively. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
