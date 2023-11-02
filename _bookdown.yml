@@ -7,6 +7,7 @@ rmd_files: ["index.Rmd",
             #"slimChapters/basicSyntax.Rmd",
             "slimChapters/initialize.Rmd",
             "slimChapters/runningSim.Rmd",
+            "slimChapters/vectors.Rmd",
             "slimChapters/assignment1.Rmd",
             "About.Rmd",
             "References.Rmd"]
