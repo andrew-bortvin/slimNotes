@@ -1,0 +1,9 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+
+# Lecture Slides 
+
+
+* [Week 1](https://docs.google.com/presentation/d/1xdNvB5BIjlm1EAbDGl9JsDbymq2KxQrbLJK9qVbEylE/edit?usp=sharing)
