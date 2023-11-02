@@ -242,10 +242,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">3.5.2</span> Genomic Elements with multiple mutations</h3>
 <p>We can create a genomic element with multiple mutation types. Consider the line below:</p>
 <p><code>initializeGenomicElementType("g1", c(m1, m2, m3), c(50, 1, 10));</code></p>
-<p>Notice that for the mutation type, we can provide multiple mutation types using the syntax: <code>c(m1, m2, m3)</code>. Likewise, we now set their ratio in the third argument, <code>c(50, 1, 10)</code>.</p>
+<p>Notice that for the mutation type, we can provide multiple mutation types using the syntax: <code>c(m1, m2, m3)</code>. Likewise, we now set the ratio of how often they appear in the third argument, <code>c(50, 1, 10)</code>.</p>
 <p>This essentially says that:</p>
 <ul>
-<li>Genomic element <code>"g"</code> can have mutations of type <code>m1</code>, <code>m2</code>, and <code>m3</code></li>
+<li>Genomic element <code>"g1"</code> can have mutations of type <code>m1</code>, <code>m2</code>, and <code>m3</code></li>
 <li>The chance of an <code>m1</code> mutation is 50/61. The chance of an <code>m2</code> mutation is 1/61. The chance of an <code>m3</code> mutation is 10/61.</li>
 </ul>
 <p>Note that the order of mutation types within <code>c(m1, m2, m3)</code> is arbitrary, but it needs to match the order of their frequencies in <code>c(50, 1, 10)</code>. The following two lines would work identically:</p>
@@ -270,7 +270,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>We have defined three types of mutations with three different fitness effects</li>
 <li>We have defined two types of DNA. One of them can have mutations of type <code>m1</code>, <code>m2</code>, and <code>m3</code>. The other can only have mutations of type <code>m1</code></li>
-<li>We have arranged the two types of DNA into a genome, in the order <code>g1</code>, <code>g2</code>, <code>g3</code></li>
+<li>We have arranged the two types of DNA into a genome, in the order <code>g1</code>, <code>g2</code>, <code>g1</code></li>
 </ul>
 </div>
 <div id="slim-gui" class="section level3" number="3.5.5">
@@ -278,7 +278,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>A few interesting things to note about the SLiM GUI in this simulation:</p>
 <p><img src="img/multipleRegions.png" title="genomic region view" alt="genomic region view." style="display: block; margin: auto;" /></p>
 <p>Looking at the genomic region viewer, it is now color-coded to reflect the arrangement of multiple genomic regions of different types (dark and light blue).</p>
-<p>Looking at the mutation tracker, we can see different mutation types color coded by the fitness effect - yellow for neutral mutations, green for favorable mutations, and red for deleterious mutations. Note that nin the dark blue region (<code>g2</code>), there are only neutral mutations. This agrees with our setup of the genome, as <code>g2</code> can only have mutations of type <code>m1</code>.</p>
+<p>Looking at the mutation tracker, we can see different mutation types color-coded by their fitness effects - yellow for neutral mutations, green for favorable mutations, and red for deleterious mutations. Note that in the dark blue region (<code>g2</code>), there are only neutral mutations. This agrees with our setup of the genome, as <code>g2</code> can only have mutations of type <code>m1</code>.</p>
 
 </div>
 </div>
