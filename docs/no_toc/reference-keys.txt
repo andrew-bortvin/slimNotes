@@ -17,6 +17,12 @@ running-a-simulation
 adding-subpopulations
 events-that-occur-every-generation
 ending-a-simulation
+multiple-mutations-elements-and-regions
+making-multiple-mutations
+genomic-elements-with-multiple-mutations
+multiple-genomic-elements-types
+multiple-genomic-elements
+slim-gui
 week-1-assignment
 population-size
 selection
