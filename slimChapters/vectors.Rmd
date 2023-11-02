@@ -57,11 +57,11 @@ We can create a genomic element with multiple mutation types. Consider the line 
 
 `initializeGenomicElementType("g1", c(m1, m2, m3), c(50, 1, 10));` 
 
-Notice that for the mutation type, we can provide multiple mutation types using the syntax: `c(m1, m2, m3)`. Likewise, we now set their ratio in the third argument, `c(50, 1, 10)`. 
+Notice that for the mutation type, we can provide multiple mutation types using the syntax: `c(m1, m2, m3)`. Likewise, we now set the ratio of how often they appear in the third argument, `c(50, 1, 10)`. 
 
 This essentially says that: 
 
-* Genomic element `"g"` can have mutations of type `m1`, `m2`, and `m3`
+* Genomic element `"g1"` can have mutations of type `m1`, `m2`, and `m3`
 * The chance of an `m1` mutation is 50/61. The chance of an `m2` mutation is 1/61. The chance of an `m3` mutation is 10/61.
 
 Note that the order of mutation types within `c(m1, m2, m3)` is arbitrary, but it needs to match the order of their frequencies in `c(50, 1, 10)`. The following two lines would work identically:
@@ -96,7 +96,7 @@ To summarize:
 
 * We have defined three types of mutations with three different fitness effects
 * We have defined two types of DNA. One of them can have mutations of type `m1`, `m2`, and `m3`. The other can only have mutations of type `m1`
-* We have arranged the two types of DNA into a genome, in the order `g1`, `g2`, `g3`
+* We have arranged the two types of DNA into a genome, in the order `g1`, `g2`, `g1`
 
 ### SLiM GUI 
 
@@ -106,7 +106,7 @@ A few interesting things to note about the SLiM GUI in this simulation:
 
 Looking at the genomic region viewer, it is now color-coded to reflect the arrangement of multiple genomic regions of different types (dark and light blue).
 
-Looking at the mutation tracker, we can see different mutation types color coded by the fitness effect - yellow for neutral mutations, green for favorable mutations, and red for deleterious mutations. Note that nin the dark blue region (`g2`), there are only neutral mutations. This agrees with our setup of the genome, as `g2` can only have mutations of type `m1`.
+Looking at the mutation tracker, we can see different mutation types color-coded by their fitness effects - yellow for neutral mutations, green for favorable mutations, and red for deleterious mutations. Note that in the dark blue region (`g2`), there are only neutral mutations. This agrees with our setup of the genome, as `g2` can only have mutations of type `m1`.
 
 
 
