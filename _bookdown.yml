@@ -9,7 +9,7 @@ rmd_files: ["index.Rmd",
             "slimChapters/runningSim.Rmd",
             "slimChapters/vectors.Rmd",
             "slimChapters/assignment1.Rmd",
-            "savingInformation.Rmd",
+            "slimChapters/savingInformation.Rmd",
             "slimChapters/classSlides.Rmd",
             "About.Rmd",
             "References.Rmd"]
