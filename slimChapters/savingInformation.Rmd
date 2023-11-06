@@ -1,0 +1,154 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Storing Information 
+
+In SLiM, we have many different ways of storing information. The optimal way of storing information depends on two questions: 
+
+* How long do I need to retain this information?
+* Will I need to modify this information? 
+
+### Local variables 
+
+Local variables are **temporary** and **mutable**. We can define a local variable using the `=` operator. For example, in the following lines, I save the current number of chromosomes in my population to a variable `nChr` and the print it to screen: 
+
+```{r, engine='bash', eval=FALSE}
+400 late(){
+	nChr = size(p1.genomes); // Define number of chromosomes
+	print(nChr); 
+}
+```
+
+We can redfine a local variable using the `=` operator. For example, here we refined `nChr` to be 3 times `nChr`: 
+
+```{r, engine='bash', eval=FALSE}
+400 late(){
+	nChr = size(p1.genomes); // Define number of chromosomes
+	nChr = nChr * 3; // Multiply by 3 and store value 
+	print(nChr); 
+}
+```
+
+One key feature of local variables is that once you leave the event your are in, **local variables are removed from memory**. (Recall that an event is considered anything surrounded by curly braces `{}`). Consider the following example: 
+
+```{r, engine='bash', eval=FALSE}
+400 late(){
+	nChr = size(p1.genomes); // Define number of chromosomes
+	nChr = nChr * 3; // Multiply by 3 and store value 
+}
+
+400 late() {
+  print(nChr); // This will cause an error 
+}
+```
+
+Running the above code will generate an error. In the first `400 late()` event we define `nChr` and update it's value to be 3 times itself. In the second `400 late()` event, we try to print `nChr`, but after the first event was run, `nChr` was deleted and no longer exists. This therefore causes an error. Having `=` define local variables is a somewhat quirky, SLiM-specific behavior. 
+
+### Constants 
+
+Constants are **permanent** and **immutable**. Once a constant is defined, it will remain in memory for the remainder of the simulation, but we will not be able to change its value. We can create constants using the `defineConstant()` function. This function takes two arguments - the name of our constant, and it's value. 
+
+For example imagine, that we are running multiple iterations of a simulation, and we want to keep track of the trial number. A constant is a good data type to use here, because the trial number will not change within a simulation. 
+
+```{r, engine = 'bash', eval=FALSE}
+1 early(){
+	defineConstant('trialNumber', 4);
+}
+
+1 early(){
+	print(trialNumber);
+}
+```
+
+
+This works! A constant is saved for the entirety of your simulation, beyond the current event. 
+
+Note that we **can not** modify the value of a constant. The following results in an error: 
+
+```{r, engine = 'bash', eval=FALSE}
+1 early(){
+	defineConstant('trialNumber', 4);
+	trialNumber = trialNumber + 1;
+}
+```
+
+### Simulation Values 
+
+After the simulation is initialized, we can use the name `sim` to refer to the entire simulation. We can also attach **values** to this simulation; each value is **permanent** and **mutable**. 
+
+We can define a new value using the function: `sim.setValue()`. The syntax for this function is identical to `defineConstant()` - we provide a name and associated value. 
+
+We can refer to an existing simulation value using the function `sim.getValue()`, which just takes the name of your value. 
+
+For example, in the code below, we define and print a new value initially set to 0 at generation 400. 
+
+```{r, engine = 'bash', eval=FALSE}
+400 early(){
+  sim.setValue("counter", 0); // define counter to be 0
+  print(sim.getValue("counter"));
+}
+```
+
+Now, in the following event, we update the counter by adding 1 to it in every generation between generations 401 and 500.
+
+```{r, engine = 'bash', eval=FALSE}
+401:500 early(){
+  currentGen = sim.getValue("counter"); // get the current value of counter
+  sim.setValue("counter", currentGen + 1); // increment the counter by 1
+  print(sim.getValue("counter")); // print current value of counter
+}
+```
+
+Note that prior to updating `counter`, we first set a local variable, `currentGen` equal to the value of `counter`. This makes the code more readable, but is not necessary; a more concise form of the above event is: 
+
+```{r, engine = 'bash', eval=FALSE}
+401:500 early(){
+  sim.setValue("counter", sim.getValue("counter") + 1); // increment the counter by 1
+  print(sim.getValue("counter")); // print current value of counter
+}
+```
+
+This functions identically and is one line shorter, at the cost of a more confusing call to `sim.setValue()`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
