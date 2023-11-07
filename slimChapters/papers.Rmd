@@ -2,7 +2,7 @@
 ottrpal::set_knitr_image_path()
 ``` 
 
-## Papers of Interest
+# Papers of Interest
 
 In this section, we will curate a list of papers, both recent and historical, that are relevant to the topics discussed in class. 
 
