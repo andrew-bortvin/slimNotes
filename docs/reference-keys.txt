@@ -27,5 +27,13 @@ week-1-assignment
 population-size
 selection
 multiple-mutation-types-multiple-genomic-regions
+storing-information
+local-variables
+constants
+simulation-values
+introducing-sweep-mutations
+defining-the-mutation
+sampling-individuals
+writing-output
 lecture-slides
 references
