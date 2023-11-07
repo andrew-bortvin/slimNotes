@@ -35,5 +35,7 @@ introducing-sweep-mutations
 defining-the-mutation
 sampling-individuals
 writing-output
+papers-of-interest
+week-2---selection-and-sweeps
 lecture-slides
 references
