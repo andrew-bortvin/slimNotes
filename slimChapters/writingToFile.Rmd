@@ -1,0 +1,158 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Writing Output 
+
+So far, we have used SLiM's built-in functions to write output. Often, we will want to have a bit more control over our output.
+
+The function used to write to a file in SLiM is `writeFile()`. We will always give `writeFile()` two arguments - the name of the file we want to write to, and the content we want to write. We typically will also provide the argument `append = T` or `append = F`. If `append` is False, then when we write to a file, we erase any existing contents in that file. If `append` is True, then then when we write to the file, we keep any existing contents and just add another line at the end.  
+
+For the sweep that we've introduced above, let's say we want to run a few iterations of our simulation and save the following information: 
+
+* Number of generations since m2 was introduced
+* Current allele frequency of m2
+* The trial number 
+
+We can save this in the format: 
+```{r, engine='bash', eval=FALSE}
+Generation, Allele.Frequency, Trial
+0,50,2
+1,57,2
+2,55,2
+3,47,2
+```
+
+Here is a version of our script from the previous page, modified to write the above information to file: 
+
+```{r, engine='bash', eval=FALSE}
+initialize(){
+	initializeMutationRate(1e-7);
+	// Create mutation type
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeMutationType("m2", 1, "f", 0.2);
+	m2.convertToSubstitution = F;
+	m1.convertToSubstitution = F;
+	
+	
+	// Create Types of DNA 
+	initializeGenomicElementType("g1", m1, 1);   
+	
+	// Arrange DNA into a genome
+	initializeGenomicElement(g1, 0, 3000);
+	
+	initializeRecombinationRate(1e-4);
+	
+	defineConstant('trialNumber', 1);
+	initializeSex("A");
+}
+
+1 early(){
+	sim.addSubpop("p1", 5000);
+}
+
+300 late(){
+  // Initialize generation counter
+  sim.setValue("generationCount", 0);
+
+  // Introduce sweep mutation at 5% allele frequency 
+	p1_size = size(p1.genomes);
+	initial_freq = asInteger(p1_size * 0.05);
+	target = sample(p1.genomes, initial_freq);
+	target.addNewDrawnMutation(m2, 1000); 	
+	
+	// Write the header for your file
+	line = "Generation, Allele.Frequency, Trial";
+	
+	// Get a file name
+	defineConstant("fname", paste("~/slim/AF_trial", trialNumber, ".csv", sep =""));
+	
+	// Write to file
+	writeFile(fname, line, append=F); 
+}
+
+300:1000 late(){
+	gen = sim.getValue("generationCount");
+	// Count number of m2 mutations
+	m2_count = sum(p1.genomes.countOfMutationsOfType(m2));
+	// Write data to file
+	line = paste(gen, m2_count, trialNumber, sep = ",");
+	writeFile(fname, line, append=T);
+	// Update generation counter
+	sim.setValue("generationCount", gen + 1);
+}
+
+
+1000 late() { 
+ 	 print('Number of fixed mutations:');
+ 	 print(length(sim.substitutions));
+ 	 sim.simulationFinished();
+}
+```
+
+Let's break down the additions: 
+
+* In the initialize statement, we add the following line: `defineConstant('trialNumber', 1);` This sets the trial number as a constant (persists throughout the simulation, cannot be modified) equal to 1. 
+* In the code block at generation 300 where we add the sweep mutation, we add the following lines of code
+
+```{r, engine='bash', eval=FALSE}
+// Initialize generation counter
+sim.setValue("generationCount", 0);
+```
+
+This initializes a generation counter and sets it equal to 0. Because this is saved as a simulation value, we will be able to update the value of our counter throughout the simulation . This will be the leftmost column of our output. 
+* In the code block at generation 300 where we add the sweep mutation, we add the following lines of code: 
+
+```{r, engine='bash', eval=FALSE}
+	// Write the header for your file
+	line = "Generation, Allele.Frequency, Trial";
+	
+	// Get a file name
+	defineConstant("fname", paste("~/AF_trial", trialNumber, ".csv", sep =""));
+	
+	// Write to file
+	writeFile(fname, line, append=F); 
+```
+
+Here, we define the local variable `line` to be the text of the first line of our file. Next, we define a constant containing our output file name. To do this, we use the `paste()` function - this function takes as input a set of variables and combines them together, separating them by the characters provided in the argument `sep =""`. For example, the above paste command produces the filename `"~/AF_trial1.csv"`. Finally, we write to file. Because we do want this line to be the first line of our file, we do not append. 
+
+* We've added the following code block:
+```{r, engine='bash', eval=FALSE}
+300:1000 late(){
+	gen = sim.getValue("generationCount");
+	// Count number of m2 mutations
+	m2_count = sum(p1.genomes.countOfMutationsOfType(m2));
+	// Write data to file
+	line = paste(gen, m2_count, trialNumber, sep = ",");
+	writeFile(fname, line, append=T);
+	// Update generation counter
+	sim.setValue("generationCount", gen + 1);
+}
+```
+
+Here, we access the m2 mutations using the syntax: `p1.genomes.countOfMutationsOfType(m2)`. Then, we paste together the number of generations since m2 was introduced, the current m2 count, and the trial number, this time separating our entires by commas. We add this line to the end our file (by appending). Finally, we take our generation counter and raise it by one. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
