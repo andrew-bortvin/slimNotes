@@ -27,6 +27,5 @@ week-1-assignment
 population-size
 selection
 multiple-mutation-types-multiple-genomic-regions
-writing-output
 lecture-slides
 references
