@@ -1,0 +1,15 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Papers of Interest
+
+In this section, we will curate a list of papers, both recent and historical, that are relevant to the topics discussed in class. 
+
+### Week 2 - Selection and Sweeps 
+
+[Tishkoff et al, 2007](https://drive.google.com/file/d/1VzyxeNxXVvuGkKtKw7HLozcdOM70Ojrr/view?usp=sharing) - Lactase persistance evolved independently in Europe and Africa. This paper uses sequencing data from hundreds of African individuals to map the evolution of LP in Africa. 
+
+[Evershed et al, 2022](https://drive.google.com/file/d/1GSxjUHitzkV_I2-RWrmWfIO8x_bM8LOG/view?usp=sharing) - A recent paper looking at how LP originated in Europe. Using a combination of genomic and archaeological methods, this paper shows how milk was used in Europe for thousands of years prior to the rise of LP, and supports the role of evolutionary pressures such as famine and disease in the rise of European LP. 
+
+[Gould and Leowntin,1979](https://drive.google.com/file/d/1Pq-DRC0YeMTUTzMeLHVZWPYQO0jYmBqX/view?usp=sharing) - A famous and controversial paper. This paper is a major part of the debate about the role of adaptation in natural selection, and had a huge impact on how scientists think about adaptation and evolutionary storytelling. The extent that adaptation shapes organismal form and function is still an open question. 
