@@ -12,6 +12,7 @@ rmd_files: ["index.Rmd",
             "slimChapters/savingInformation.Rmd",
             "slimChapters/introducingMutations.Rmd",
             "slimChapters/writingToFile.Rmd",
+            "slimChapters/papers.Rmd",
             "slimChapters/classSlides.Rmd",
             "About.Rmd",
             "References.Rmd"]
