@@ -1,0 +1,168 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Introducing Sweep Mutations 
+
+This week, we are simulating **selective sweeps**, or events in which a genetic variant rises rapidly in frequency due to positive selection. 
+
+We want to mimic a so-called "soft sweep", or a scenario in which an existing genetic variant becomes favorable (e.g. because of changing environmental pressures). 
+
+In practice, a simple way of doing this is to randomly introduce a favorable mutation at a set frequency at a pre-specified generation. This process can be divided into a few sequential steps: 
+
+1. Define the mutation type for your sweep
+2. At a given generation, sample a predetermined of your individuals 
+3. To sampled individuals, add the mutation at a predetermined genomic position
+
+### Defining the Mutation 
+
+Let's start with a familiar `initialize` statement, where we have one neutral mutation type and one genomic region.
+
+```{r, engine='bash', eval=FALSE}
+initialize(){
+	initializeMutationRate(1e-7);
+	// Create mutation types
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	
+	// Create Types of DNA 
+	initializeGenomicElementType("g1", m1, 1);   
+	
+	// Arrange DNA into a genome
+	initializeGenomicElement(g1, 0, 9999);
+
+	initializeRecombinationRate(1e-8);
+}
+```
+
+To introduce our favorable mutation, let's add the following to our `initialize` statement:
+
+`initializeMutationType("m2", 0.5, "f", 0.015);`
+`m2.mutationStackPolicy="l";`
+`m2.convertToSubstitution = F;`
+
+The first line should be familiar - we have a mutation type called `"m2"`, which has a positive fitness effect of 0.015. 
+
+The second line, `m2.mutationStackPolicy="l";` controls what happens when multiple mutations occur at the same position. By default, SLiM allows multiple mutations at the same position, with additive fitness effects. Since we are modeling a single base substitution, we want to only track the most recent mutation at a given position. setting the mutation stack policy to `"l"` tells SLiM to only care about the last mutation at a given site. 
+
+The final line, `m2.convertToSubstitution = F;`, controls how our mutation behaves when it reaches fixation. By default, once a mutation reaches fixation, it is converted to a **substitution** - that is, SLiM stops tracking the mutation and only keeps a log of the coordinate where the mutation happened. This is because once the variant is fixed, it has the same impact on all individuals. Here, we want to disable this behavior, since we want to track this specific variant throughout the entire simulation. 
+
+### Sampling individuals 
+
+Let's say that we want to introduce this mutation into our population with an allele frequency of 5%, at position 1000. The following code block does this.
+
+```{r, engine='bash', eval=FALSE}
+400 late(){
+	p1_size = size(p1.genomes);  // Count how many chromosomes we have 
+	initial_freq = asInteger(p1_size * 0.05);  // Find 5% of total number of chromosomes
+	target = sample(p1.genomes, initial_freq);  // Randomly sample 5% of chromosomes
+	target.addNewDrawnMutation(m2, 1000); 	// Add new mutation
+}
+```
+
+Let's break this down line by line:
+
+* `p1_size = size(p1.genomes);`: `p1.genomes` is a list of all the chromosomes in our population. The `size()` function gets the length of this list, i.e. the total number of chromosomes. We save this as a local variable, `p1_size`. 
+* `initial_freq = asInteger(p1_size * 0.05);`. We multiply our number of chromosomes by 0.05 to get the number of chromosomes into which we want to insert the mutation. Depeding on our population size, we might get a non-integer number. Since we can't add a mutation into, say, 3.2 chromosomes, we convert to an integer, rounding down, using the `asInteger()` function. 
+* `target = sample(p1.genomes, initial_freq);` The `sample()` function randomly samples from a set of items. It takes two arguments - what we are sampling from and how many items to sample. This essentially says, we should sample 5% of our genomes. 
+* `target.addNewDrawnMutation(m2, 1000);`: The `addNewDrawnMutation()` function takes two arguments, the mutation type to add, and the genomic position to add it to. Note that we call the function as `target.addNewDrawnMutation()` - the `target` here indicates the object we are operating on. 
+
+All together, our simulation may look like this: 
+
+```{r, engine='bash', eval=FALSE}
+initialize(){
+	initializeMutationRate(1e-7);
+	// Create mutation types
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeMutationType("m2", 1, "f", 0.015);
+	m2.mutationStackPolicy="l";
+	m2.convertToSubstitution = F;
+	
+	// Create Types of DNA 
+	initializeGenomicElementType("g1", m1, 1);   
+	
+	// Arrange DNA into a genome
+	initializeGenomicElement(g1, 0, 9999);
+
+	initializeRecombinationRate(1e-8);
+}
+
+1 early(){
+	sim.addSubpop("p1", 500);
+}
+
+400 late(){
+	p1_size = size(p1.genomes);  // Count how many chromosomes we have 
+	initial_freq = asInteger(p1_size * 0.05);  // Find 5% of total number of chromosomes
+	target = sample(p1.genomes, initial_freq);  // Randomly sample 5% of chromosomes
+	target.addNewDrawnMutation(m2, 1000); 	// Add new mutation
+}
+
+2000 late() { sim.outputFixedMutations(); }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
