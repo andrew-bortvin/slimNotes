@@ -10,6 +10,7 @@ rmd_files: ["index.Rmd",
             "slimChapters/vectors.Rmd",
             "slimChapters/assignment1.Rmd",
             "slimChapters/savingInformation.Rmd",
+            "slimChapters/introducingMutations.Rmd",
             "slimChapters/classSlides.Rmd",
             "About.Rmd",
             "References.Rmd"]
