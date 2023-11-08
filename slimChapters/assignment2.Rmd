@@ -1,0 +1,151 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Week 2 Assignment
+
+### Hard Sweeps 
+
+Starting with the code written in class today, the goal of your work will be to explore hard sweeps. While hard sweeps do occur in nature, they are less common than biologists expected in the past. This assignment will build up some intuition behind why hard sweeps are rare and why they leave such dramatic marks on the genome when they do occur. 
+
+
+Start with the following initialize statement and early events: 
+
+```{r, engine='bash', eval=FALSE}
+initialize(){
+  // Start with a high recombination rate
+	initializeMutationRate(1e-3);
+	// Create mutation types
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeMutationType("m2", 1, "f", 0.03); // favorable mutation 
+	m2.convertToSubstitution = F;
+	m1.convertToSubstitution = F;
+	
+	
+	// Create Types of DNA 
+	initializeGenomicElementType("g1", m1, 1);   
+	
+	// Arrange DNA into a genome
+	initializeGenomicElement(g1, 0, 3000);
+
+	initializeRecombinationRate(1e-8);
+	
+	initializeSex("A"); // allow sex in this mutation 
+}
+
+1 early(){
+	sim.addSubpop("p1", 5000);
+}
+
+200 early() {
+  // After the burn-in period, lower mutation rate to more accurate value 
+	sim.chromosome.setMutationRate(1e-7);
+}
+```
+
+This mutation initializes a genome that only has neutral mutations of type `m1`. We start with a high mutation rate and allow mutations to accumulate for 200 generations before lowering the mutation rate.
+
+Please do the following: 
+
+1. At generation 400, introduce one instance of mutation type `m2`. Randomly sample 1 chromosome and add `m2` somewhere towards the center of the genome. Remember  to do this as a late event! Run your simulation a few times. **Do you ever see `m2` reach fixation? Does the allele frequency of `m2` always immediately go down to 0?**.
+2. One way to make a selective sweep more likely is to raise the selection coefficient of `m2`. **How high do you have to raise it to observe a sweep?** As we did in class, write the allele frequency over time to a file, in the following format: 
+
+```
+Generation, Allele.Frequency, Trial
+0,50,2
+1,57,2
+2,55,2
+3,47,2
+```
+
+Please submit this file along with your assignment. 
+
+3. Currently, `m2` is dominant. Try making it recessive by changing the dominance coefficient to 0. Observe the results and **briefly comment on how often you expect recessive mutations to undergo a hard sweep**
+
+### Advanced Exercises 
+
+The following exercises are optional, but explore some really interesting features of simulating selective sweeps. The code here is not more complicated than in the exercises above, but introduces a couple new concepts. 
+
+### Advanced Exercise 1 - Hard Sweeps, Recombination, and Hitchhiker mutations. 
+
+In the above exercises, you likely observed that when `m2` rises to fixation, it caries with it hitchhiker mutations along the entire chromosome. In reality, linkage is broken down by recombination. Try raising the recombination rate to see if you can observe a decrease in hitchhiker mutations as you move away from the site of `m2`. This will also be more obvious if you make your chromosome larger.
+
+Note that higher recombination rates, higher mutation rates, and larger chromosomes all slow down your simulation. If you make a bigger chromosome and things run slowly, feel free to shorten the burn-in period and decrease the mutation rate in the burn-in period. 
+
+### Advanced Exercise 2 - Soft Sweeps and Burts of Environmental Pressure 
+
+Soft sweeps acting on standing variation are often caused by changes in environmental pressures. Sometimes an these changes are permanent - for example, migration into a new environment. Often, however, they are transient - e.g. a disease, or a drought. Let's model a temporary change in environmental conditions
+
+Start with the soft sweep simulation developed in class (also available [here](https://andrew-bortvin.github.io/slimNotes/week2code.html)). Add in the following event: 
+
+```{r, engine='bash', eval=FALSE}
+320 late() {
+	mut = sim.mutationsOfType(m2);
+	mut.setSelectionCoeff(0.0);
+}
+```
+
+This uses the `mut.setSelectionCoeff()` function to change the selection coefficient of `m2` mutations to 0 - making them neutral. Run your simulation and observe the trajectory of `m2` - does it still reach fixation? Try adjusting the length of the burst of selection (by changing the above event to not occur in generation 320) and the initial selection coefficient of `m2`. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
