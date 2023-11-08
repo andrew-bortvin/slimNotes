@@ -1,0 +1,74 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Code from Week 2
+
+Here is the final simulation developed in class: 
+
+```{r, engine='bash', eval=FALSE}
+initialize(){
+	initializeMutationRate(1e-7);
+	
+	// Create mutation types
+	initializeMutationType("m1", 0.5, "f", 0.0); // neutral mutation 
+	initializeMutationType("m2", 1, "f", 0.03);
+	m2.convertToSubstitution = F; // Continue tracking m2 after it reaches fixation
+	m2.mutationStackPolicy="l"; // If multiple mutations at m2 in a single genome, only care about the last one
+
+	
+	// Create Types of DNA 
+	initializeGenomicElementType("g1", m1, 1);   
+	
+	// Arrange DNA into a genome
+	initializeGenomicElement(g1, 0, 3000);
+
+	initializeRecombinationRate(1e-8);
+	
+	defineConstant('trialNumber', 1); // Used for construction of file name and in the trial column
+	initializeSex("A"); // Track sexes of individuals and allow random mating
+}
+
+1 early(){
+	sim.addSubpop("p1", 500);
+}
+
+400 late(){
+	sim.setValue("counter", 0); // initialize counter to keep track of generations
+	
+	// Manually introduce mutations 
+	// Find how many genomes to add m2 to
+	p1_size = size(p1.genomes); 
+	starting_allele_freq = 0.05;
+	initial_freq = asInteger(p1_size * starting_allele_freq);
+	// sample genomes 
+	target = sample(p1.genomes, initial_freq);
+	// add m2 
+	target.addNewDrawnMutation(m2, 1000); 	
+	
+	// Start writing to file
+	line = "Generation, Allele.Frequency, Trial";
+	defineConstant("fname", paste("~/AF_trial", trialNumber, ".csv", sep ="")); // File path will be different for Windows users
+	writeFile(fname, line, append=F); 
+}
+
+400:2000 late(){
+	gen = sim.getValue("counter"); // get current generation 
+	m2_count = sum(p1.genomes.countOfMutationsOfType(m2)); // count number of occurences of m2
+	// write line to end of file
+	line = paste(gen, m2_count, trialNumber, sep = ","); 
+	writeFile(fname, line, append=T);
+	
+	// increment counter bt 1
+	sim.setValue("counter", gen + 1);
+}
+
+
+2000 late() { 
+    // End simulation
+    print('Number of fixed mutations:');
+    print(length(sim.substitutions));
+    sim.simulationFinished();
+}
+```
+
