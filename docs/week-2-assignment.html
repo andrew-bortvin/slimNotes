@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.8 Introducing Sweep Mutations | Syllabus</title>
+  <title>3.11 Week 2 Assignment | Syllabus</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.8 Introducing Sweep Mutations | Syllabus" />
+  <meta property="og:title" content="3.11 Week 2 Assignment | Syllabus" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.8 Introducing Sweep Mutations | Syllabus" />
+  <meta name="twitter:title" content="3.11 Week 2 Assignment | Syllabus" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="storing-information.html"/>
-<link rel="next" href="writing-output.html"/>
+<link rel="prev" href="code-from-week-2.html"/>
+<link rel="next" href="papers-of-interest.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -222,89 +222,79 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introducing-sweep-mutations" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Introducing Sweep Mutations</h2>
-<p>This week, we are simulating <strong>selective sweeps</strong>, or events in which a genetic variant rises rapidly in frequency due to positive selection.</p>
-<p>We want to mimic a so-called “soft sweep”, or a scenario in which an existing genetic variant becomes favorable (e.g. because of changing environmental pressures).</p>
-<p>In practice, a simple way of doing this is to randomly introduce a favorable mutation at a set frequency at a pre-specified generation. This process can be divided into a few sequential steps:</p>
+<div id="week-2-assignment" class="section level2" number="3.11">
+<h2><span class="header-section-number">3.11</span> Week 2 Assignment</h2>
+<div id="hard-sweeps" class="section level3" number="3.11.1">
+<h3><span class="header-section-number">3.11.1</span> Hard Sweeps</h3>
+<p>Starting with the code written in class today, the goal of your work will be to explore hard sweeps. While hard sweeps do occur in nature, they are less common than biologists expected in the past. This assignment will build up some intuition behind why hard sweeps are rare and why they leave such dramatic marks on the genome when they do occur.</p>
+<p>Start with the following initialize statement and early events:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="week-2-assignment.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span><span class="kw">{</span></span>
+<span id="cb30-2"><a href="week-2-assignment.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">//</span> Start with a high recombination rate</span>
+<span id="cb30-3"><a href="week-2-assignment.html#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-3</span><span class="kw">);</span></span>
+<span id="cb30-4"><a href="week-2-assignment.html#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create mutation types</span>
+<span id="cb30-5"><a href="week-2-assignment.html#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
+<span id="cb30-6"><a href="week-2-assignment.html#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 1, <span class="st">&quot;f&quot;</span>, 0.03<span class="kw">);</span> <span class="ex">//</span> favorable mutation </span>
+<span id="cb30-7"><a href="week-2-assignment.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution</span> = F<span class="kw">;</span></span>
+<span id="cb30-8"><a href="week-2-assignment.html#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m1.convertToSubstitution</span> = F<span class="kw">;</span></span>
+<span id="cb30-9"><a href="week-2-assignment.html#cb30-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-10"><a href="week-2-assignment.html#cb30-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-11"><a href="week-2-assignment.html#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create Types of DNA </span>
+<span id="cb30-12"><a href="week-2-assignment.html#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1<span class="kw">);</span>   </span>
+<span id="cb30-13"><a href="week-2-assignment.html#cb30-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-14"><a href="week-2-assignment.html#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Arrange DNA into a genome</span>
+<span id="cb30-15"><a href="week-2-assignment.html#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 3000<span class="kw">);</span></span>
+<span id="cb30-16"><a href="week-2-assignment.html#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="week-2-assignment.html#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
+<span id="cb30-18"><a href="week-2-assignment.html#cb30-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-19"><a href="week-2-assignment.html#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeSex</span><span class="er">(</span><span class="st">&quot;A&quot;</span><span class="kw">);</span> <span class="ex">//</span> allow sex in this mutation </span>
+<span id="cb30-20"><a href="week-2-assignment.html#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb30-21"><a href="week-2-assignment.html#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="week-2-assignment.html#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">){</span></span>
+<span id="cb30-23"><a href="week-2-assignment.html#cb30-23" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 5000<span class="kw">);</span></span>
+<span id="cb30-24"><a href="week-2-assignment.html#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb30-25"><a href="week-2-assignment.html#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-26"><a href="week-2-assignment.html#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="ex">200</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb30-27"><a href="week-2-assignment.html#cb30-27" aria-hidden="true" tabindex="-1"></a>  <span class="ex">//</span> After the burn-in period, lower mutation rate to more accurate value </span>
+<span id="cb30-28"><a href="week-2-assignment.html#cb30-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.chromosome.setMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
+<span id="cb30-29"><a href="week-2-assignment.html#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>This mutation initializes a genome that only has neutral mutations of type <code>m1</code>. We start with a high mutation rate and allow mutations to accumulate for 200 generations before lowering the mutation rate.</p>
+<p>Please do the following:</p>
 <ol style="list-style-type: decimal">
-<li>Define the mutation type for your sweep</li>
-<li>At a given generation, sample a predetermined of your individuals</li>
-<li>To sampled individuals, add the mutation at a predetermined genomic position</li>
+<li>At generation 400, introduce one instance of mutation type <code>m2</code>. Randomly sample 1 chromosome and add <code>m2</code> somewhere towards the center of the genome. Remember to do this as a late event! Run your simulation a few times. <strong>Do you ever see <code>m2</code> reach fixation? Does the allele frequency of <code>m2</code> always immediately go down to 0?</strong>.</li>
+<li>One way to make a selective sweep more likely is to raise the selection coefficient of <code>m2</code>. <strong>How high do you have to raise it to observe a sweep?</strong> As we did in class, write the allele frequency over time to a file, in the following format:</li>
 </ol>
-<div id="defining-the-mutation" class="section level3" number="3.8.1">
-<h3><span class="header-section-number">3.8.1</span> Defining the Mutation</h3>
-<p>Let’s start with a familiar <code>initialize</code> statement, where we have one neutral mutation type and one genomic region.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="introducing-sweep-mutations.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span><span class="kw">{</span></span>
-<span id="cb21-2"><a href="introducing-sweep-mutations.html#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
-<span id="cb21-3"><a href="introducing-sweep-mutations.html#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create mutation types</span>
-<span id="cb21-4"><a href="introducing-sweep-mutations.html#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
-<span id="cb21-5"><a href="introducing-sweep-mutations.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-6"><a href="introducing-sweep-mutations.html#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create Types of DNA </span>
-<span id="cb21-7"><a href="introducing-sweep-mutations.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1<span class="kw">);</span>   </span>
-<span id="cb21-8"><a href="introducing-sweep-mutations.html#cb21-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-9"><a href="introducing-sweep-mutations.html#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Arrange DNA into a genome</span>
-<span id="cb21-10"><a href="introducing-sweep-mutations.html#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 9999<span class="kw">);</span></span>
-<span id="cb21-11"><a href="introducing-sweep-mutations.html#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="introducing-sweep-mutations.html#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
-<span id="cb21-13"><a href="introducing-sweep-mutations.html#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p>To introduce our favorable mutation, let’s add the following to our <code>initialize</code> statement:</p>
-<p><code>initializeMutationType("m2", 0.5, "f", 0.015);</code>
-<code>m2.mutationStackPolicy="l";</code>
-<code>m2.convertToSubstitution = F;</code></p>
-<p>The first line should be familiar - we have a mutation type called <code>"m2"</code>, which has a positive fitness effect of 0.015.</p>
-<p>The second line, <code>m2.mutationStackPolicy="l";</code> controls what happens when multiple mutations occur at the same position. By default, SLiM allows multiple mutations at the same position, with additive fitness effects. Since we are modeling a single base substitution, we want to only track the most recent mutation at a given position. setting the mutation stack policy to <code>"l"</code> tells SLiM to only care about the last mutation at a given site.</p>
-<p>The final line, <code>m2.convertToSubstitution = F;</code>, controls how our mutation behaves when it reaches fixation. By default, once a mutation reaches fixation, it is converted to a <strong>substitution</strong> - that is, SLiM stops tracking the mutation and only keeps a log of the coordinate where the mutation happened. This is because once the variant is fixed, it has the same impact on all individuals. Here, we want to disable this behavior, since we want to track this specific variant throughout the entire simulation.</p>
+<pre><code>Generation, Allele.Frequency, Trial
+0,50,2
+1,57,2
+2,55,2
+3,47,2</code></pre>
+<p>Please submit this file along with your assignment.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Currently, <code>m2</code> is dominant. Try making it recessive by changing the dominance coefficient to 0. Observe the results and <strong>briefly comment on how often you expect recessive mutations to undergo a hard sweep</strong></li>
+</ol>
 </div>
-<div id="sampling-individuals" class="section level3" number="3.8.2">
-<h3><span class="header-section-number">3.8.2</span> Sampling individuals</h3>
-<p>Let’s say that we want to introduce this mutation into our population with an allele frequency of 5%, at position 1000. The following code block does this.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="introducing-sweep-mutations.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">400</span> late<span class="er">(</span><span class="kw">){</span></span>
-<span id="cb22-2"><a href="introducing-sweep-mutations.html#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span>  <span class="ex">//</span> Count how many chromosomes we have </span>
-<span id="cb22-3"><a href="introducing-sweep-mutations.html#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> 0.05<span class="kw">);</span>  <span class="ex">//</span> Find 5% of total number of chromosomes</span>
-<span id="cb22-4"><a href="introducing-sweep-mutations.html#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span>  <span class="ex">//</span> Randomly sample 5% of chromosomes</span>
-<span id="cb22-5"><a href="introducing-sweep-mutations.html#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   <span class="ex">//</span> Add new mutation</span>
-<span id="cb22-6"><a href="introducing-sweep-mutations.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p>Let’s break this down line by line:</p>
-<ul>
-<li><code>p1_size = size(p1.genomes);</code>: <code>p1.genomes</code> is a list of all the chromosomes in our population. The <code>size()</code> function gets the length of this list, i.e. the total number of chromosomes. We save this as a local variable, <code>p1_size</code>.</li>
-<li><code>initial_freq = asInteger(p1_size * 0.05);</code>. We multiply our number of chromosomes by 0.05 to get the number of chromosomes into which we want to insert the mutation. Depeding on our population size, we might get a non-integer number. Since we can’t add a mutation into, say, 3.2 chromosomes, we convert to an integer, rounding down, using the <code>asInteger()</code> function.</li>
-<li><code>target = sample(p1.genomes, initial_freq);</code> The <code>sample()</code> function randomly samples from a set of items. It takes two arguments - what we are sampling from and how many items to sample. This essentially says, we should sample 5% of our genomes.</li>
-<li><code>target.addNewDrawnMutation(m2, 1000);</code>: The <code>addNewDrawnMutation()</code> function takes two arguments, the mutation type to add, and the genomic position to add it to. Note that we call the function as <code>target.addNewDrawnMutation()</code> - the <code>target</code> here indicates the object we are operating on.</li>
-</ul>
-<p>All together, our simulation may look like this:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="introducing-sweep-mutations.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span><span class="kw">{</span></span>
-<span id="cb23-2"><a href="introducing-sweep-mutations.html#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
-<span id="cb23-3"><a href="introducing-sweep-mutations.html#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create mutation types</span>
-<span id="cb23-4"><a href="introducing-sweep-mutations.html#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
-<span id="cb23-5"><a href="introducing-sweep-mutations.html#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 1, <span class="st">&quot;f&quot;</span>, 0.015<span class="kw">);</span></span>
-<span id="cb23-6"><a href="introducing-sweep-mutations.html#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.mutationStackPolicy=</span><span class="st">&quot;l&quot;</span><span class="kw">;</span></span>
-<span id="cb23-7"><a href="introducing-sweep-mutations.html#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution</span> = F<span class="kw">;</span></span>
-<span id="cb23-8"><a href="introducing-sweep-mutations.html#cb23-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-9"><a href="introducing-sweep-mutations.html#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create Types of DNA </span>
-<span id="cb23-10"><a href="introducing-sweep-mutations.html#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1<span class="kw">);</span>   </span>
-<span id="cb23-11"><a href="introducing-sweep-mutations.html#cb23-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-12"><a href="introducing-sweep-mutations.html#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Arrange DNA into a genome</span>
-<span id="cb23-13"><a href="introducing-sweep-mutations.html#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 9999<span class="kw">);</span></span>
-<span id="cb23-14"><a href="introducing-sweep-mutations.html#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-15"><a href="introducing-sweep-mutations.html#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
-<span id="cb23-16"><a href="introducing-sweep-mutations.html#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb23-17"><a href="introducing-sweep-mutations.html#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-18"><a href="introducing-sweep-mutations.html#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">){</span></span>
-<span id="cb23-19"><a href="introducing-sweep-mutations.html#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
-<span id="cb23-20"><a href="introducing-sweep-mutations.html#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb23-21"><a href="introducing-sweep-mutations.html#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="introducing-sweep-mutations.html#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="ex">400</span> late<span class="er">(</span><span class="kw">){</span></span>
-<span id="cb23-23"><a href="introducing-sweep-mutations.html#cb23-23" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span>  <span class="ex">//</span> Count how many chromosomes we have </span>
-<span id="cb23-24"><a href="introducing-sweep-mutations.html#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> 0.05<span class="kw">);</span>  <span class="ex">//</span> Find 5% of total number of chromosomes</span>
-<span id="cb23-25"><a href="introducing-sweep-mutations.html#cb23-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span>  <span class="ex">//</span> Randomly sample 5% of chromosomes</span>
-<span id="cb23-26"><a href="introducing-sweep-mutations.html#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   <span class="ex">//</span> Add new mutation</span>
-<span id="cb23-27"><a href="introducing-sweep-mutations.html#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb23-28"><a href="introducing-sweep-mutations.html#cb23-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-29"><a href="introducing-sweep-mutations.html#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="ex">2000</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span> <span class="fu">sim.outputFixedMutations()</span><span class="kw">;</span> <span class="kw">}</span></span></code></pre></div>
+<div id="advanced-exercises" class="section level3" number="3.11.2">
+<h3><span class="header-section-number">3.11.2</span> Advanced Exercises</h3>
+<p>The following exercises are optional, but explore some really interesting features of simulating selective sweeps. The code here is not more complicated than in the exercises above, but introduces a couple new concepts.</p>
+</div>
+<div id="advanced-exercise-1---hard-sweeps-recombination-and-hitchhiker-mutations." class="section level3" number="3.11.3">
+<h3><span class="header-section-number">3.11.3</span> Advanced Exercise 1 - Hard Sweeps, Recombination, and Hitchhiker mutations.</h3>
+<p>In the above exercises, you likely observed that when <code>m2</code> rises to fixation, it caries with it hitchhiker mutations along the entire chromosome. In reality, linkage is broken down by recombination. Try raising the recombination rate to see if you can observe a decrease in hitchhiker mutations as you move away from the site of <code>m2</code>. This will also be more obvious if you make your chromosome larger.</p>
+<p>Note that higher recombination rates, higher mutation rates, and larger chromosomes all slow down your simulation. If you make a bigger chromosome and things run slowly, feel free to shorten the burn-in period and decrease the mutation rate in the burn-in period.</p>
+</div>
+<div id="advanced-exercise-2---soft-sweeps-and-burts-of-environmental-pressure" class="section level3" number="3.11.4">
+<h3><span class="header-section-number">3.11.4</span> Advanced Exercise 2 - Soft Sweeps and Burts of Environmental Pressure</h3>
+<p>Soft sweeps acting on standing variation are often caused by changes in environmental pressures. Sometimes an these changes are permanent - for example, migration into a new environment. Often, however, they are transient - e.g. a disease, or a drought. Let’s model a temporary change in environmental conditions</p>
+<p>Start with the soft sweep simulation developed in class (also available <a href="https://andrew-bortvin.github.io/slimNotes/week2code.html">here</a>). Add in the following event:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="week-2-assignment.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">320</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb32-2"><a href="week-2-assignment.html#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">mut</span> = sim.mutationsOfType<span class="er">(</span><span class="ex">m2</span><span class="kw">);</span></span>
+<span id="cb32-3"><a href="week-2-assignment.html#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">mut.setSelectionCoeff</span><span class="er">(</span><span class="ex">0.0</span><span class="kw">);</span></span>
+<span id="cb32-4"><a href="week-2-assignment.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>This uses the <code>mut.setSelectionCoeff()</code> function to change the selection coefficient of <code>m2</code> mutations to 0 - making them neutral. Run your simulation and observe the trajectory of <code>m2</code> - does it still reach fixation? Try adjusting the length of the burst of selection (by changing the above event to not occur in generation 320) and the initial selection coefficient of <code>m2</code>.</p>
 
 </div>
 </div>
+<!-- </div> -->
 <hr>
 <center> 
   <div class="footer">
@@ -318,8 +308,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="storing-information.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="writing-output.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="code-from-week-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="papers-of-interest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
