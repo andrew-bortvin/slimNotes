@@ -1,0 +1,16 @@
+1-Population-Genetics:-Simulation-and-Visualization.md
+2-Syllabus:-Population-Genetics-Simulation-&-Visualization.md
+3-SLiM-Guide.md
+3.1-A-Basic-SLiM-Simulation.md
+3.2-Initliazing-a-Simulation.md
+3.3-Running-a-simulation.md
+3.4-Ending-a-simulation.md
+3.5-Multiple-Mutations,-Elements-and-Regions.md
+3.6-Week-1-Assignment.md
+3.7-Storing-Information.md
+3.8-Introducing-Sweep-Mutations.md
+3.9-Writing-Output.md
+4-Papers-of-Interest.md
+5-Lecture-Slides.md
+6-References.md
+About-the-Authors.md
