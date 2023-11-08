@@ -35,6 +35,12 @@ introducing-sweep-mutations
 defining-the-mutation
 sampling-individuals
 writing-output
+code-from-week-2
+week-2-assignment
+hard-sweeps
+advanced-exercises
+advanced-exercise-1---hard-sweeps-recombination-and-hitchhiker-mutations.
+advanced-exercise-2---soft-sweeps-and-burts-of-environmental-pressure
 papers-of-interest
 week-2---selection-and-sweeps
 lecture-slides

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.8 Introducing Sweep Mutations | Syllabus</title>
+  <title>3.10 Code from Week 2 | Syllabus</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.8 Introducing Sweep Mutations | Syllabus" />
+  <meta property="og:title" content="3.10 Code from Week 2 | Syllabus" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.8 Introducing Sweep Mutations | Syllabus" />
+  <meta name="twitter:title" content="3.10 Code from Week 2 | Syllabus" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="storing-information.html"/>
-<link rel="next" href="writing-output.html"/>
+<link rel="prev" href="writing-output.html"/>
+<link rel="next" href="week-2-assignment.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -222,88 +222,73 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introducing-sweep-mutations" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Introducing Sweep Mutations</h2>
-<p>This week, we are simulating <strong>selective sweeps</strong>, or events in which a genetic variant rises rapidly in frequency due to positive selection.</p>
-<p>We want to mimic a so-called “soft sweep”, or a scenario in which an existing genetic variant becomes favorable (e.g. because of changing environmental pressures).</p>
-<p>In practice, a simple way of doing this is to randomly introduce a favorable mutation at a set frequency at a pre-specified generation. This process can be divided into a few sequential steps:</p>
-<ol style="list-style-type: decimal">
-<li>Define the mutation type for your sweep</li>
-<li>At a given generation, sample a predetermined of your individuals</li>
-<li>To sampled individuals, add the mutation at a predetermined genomic position</li>
-</ol>
-<div id="defining-the-mutation" class="section level3" number="3.8.1">
-<h3><span class="header-section-number">3.8.1</span> Defining the Mutation</h3>
-<p>Let’s start with a familiar <code>initialize</code> statement, where we have one neutral mutation type and one genomic region.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="introducing-sweep-mutations.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span><span class="kw">{</span></span>
-<span id="cb21-2"><a href="introducing-sweep-mutations.html#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
-<span id="cb21-3"><a href="introducing-sweep-mutations.html#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create mutation types</span>
-<span id="cb21-4"><a href="introducing-sweep-mutations.html#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
-<span id="cb21-5"><a href="introducing-sweep-mutations.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-6"><a href="introducing-sweep-mutations.html#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create Types of DNA </span>
-<span id="cb21-7"><a href="introducing-sweep-mutations.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1<span class="kw">);</span>   </span>
-<span id="cb21-8"><a href="introducing-sweep-mutations.html#cb21-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-9"><a href="introducing-sweep-mutations.html#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Arrange DNA into a genome</span>
-<span id="cb21-10"><a href="introducing-sweep-mutations.html#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 9999<span class="kw">);</span></span>
-<span id="cb21-11"><a href="introducing-sweep-mutations.html#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="introducing-sweep-mutations.html#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
-<span id="cb21-13"><a href="introducing-sweep-mutations.html#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p>To introduce our favorable mutation, let’s add the following to our <code>initialize</code> statement:</p>
-<p><code>initializeMutationType("m2", 0.5, "f", 0.015);</code>
-<code>m2.mutationStackPolicy="l";</code>
-<code>m2.convertToSubstitution = F;</code></p>
-<p>The first line should be familiar - we have a mutation type called <code>"m2"</code>, which has a positive fitness effect of 0.015.</p>
-<p>The second line, <code>m2.mutationStackPolicy="l";</code> controls what happens when multiple mutations occur at the same position. By default, SLiM allows multiple mutations at the same position, with additive fitness effects. Since we are modeling a single base substitution, we want to only track the most recent mutation at a given position. setting the mutation stack policy to <code>"l"</code> tells SLiM to only care about the last mutation at a given site.</p>
-<p>The final line, <code>m2.convertToSubstitution = F;</code>, controls how our mutation behaves when it reaches fixation. By default, once a mutation reaches fixation, it is converted to a <strong>substitution</strong> - that is, SLiM stops tracking the mutation and only keeps a log of the coordinate where the mutation happened. This is because once the variant is fixed, it has the same impact on all individuals. Here, we want to disable this behavior, since we want to track this specific variant throughout the entire simulation.</p>
-</div>
-<div id="sampling-individuals" class="section level3" number="3.8.2">
-<h3><span class="header-section-number">3.8.2</span> Sampling individuals</h3>
-<p>Let’s say that we want to introduce this mutation into our population with an allele frequency of 5%, at position 1000. The following code block does this.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="introducing-sweep-mutations.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">400</span> late<span class="er">(</span><span class="kw">){</span></span>
-<span id="cb22-2"><a href="introducing-sweep-mutations.html#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span>  <span class="ex">//</span> Count how many chromosomes we have </span>
-<span id="cb22-3"><a href="introducing-sweep-mutations.html#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> 0.05<span class="kw">);</span>  <span class="ex">//</span> Find 5% of total number of chromosomes</span>
-<span id="cb22-4"><a href="introducing-sweep-mutations.html#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span>  <span class="ex">//</span> Randomly sample 5% of chromosomes</span>
-<span id="cb22-5"><a href="introducing-sweep-mutations.html#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   <span class="ex">//</span> Add new mutation</span>
-<span id="cb22-6"><a href="introducing-sweep-mutations.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p>Let’s break this down line by line:</p>
-<ul>
-<li><code>p1_size = size(p1.genomes);</code>: <code>p1.genomes</code> is a list of all the chromosomes in our population. The <code>size()</code> function gets the length of this list, i.e. the total number of chromosomes. We save this as a local variable, <code>p1_size</code>.</li>
-<li><code>initial_freq = asInteger(p1_size * 0.05);</code>. We multiply our number of chromosomes by 0.05 to get the number of chromosomes into which we want to insert the mutation. Depeding on our population size, we might get a non-integer number. Since we can’t add a mutation into, say, 3.2 chromosomes, we convert to an integer, rounding down, using the <code>asInteger()</code> function.</li>
-<li><code>target = sample(p1.genomes, initial_freq);</code> The <code>sample()</code> function randomly samples from a set of items. It takes two arguments - what we are sampling from and how many items to sample. This essentially says, we should sample 5% of our genomes.</li>
-<li><code>target.addNewDrawnMutation(m2, 1000);</code>: The <code>addNewDrawnMutation()</code> function takes two arguments, the mutation type to add, and the genomic position to add it to. Note that we call the function as <code>target.addNewDrawnMutation()</code> - the <code>target</code> here indicates the object we are operating on.</li>
-</ul>
-<p>All together, our simulation may look like this:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="introducing-sweep-mutations.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span><span class="kw">{</span></span>
-<span id="cb23-2"><a href="introducing-sweep-mutations.html#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
-<span id="cb23-3"><a href="introducing-sweep-mutations.html#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create mutation types</span>
-<span id="cb23-4"><a href="introducing-sweep-mutations.html#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
-<span id="cb23-5"><a href="introducing-sweep-mutations.html#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 1, <span class="st">&quot;f&quot;</span>, 0.015<span class="kw">);</span></span>
-<span id="cb23-6"><a href="introducing-sweep-mutations.html#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.mutationStackPolicy=</span><span class="st">&quot;l&quot;</span><span class="kw">;</span></span>
-<span id="cb23-7"><a href="introducing-sweep-mutations.html#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution</span> = F<span class="kw">;</span></span>
-<span id="cb23-8"><a href="introducing-sweep-mutations.html#cb23-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-9"><a href="introducing-sweep-mutations.html#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create Types of DNA </span>
-<span id="cb23-10"><a href="introducing-sweep-mutations.html#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1<span class="kw">);</span>   </span>
-<span id="cb23-11"><a href="introducing-sweep-mutations.html#cb23-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-12"><a href="introducing-sweep-mutations.html#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Arrange DNA into a genome</span>
-<span id="cb23-13"><a href="introducing-sweep-mutations.html#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 9999<span class="kw">);</span></span>
-<span id="cb23-14"><a href="introducing-sweep-mutations.html#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-15"><a href="introducing-sweep-mutations.html#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
-<span id="cb23-16"><a href="introducing-sweep-mutations.html#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb23-17"><a href="introducing-sweep-mutations.html#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-18"><a href="introducing-sweep-mutations.html#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">){</span></span>
-<span id="cb23-19"><a href="introducing-sweep-mutations.html#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
-<span id="cb23-20"><a href="introducing-sweep-mutations.html#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb23-21"><a href="introducing-sweep-mutations.html#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="introducing-sweep-mutations.html#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="ex">400</span> late<span class="er">(</span><span class="kw">){</span></span>
-<span id="cb23-23"><a href="introducing-sweep-mutations.html#cb23-23" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span>  <span class="ex">//</span> Count how many chromosomes we have </span>
-<span id="cb23-24"><a href="introducing-sweep-mutations.html#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> 0.05<span class="kw">);</span>  <span class="ex">//</span> Find 5% of total number of chromosomes</span>
-<span id="cb23-25"><a href="introducing-sweep-mutations.html#cb23-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span>  <span class="ex">//</span> Randomly sample 5% of chromosomes</span>
-<span id="cb23-26"><a href="introducing-sweep-mutations.html#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   <span class="ex">//</span> Add new mutation</span>
-<span id="cb23-27"><a href="introducing-sweep-mutations.html#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb23-28"><a href="introducing-sweep-mutations.html#cb23-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-29"><a href="introducing-sweep-mutations.html#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="ex">2000</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span> <span class="fu">sim.outputFixedMutations()</span><span class="kw">;</span> <span class="kw">}</span></span></code></pre></div>
+<div id="code-from-week-2" class="section level2" number="3.10">
+<h2><span class="header-section-number">3.10</span> Code from Week 2</h2>
+<p>Here is the final simulation developed in class:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="code-from-week-2.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span><span class="kw">{</span></span>
+<span id="cb29-2"><a href="code-from-week-2.html#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
+<span id="cb29-3"><a href="code-from-week-2.html#cb29-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-4"><a href="code-from-week-2.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create mutation types</span>
+<span id="cb29-5"><a href="code-from-week-2.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span> <span class="ex">//</span> neutral mutation </span>
+<span id="cb29-6"><a href="code-from-week-2.html#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 1, <span class="st">&quot;f&quot;</span>, 0.03<span class="kw">);</span></span>
+<span id="cb29-7"><a href="code-from-week-2.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution</span> = F<span class="kw">;</span> <span class="ex">//</span> Continue tracking m2 after it reaches fixation</span>
+<span id="cb29-8"><a href="code-from-week-2.html#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.mutationStackPolicy=</span><span class="st">&quot;l&quot;</span><span class="kw">;</span> <span class="ex">//</span> If multiple mutations at m2 in a single genome, only care about the last one</span>
+<span id="cb29-9"><a href="code-from-week-2.html#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="code-from-week-2.html#cb29-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-11"><a href="code-from-week-2.html#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create Types of DNA </span>
+<span id="cb29-12"><a href="code-from-week-2.html#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1<span class="kw">);</span>   </span>
+<span id="cb29-13"><a href="code-from-week-2.html#cb29-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-14"><a href="code-from-week-2.html#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Arrange DNA into a genome</span>
+<span id="cb29-15"><a href="code-from-week-2.html#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 3000<span class="kw">);</span></span>
+<span id="cb29-16"><a href="code-from-week-2.html#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="code-from-week-2.html#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
+<span id="cb29-18"><a href="code-from-week-2.html#cb29-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-19"><a href="code-from-week-2.html#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">defineConstant</span><span class="er">(</span><span class="st">&#39;trialNumber&#39;</span><span class="ex">,</span> 1<span class="kw">);</span> <span class="ex">//</span> Used for construction of file name and in the trial column</span>
+<span id="cb29-20"><a href="code-from-week-2.html#cb29-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeSex</span><span class="er">(</span><span class="st">&quot;A&quot;</span><span class="kw">);</span> <span class="ex">//</span> Track sexes of individuals and allow random mating</span>
+<span id="cb29-21"><a href="code-from-week-2.html#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb29-22"><a href="code-from-week-2.html#cb29-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-23"><a href="code-from-week-2.html#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">){</span></span>
+<span id="cb29-24"><a href="code-from-week-2.html#cb29-24" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb29-25"><a href="code-from-week-2.html#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb29-26"><a href="code-from-week-2.html#cb29-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-27"><a href="code-from-week-2.html#cb29-27" aria-hidden="true" tabindex="-1"></a><span class="ex">400</span> late<span class="er">(</span><span class="kw">){</span></span>
+<span id="cb29-28"><a href="code-from-week-2.html#cb29-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.setValue</span><span class="er">(</span><span class="st">&quot;counter&quot;</span><span class="ex">,</span> 0<span class="kw">);</span> <span class="ex">//</span> initialize counter to keep track of generations</span>
+<span id="cb29-29"><a href="code-from-week-2.html#cb29-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-30"><a href="code-from-week-2.html#cb29-30" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Manually introduce mutations </span>
+<span id="cb29-31"><a href="code-from-week-2.html#cb29-31" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Find how many genomes to add m2 to</span>
+<span id="cb29-32"><a href="code-from-week-2.html#cb29-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span> </span>
+<span id="cb29-33"><a href="code-from-week-2.html#cb29-33" aria-hidden="true" tabindex="-1"></a>    <span class="ex">starting_allele_freq</span> = 0.05<span class="kw">;</span></span>
+<span id="cb29-34"><a href="code-from-week-2.html#cb29-34" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> starting_allele_freq<span class="kw">);</span></span>
+<span id="cb29-35"><a href="code-from-week-2.html#cb29-35" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> sample genomes </span>
+<span id="cb29-36"><a href="code-from-week-2.html#cb29-36" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span></span>
+<span id="cb29-37"><a href="code-from-week-2.html#cb29-37" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> add m2 </span>
+<span id="cb29-38"><a href="code-from-week-2.html#cb29-38" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   </span>
+<span id="cb29-39"><a href="code-from-week-2.html#cb29-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-40"><a href="code-from-week-2.html#cb29-40" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Start writing to file</span>
+<span id="cb29-41"><a href="code-from-week-2.html#cb29-41" aria-hidden="true" tabindex="-1"></a>    <span class="ex">line</span> = <span class="st">&quot;Generation, Allele.Frequency, Trial&quot;</span><span class="kw">;</span></span>
+<span id="cb29-42"><a href="code-from-week-2.html#cb29-42" aria-hidden="true" tabindex="-1"></a>    <span class="ex">defineConstant</span><span class="er">(</span><span class="st">&quot;fname&quot;</span><span class="ex">,</span> paste<span class="er">(</span><span class="st">&quot;~/AF_trial&quot;</span><span class="ex">,</span> trialNumber, <span class="st">&quot;.csv&quot;</span>, sep =<span class="st">&quot;&quot;</span><span class="kw">));</span> <span class="ex">//</span> File path will be different for Windows users</span>
+<span id="cb29-43"><a href="code-from-week-2.html#cb29-43" aria-hidden="true" tabindex="-1"></a>    <span class="ex">writeFile</span><span class="er">(</span><span class="ex">fname,</span> line, append=F<span class="kw">);</span> </span>
+<span id="cb29-44"><a href="code-from-week-2.html#cb29-44" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb29-45"><a href="code-from-week-2.html#cb29-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-46"><a href="code-from-week-2.html#cb29-46" aria-hidden="true" tabindex="-1"></a><span class="ex">400:2000</span> late<span class="er">(</span><span class="kw">){</span></span>
+<span id="cb29-47"><a href="code-from-week-2.html#cb29-47" aria-hidden="true" tabindex="-1"></a>    <span class="ex">gen</span> = sim.getValue<span class="er">(</span><span class="st">&quot;counter&quot;</span><span class="kw">);</span> <span class="ex">//</span> get current generation </span>
+<span id="cb29-48"><a href="code-from-week-2.html#cb29-48" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2_count</span> = sum<span class="er">(</span><span class="ex">p1.genomes.countOfMutationsOfType</span><span class="er">(</span><span class="ex">m2</span><span class="kw">));</span> <span class="ex">//</span> count number of occurences of m2</span>
+<span id="cb29-49"><a href="code-from-week-2.html#cb29-49" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> write line to end of file</span>
+<span id="cb29-50"><a href="code-from-week-2.html#cb29-50" aria-hidden="true" tabindex="-1"></a>    <span class="ex">line</span> = paste<span class="er">(</span><span class="ex">gen,</span> m2_count, trialNumber, sep = <span class="st">&quot;,&quot;</span><span class="kw">);</span> </span>
+<span id="cb29-51"><a href="code-from-week-2.html#cb29-51" aria-hidden="true" tabindex="-1"></a>    <span class="ex">writeFile</span><span class="er">(</span><span class="ex">fname,</span> line, append=T<span class="kw">);</span></span>
+<span id="cb29-52"><a href="code-from-week-2.html#cb29-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-53"><a href="code-from-week-2.html#cb29-53" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> increment counter bt 1</span>
+<span id="cb29-54"><a href="code-from-week-2.html#cb29-54" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.setValue</span><span class="er">(</span><span class="st">&quot;counter&quot;</span><span class="ex">,</span> gen + 1<span class="kw">);</span></span>
+<span id="cb29-55"><a href="code-from-week-2.html#cb29-55" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb29-56"><a href="code-from-week-2.html#cb29-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-57"><a href="code-from-week-2.html#cb29-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-58"><a href="code-from-week-2.html#cb29-58" aria-hidden="true" tabindex="-1"></a><span class="ex">2000</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span> </span>
+<span id="cb29-59"><a href="code-from-week-2.html#cb29-59" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> End simulation</span>
+<span id="cb29-60"><a href="code-from-week-2.html#cb29-60" aria-hidden="true" tabindex="-1"></a>    <span class="ex">print</span><span class="er">(</span><span class="st">&#39;Number of fixed mutations:&#39;</span><span class="kw">);</span></span>
+<span id="cb29-61"><a href="code-from-week-2.html#cb29-61" aria-hidden="true" tabindex="-1"></a>    <span class="ex">print</span><span class="er">(</span><span class="ex">length</span><span class="er">(</span><span class="ex">sim.substitutions</span><span class="kw">));</span></span>
+<span id="cb29-62"><a href="code-from-week-2.html#cb29-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sim.simulationFinished()</span><span class="kw">;</span></span>
+<span id="cb29-63"><a href="code-from-week-2.html#cb29-63" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
 
-</div>
 </div>
 <hr>
 <center> 
@@ -318,8 +303,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="storing-information.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="writing-output.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="writing-output.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-2-assignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
