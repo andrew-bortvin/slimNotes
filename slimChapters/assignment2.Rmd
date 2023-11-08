@@ -18,8 +18,10 @@ initialize(){
 	// Create mutation types
 	initializeMutationType("m1", 0.5, "f", 0.0);
 	initializeMutationType("m2", 1, "f", 0.03); // favorable mutation 
-	m2.convertToSubstitution = F;
+	m2.convertToSubstitution = F;// Continue tracking m2 after it reaches fixation
 	m1.convertToSubstitution = F;
+	m2.mutationStackPolicy="l"; // If multiple mutations at m2 in a single genome, only care about the last one
+	
 	
 	
 	// Create Types of DNA 
@@ -30,7 +32,7 @@ initialize(){
 
 	initializeRecombinationRate(1e-8);
 	
-	initializeSex("A"); // allow sex in this mutation 
+	initializeSex("A"); // allow sex in this simulation 
 }
 
 1 early(){
@@ -74,7 +76,7 @@ Note that higher recombination rates, higher mutation rates, and larger chromoso
 
 ### Advanced Exercise 2 - Soft Sweeps and Burts of Environmental Pressure 
 
-Soft sweeps acting on standing variation are often caused by changes in environmental pressures. Sometimes an these changes are permanent - for example, migration into a new environment. Often, however, they are transient - e.g. a disease, or a drought. Let's model a temporary change in environmental conditions
+Soft sweeps acting on standing variation are often caused by changes in environmental pressures. Sometimes these changes are permanent - for example, migration into a new environment. Often, however, they are transient - e.g. a disease, or a drought. Let's model a temporary change in environmental conditions
 
 Start with the soft sweep simulation developed in class (also available [here](https://andrew-bortvin.github.io/slimNotes/week2code.html)). Add in the following event: 
 
