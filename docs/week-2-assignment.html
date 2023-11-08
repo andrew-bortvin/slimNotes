@@ -234,29 +234,31 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-4"><a href="week-2-assignment.html#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create mutation types</span>
 <span id="cb30-5"><a href="week-2-assignment.html#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
 <span id="cb30-6"><a href="week-2-assignment.html#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 1, <span class="st">&quot;f&quot;</span>, 0.03<span class="kw">);</span> <span class="ex">//</span> favorable mutation </span>
-<span id="cb30-7"><a href="week-2-assignment.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution</span> = F<span class="kw">;</span></span>
+<span id="cb30-7"><a href="week-2-assignment.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution</span> = F<span class="kw">;</span><span class="ex">//</span> Continue tracking m2 after it reaches fixation</span>
 <span id="cb30-8"><a href="week-2-assignment.html#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m1.convertToSubstitution</span> = F<span class="kw">;</span></span>
-<span id="cb30-9"><a href="week-2-assignment.html#cb30-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-9"><a href="week-2-assignment.html#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.mutationStackPolicy=</span><span class="st">&quot;l&quot;</span><span class="kw">;</span> <span class="ex">//</span> If multiple mutations at m2 in a single genome, only care about the last one</span>
 <span id="cb30-10"><a href="week-2-assignment.html#cb30-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb30-11"><a href="week-2-assignment.html#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create Types of DNA </span>
-<span id="cb30-12"><a href="week-2-assignment.html#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1<span class="kw">);</span>   </span>
-<span id="cb30-13"><a href="week-2-assignment.html#cb30-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb30-14"><a href="week-2-assignment.html#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Arrange DNA into a genome</span>
-<span id="cb30-15"><a href="week-2-assignment.html#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 3000<span class="kw">);</span></span>
-<span id="cb30-16"><a href="week-2-assignment.html#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-17"><a href="week-2-assignment.html#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
-<span id="cb30-18"><a href="week-2-assignment.html#cb30-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb30-19"><a href="week-2-assignment.html#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeSex</span><span class="er">(</span><span class="st">&quot;A&quot;</span><span class="kw">);</span> <span class="ex">//</span> allow sex in this mutation </span>
-<span id="cb30-20"><a href="week-2-assignment.html#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb30-21"><a href="week-2-assignment.html#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-22"><a href="week-2-assignment.html#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">){</span></span>
-<span id="cb30-23"><a href="week-2-assignment.html#cb30-23" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 5000<span class="kw">);</span></span>
-<span id="cb30-24"><a href="week-2-assignment.html#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb30-25"><a href="week-2-assignment.html#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-26"><a href="week-2-assignment.html#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="ex">200</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb30-27"><a href="week-2-assignment.html#cb30-27" aria-hidden="true" tabindex="-1"></a>  <span class="ex">//</span> After the burn-in period, lower mutation rate to more accurate value </span>
-<span id="cb30-28"><a href="week-2-assignment.html#cb30-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.chromosome.setMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
-<span id="cb30-29"><a href="week-2-assignment.html#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<span id="cb30-11"><a href="week-2-assignment.html#cb30-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-12"><a href="week-2-assignment.html#cb30-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-13"><a href="week-2-assignment.html#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create Types of DNA </span>
+<span id="cb30-14"><a href="week-2-assignment.html#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1<span class="kw">);</span>   </span>
+<span id="cb30-15"><a href="week-2-assignment.html#cb30-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-16"><a href="week-2-assignment.html#cb30-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Arrange DNA into a genome</span>
+<span id="cb30-17"><a href="week-2-assignment.html#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 3000<span class="kw">);</span></span>
+<span id="cb30-18"><a href="week-2-assignment.html#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="week-2-assignment.html#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
+<span id="cb30-20"><a href="week-2-assignment.html#cb30-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-21"><a href="week-2-assignment.html#cb30-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeSex</span><span class="er">(</span><span class="st">&quot;A&quot;</span><span class="kw">);</span> <span class="ex">//</span> allow sex in this simulation </span>
+<span id="cb30-22"><a href="week-2-assignment.html#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb30-23"><a href="week-2-assignment.html#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-24"><a href="week-2-assignment.html#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">){</span></span>
+<span id="cb30-25"><a href="week-2-assignment.html#cb30-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 5000<span class="kw">);</span></span>
+<span id="cb30-26"><a href="week-2-assignment.html#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb30-27"><a href="week-2-assignment.html#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-28"><a href="week-2-assignment.html#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="ex">200</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb30-29"><a href="week-2-assignment.html#cb30-29" aria-hidden="true" tabindex="-1"></a>  <span class="ex">//</span> After the burn-in period, lower mutation rate to more accurate value </span>
+<span id="cb30-30"><a href="week-2-assignment.html#cb30-30" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.chromosome.setMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
+<span id="cb30-31"><a href="week-2-assignment.html#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
 <p>This mutation initializes a genome that only has neutral mutations of type <code>m1</code>. We start with a high mutation rate and allow mutations to accumulate for 200 generations before lowering the mutation rate.</p>
 <p>Please do the following:</p>
 <ol style="list-style-type: decimal">
@@ -284,7 +286,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="advanced-exercise-2---soft-sweeps-and-burts-of-environmental-pressure" class="section level3" number="3.11.4">
 <h3><span class="header-section-number">3.11.4</span> Advanced Exercise 2 - Soft Sweeps and Burts of Environmental Pressure</h3>
-<p>Soft sweeps acting on standing variation are often caused by changes in environmental pressures. Sometimes an these changes are permanent - for example, migration into a new environment. Often, however, they are transient - e.g. a disease, or a drought. Let’s model a temporary change in environmental conditions</p>
+<p>Soft sweeps acting on standing variation are often caused by changes in environmental pressures. Sometimes these changes are permanent - for example, migration into a new environment. Often, however, they are transient - e.g. a disease, or a drought. Let’s model a temporary change in environmental conditions</p>
 <p>Start with the soft sweep simulation developed in class (also available <a href="https://andrew-bortvin.github.io/slimNotes/week2code.html">here</a>). Add in the following event:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="week-2-assignment.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">320</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
 <span id="cb32-2"><a href="week-2-assignment.html#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">mut</span> = sim.mutationsOfType<span class="er">(</span><span class="ex">m2</span><span class="kw">);</span></span>
