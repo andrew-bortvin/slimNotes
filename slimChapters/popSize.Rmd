@@ -1,0 +1,149 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Variable Population Size
+
+This is an optional module covering an interesting topic that we won't have time to get into in the main course. 
+
+The primary measure of fitness is the number of viable offspring that an organism is able to have. Consequently, as the fitness of individuals within a population changes, the size of the population may change as well. 
+
+Population size can also change as the result of external factors, such as natural disasters, famine, disease, etc. SLiM allows for pretty easy manipulation of population size. 
+
+### Changing Population Size 
+
+After we create a subpopulation using `sim.addSubpop()`, we can modify the population using the `setSubpopulationSize()` method, run as such: `<population name>.setSubpopulationSize(<new size>)`.
+
+For example, the following lines create a subpopulation and then cause an abrupt crash in population size: 
+
+```{r, engine='bash', eval=FALSE}
+1 early() {
+    sim.addSubpop("p1", 3000);
+}
+
+150 early() {
+	p1.setSubpopulationSize(100);
+}
+```
+
+### **Exercise** 
+
+The strength of genetic drift (random fluctuations of allele frequency from generation to generation) is related to the population size. Initialize a simulation with a neutral mutation and after a set number of generations, sharply decrease the population size. Observe the rate at which the allele frequencies change from generation to generation before and after the population size change. Slowing the simulation down will make this easier to observe (done using the sliding bar beneath the play button). 
+
+### Multiple size changes 
+
+The code above changes the population size once. What if we want to grow/shrink the population at a continuous rate? This takes only a couple small changes to the code above: 
+
+```{r, engine='bash', eval=FALSE}
+1 early() {
+    sim.addSubpop("p1", 3000);
+}
+
+150:170 early() {
+  currentSize = p1.individualCount;
+  newSize = asInteger(currentSize * 0.97);
+	p1.setSubpopulationSize(newSize);
+}
+```
+
+
+Here, we've done the following: 
+
+* Rather than occurring in one generation, the event now occurs from generations `150:170`
+* We get the current population size using the syntax `p1.individualCount`
+* We calculate the new population size by multiplying by 0.97, and then converting to an integer using `asInteger()`
+* We set the population size to the new calculated size . 
+
+### Maximum/Minimum Population Size 
+
+In the example above, our population grows or shrinks at a constant rate, indefinitely. In reality, the possible size of a population will have an upper bound. 
+
+We can impose this limit by adding an *if* statement, as done below. The crucial line here is: `if (p1.individualCount < 2000)` - the block following this line is only evaluated if the condition is true. That is, once your population hits a size of 2000, it stops growing. 
+
+```{r, engine='bash', eval=FALSE}
+1 early() {
+    sim.addSubpop("p1", 500);
+}
+
+150: early() {
+  if (p1.individualCount < 2000) {
+    currentSize = p1.individualCount;
+    newSize = asInteger(currentSize * 1.05);
+    p1.setSubpopulationSize(newSize);
+  }
+}
+```
+
+### **Exercise**
+
+The above code is used to create a simulation where the population grows until it hits a maximum population size. Try modifying it to create a population that shrinks until it hits a minimum. 
+
+### Growth rate dependent on fitness 
+
+One small change is necessary to make the population size dendent on mean fitness. 
+
+```{r, engine='bash', eval=FALSE}
+1 early() {
+    sim.addSubpop("p1", 500);
+}
+
+2: early() {
+  if (p1.individualCount < 2000 & p1.individualCount > 1) {
+    currentSize = p1.individualCount;
+    meanFitness = mean(p1.cachedFitness(NULL));
+    newSize = asInteger(currentSize * meanFitness); 
+    p1.setSubpopulationSize(newSize);
+  }
+}
+```
+
+First, we have modified our `if` statement to have the following condition: `p1.individualCount < 2000 & p1.individualCount > 1` - that is, we track both a maximum and a minimum population size. The `&` in the statement indicates that both conditions need to be true for the code block to be evaluated.
+
+The other relevant lines are: 
+
+`meanFitness = mean(p1.cachedFitness(NULL));`
+`newSize = asInteger(currentSize * meanFitness); `
+
+The first line gets the mean fitness of our population (don't worry about the exact syntax of how this is calculated - a bit beyond the scope of our course). The second line changes the calculation of the new population size dependent on the mean fitness. Recall that a fitness value of 1.0 is neutral - that is the population size doesn't change. If mean fitness is >1, the population size grows; if mean fitness is <1, the population size shrinks.
+
+### **Exercise**
+
+Create a simulation with multiple mutation types - some neutral, some beneficial, some deleterious. Use the above code block to create a simulation where the population size grows or shrinks depending on mean fitness. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
