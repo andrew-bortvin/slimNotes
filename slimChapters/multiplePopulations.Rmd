@@ -56,10 +56,34 @@ If we add reverse migration, we can see that the size of the arrow is proportion
 
 <img src="img/twoPop_moreMigration.png" title="population view, two pops + migration, more complex" alt="population view, two pops + migration, more complex" style="display: block; margin: auto;" />
 
+Note that we can use multiple calls of `setMigrationRates()` to change the migration rate throughout our simulation, as such: 
+
 ### Splitting a population into two
 
+Real biological populations have common origins, rather than originating independently. We can incorporate this into our SLiM simulations by creating a new population as an offshoot of an existing population. This is accomplished with the function `sim.addSubpopSplit(<new pop name>, <new pop size>, <source pop>)`  
 
+For example, we can initialize a population wiht 500 individuals as such: 
 
-### Combining two populations
+```{r, engine='bash', eval=FALSE}
+1 early() {
+	sim.addSubpop("p1", 500);
+}
+```
 
+Our population viewer looks like this:
 
+<img src="img/onePop.png" title="population view, one pop" alt="one pop" style="display: block; margin: auto;" />
+
+We can add a population split as such: 
+
+```{r, engine='bash', eval=FALSE}
+300 early() {
+	sim.addSubpopSplit("p2", 200, p1);
+	p2.setMigrationRates(p1, 0.1);
+	p1.setMigrationRates(p2, 0.04);
+}
+```
+
+Here we create a population `p2`, derived from population `p1` with 200 individuals. We subsequently set weak migration rates between the populations. Our population viewer now looks like this: 
+
+<img src="img/split.png" title="population view, split pops" alt="split pops" style="display: block; margin: auto;" />
