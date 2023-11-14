@@ -58,6 +58,19 @@ If we add reverse migration, we can see that the size of the arrow is proportion
 
 Note that we can use multiple calls of `setMigrationRates()` to change the migration rate throughout our simulation, as such: 
 
+```{r, engine='bash', eval=FALSE}
+1 early() {
+    sim.addSubpop("p1", 500);
+    sim.addSubpop("p2", 3000);
+    p1.setMigrationRates(p2, 0.2);
+
+}
+
+15 early() {
+	p1.setMigrationRates(p2, 0.4);
+}
+```
+
 ### Splitting a population into two
 
 Real biological populations have common origins, rather than originating independently. We can incorporate this into our SLiM simulations by creating a new population as an offshoot of an existing population. This is accomplished with the function `sim.addSubpopSplit(<new pop name>, <new pop size>, <source pop>)`  
