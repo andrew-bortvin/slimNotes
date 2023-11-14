@@ -8,7 +8,7 @@ title: "Syllabus"
 **Course Number:** AS.360.111 <br> 
 **Schedule**: Fall 2023, Tues 2:30 PM - 4:30 PM <br> 
 **Location** Homewood Campus, UG Teaching Lab (UTL) 289 <br> 
-**Student Hours**: by appointment, please email both instructors; Levi 200 <br> 
+**Student Hours**: Wednesdays 5:30-6:30pm via Zoom; 15 minutes before/after class; by appointment, please email both instructors; Levi 200 or Zoom <br> 
 
 **Instructors:** <br> 
 Andrew Bortvin  [abortvi2@jh.edu](mailto:abortvi2@jh.edu)<br> 
@@ -36,18 +36,18 @@ You are welcome to work together in small groups, and collaboration is encourage
 | Class Number | Date       | Topics Covered  |
 | :---        |    :----:   |          ---: |
 | 1           | 10/31/23    | Intro to SLiM + molecular biology |
-| 2           | 11/7/23     | TBD  |
-| 3           | 11/14/23    | TBD  |
-| 4           | 11/21/23    | TBD  |
-| 5           | 11/28/23    | TBD  |
+| 2           | 11/7/23     | Selective Sweeps  |
+| 3           | 11/14/23    | Multiple Populations  |
+| 4           | 11/21/23    | Reading in files and visualizing in R (virtual/asynch)  |
+| 5           | 11/28/23    | Splitting Populations  |
 | 6           | 12/5/23     | TBD  |
 
 ### Grading
 
 This course will be graded Satisfactory/Unsatisfactory, and individual assignments will be graded on reasonable completion (rather than accuracy of results). In each assignment, we will specify items to include in your submission; the assignment score will be the fraction of items completed. To achieve a Satisfactory, you must have an average of 70% completion across the assignments.  
 
-All assignments will be due at the end of the course period. However, please try to submit your work each week - we will look at your work in progress, provide written feedback, discuss any questions or opoprtunities for improvement, and let you know estimated percent completion. 
+All assignments will be due at the end of the course period. However, please try to submit your work each week - we will look at your work in progress, provide written feedback, discuss any questions or opportunities for improvement, and let you know estimated percent completion. 
 
 ### Student Hours
 
-We will host open student hours (time for students to chat about anything! biology, coding, graduate school, materials directly or slightly less directly related to the course, actual assignments) through the end of the semester. Please email both instructors to schedule a time for either in-person or Zoom. 
+We will host open student hours (time for students to chat about anything! biology, coding, graduate school, materials directly or slightly less directly related to the course, actual assignments) through the end of the semester. In addition to scheduled times above, please email both instructors to schedule a time for either in-person or Zoom. 
