@@ -263,22 +263,32 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb35-6"><a href="multiple-populations.html#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
 <p><img src="img/twoPop_moreMigration.png" title="population view, two pops + migration, more complex" alt="population view, two pops + migration, more complex" style="display: block; margin: auto;" /></p>
 <p>Note that we can use multiple calls of <code>setMigrationRates()</code> to change the migration rate throughout our simulation, as such:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="multiple-populations.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb36-2"><a href="multiple-populations.html#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb36-3"><a href="multiple-populations.html#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 3000<span class="kw">);</span></span>
+<span id="cb36-4"><a href="multiple-populations.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.2<span class="kw">);</span></span>
+<span id="cb36-5"><a href="multiple-populations.html#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="multiple-populations.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb36-7"><a href="multiple-populations.html#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="multiple-populations.html#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="ex">15</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb36-9"><a href="multiple-populations.html#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.4<span class="kw">);</span></span>
+<span id="cb36-10"><a href="multiple-populations.html#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
 </div>
 <div id="splitting-a-population-into-two" class="section level3" number="3.12.3">
 <h3><span class="header-section-number">3.12.3</span> Splitting a population into two</h3>
 <p>Real biological populations have common origins, rather than originating independently. We can incorporate this into our SLiM simulations by creating a new population as an offshoot of an existing population. This is accomplished with the function <code>sim.addSubpopSplit(&lt;new pop name&gt;, &lt;new pop size&gt;, &lt;source pop&gt;)</code></p>
 <p>For example, we can initialize a population wiht 500 individuals as such:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="multiple-populations.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb36-2"><a href="multiple-populations.html#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
-<span id="cb36-3"><a href="multiple-populations.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="multiple-populations.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb37-2"><a href="multiple-populations.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb37-3"><a href="multiple-populations.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
 <p>Our population viewer looks like this:</p>
 <p><img src="img/onePop.png" title="population view, one pop" alt="one pop" style="display: block; margin: auto;" /></p>
 <p>We can add a population split as such:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="multiple-populations.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">300</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb37-2"><a href="multiple-populations.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpopSplit</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 200, p1<span class="kw">);</span></span>
-<span id="cb37-3"><a href="multiple-populations.html#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.1<span class="kw">);</span></span>
-<span id="cb37-4"><a href="multiple-populations.html#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.04<span class="kw">);</span></span>
-<span id="cb37-5"><a href="multiple-populations.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="multiple-populations.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">300</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb38-2"><a href="multiple-populations.html#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpopSplit</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 200, p1<span class="kw">);</span></span>
+<span id="cb38-3"><a href="multiple-populations.html#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.1<span class="kw">);</span></span>
+<span id="cb38-4"><a href="multiple-populations.html#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.04<span class="kw">);</span></span>
+<span id="cb38-5"><a href="multiple-populations.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
 <p>Here we create a population <code>p2</code>, derived from population <code>p1</code> with 200 individuals. We subsequently set weak migration rates between the populations. Our population viewer now looks like this:</p>
 <p><img src="img/split.png" title="population view, split pops" alt="split pops" style="display: block; margin: auto;" /></p>
 
