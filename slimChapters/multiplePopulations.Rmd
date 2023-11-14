@@ -1,0 +1,65 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Multiple Populations 
+
+So far, we have only looked at simulations that involve one population. 
+
+SLiM has a great way of visualizing your populations, accessed through the following menu:
+
+<img src="img/popViz.png" title="population view" alt="population view." style="display: block; margin: auto;" />
+
+### Adding a new population
+
+In past simulations, we've added a single population using the command `sim.addSubpop();`. To add multiple subpopulations, simply use the command multiple times, creating multiple populations with different names. 
+
+```{r, engine='bash', eval=FALSE}
+1 early() {
+	sim.addSubpop("p1", 500);
+	sim.addSubpop("p2", 3000);
+}
+```
+
+Looking at our population viewer, we can see that there are now two populations displayed. The size of the circles in the viewer is proportionate to the size of the subpopulations that they represent.
+
+<img src="img/twoPop.png" title="population view, two pops" alt="population view, two pops" style="display: block; margin: auto;" />
+
+### Migration between populations 
+
+To set migration in SLiM, we can use `<destination population>.setMigrationRates(<source population>, <rate>)`. An example of this function is: `p1.setMigrationRates(p2, 0.2);` The first population here, `p1`, is the population ***into*** which we migrate. The population in the parentheses is the population ***from*** which we migrate. The final number is the migration rate. 
+
+Adding migration to our simulation:
+
+```{r, engine='bash', eval=FALSE}
+1 early() {
+	sim.addSubpop("p1", 500);
+	sim.addSubpop("p2", 3000);
+	p1.setMigrationRates(p2, 0.2);
+}
+```
+
+Looking at our population visualization, we can see migration represented by an arrow: 
+
+<img src="img/twoPop_migration.png" title="population view, two pops + migration" alt="population view, two pops + migration" style="display: block; margin: auto;" />
+
+If we add reverse migration, we can see that the size of the arrow is proportionate to the migration rate 
+
+```{r, engine='bash', eval=FALSE}
+1 early() {
+	sim.addSubpop("p1", 500);
+	sim.addSubpop("p2", 3000);
+	p1.setMigrationRates(p2, 0.2);
+	p2.setMigrationRates(p1, 0.8);
+}
+```
+
+<img src="img/twoPop_moreMigration.png" title="population view, two pops + migration, more complex" alt="population view, two pops + migration, more complex" style="display: block; margin: auto;" />
+
+### Splitting a population into two
+
+
+
+### Combining two populations
+
+
