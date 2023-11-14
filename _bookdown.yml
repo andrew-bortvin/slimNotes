@@ -19,6 +19,7 @@ rmd_files: ["index.Rmd",
             "slimChapters/papers.Rmd",
             "slimChapters/classSlides.Rmd",
             "slimChapters/week3code.Rmd",
+            "slimChapters/assignment3.Rmd",
             "About.Rmd",
             "References.Rmd"]
 #new_session: yes
