@@ -45,6 +45,14 @@ multiple-populations
 adding-a-new-population
 migration-between-populations
 splitting-a-population-into-two
+variable-population-size
+changing-population-size
+exercise
+multiple-size-changes
+maximumminimum-population-size
+exercise-1
+growth-rate-dependent-on-fitness
+exercise-2
 papers-of-interest
 week-2---selection-and-sweeps
 lecture-slides

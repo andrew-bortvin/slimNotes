@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.4 Ending a simulation | Syllabus</title>
+  <title>3.13 Variable Population Size | Syllabus</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.4 Ending a simulation | Syllabus" />
+  <meta property="og:title" content="3.13 Variable Population Size | Syllabus" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.4 Ending a simulation | Syllabus" />
+  <meta name="twitter:title" content="3.13 Variable Population Size | Syllabus" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="running-a-simulation.html"/>
-<link rel="next" href="multiple-mutations-elements-and-regions.html"/>
+<link rel="prev" href="multiple-populations.html"/>
+<link rel="next" href="papers-of-interest.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -238,26 +238,95 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ending-a-simulation" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Ending a simulation</h2>
-<p>We can explicitly end a simulation using the command <code>sim.simulationFinished()</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="ending-a-simulation.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> late<span class="er">(</span><span class="kw">)</span></span>
-<span id="cb5-2"><a href="ending-a-simulation.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
-<span id="cb5-3"><a href="ending-a-simulation.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sim.simulationFinished()</span><span class="kw">;</span></span>
-<span id="cb5-4"><a href="ending-a-simulation.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
-<p>This simply ends the simulation. Typically, we want to output something for the user. We’ll go into more options throughout the course. For now, know that we can output a sample of our population using the following syntax:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="ending-a-simulation.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> late<span class="er">(</span><span class="kw">)</span></span>
-<span id="cb6-2"><a href="ending-a-simulation.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
-<span id="cb6-3"><a href="ending-a-simulation.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">p1.outputSample</span><span class="er">(</span><span class="ex">500</span><span class="kw">);</span></span>
-<span id="cb6-4"><a href="ending-a-simulation.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
-<p>where <code>500</code> is the number of individuals to output from population <code>p1</code>. This outputs a lot of information that is typically sent to a downstream application.</p>
-<p>A simpler output is to use the function <code>sim.outputFixedMutations()</code>, which outputs a list of all mutations that have reached fixation (are present in two copies in all individuals).</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="ending-a-simulation.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">10000</span> late<span class="er">(</span><span class="kw">)</span></span>
-<span id="cb7-2"><a href="ending-a-simulation.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
-<span id="cb7-3"><a href="ending-a-simulation.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sim.outputFixedMutations()</span><span class="kw">;</span></span>
-<span id="cb7-4"><a href="ending-a-simulation.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> </span></code></pre></div>
+<div id="variable-population-size" class="section level2" number="3.13">
+<h2><span class="header-section-number">3.13</span> Variable Population Size</h2>
+<p>This is an optional module covering an interesting topic that we won’t have time to get into in the main course.</p>
+<p>The primary measure of fitness is the number of viable offspring that an organism is able to have. Consequently, as the fitness of individuals within a population changes, the size of the population may change as well.</p>
+<p>Population size can also change as the result of external factors, such as natural disasters, famine, disease, etc. SLiM allows for pretty easy manipulation of population size.</p>
+<div id="changing-population-size" class="section level3" number="3.13.1">
+<h3><span class="header-section-number">3.13.1</span> Changing Population Size</h3>
+<p>After we create a subpopulation using <code>sim.addSubpop()</code>, we can modify the population using the <code>setSubpopulationSize()</code> method, run as such: <code>&lt;population name&gt;.setSubpopulationSize(&lt;new size&gt;)</code>.</p>
+<p>For example, the following lines create a subpopulation and then cause an abrupt crash in population size:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="variable-population-size.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb39-2"><a href="variable-population-size.html#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 3000<span class="kw">);</span></span>
+<span id="cb39-3"><a href="variable-population-size.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb39-4"><a href="variable-population-size.html#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="variable-population-size.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="ex">150</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb39-6"><a href="variable-population-size.html#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setSubpopulationSize</span><span class="er">(</span><span class="ex">100</span><span class="kw">);</span></span>
+<span id="cb39-7"><a href="variable-population-size.html#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+</div>
+<div id="exercise" class="section level3" number="3.13.2">
+<h3><span class="header-section-number">3.13.2</span> <strong>Exercise</strong></h3>
+<p>The strength of genetic drift (random fluctuations of allele frequency from generation to generation) is related to the population size. Initialize a simulation with a neutral mutation and after a set number of generations, sharply decrease the population size. Observe the rate at which the allele frequencies change from generation to generation before and after the population size change. Slowing the simulation down will make this easier to observe (done using the sliding bar beneath the play button).</p>
+</div>
+<div id="multiple-size-changes" class="section level3" number="3.13.3">
+<h3><span class="header-section-number">3.13.3</span> Multiple size changes</h3>
+<p>The code above changes the population size once. What if we want to grow/shrink the population at a continuous rate? This takes only a couple small changes to the code above:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="variable-population-size.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb40-2"><a href="variable-population-size.html#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 3000<span class="kw">);</span></span>
+<span id="cb40-3"><a href="variable-population-size.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb40-4"><a href="variable-population-size.html#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="variable-population-size.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="ex">150:170</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb40-6"><a href="variable-population-size.html#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">currentSize</span> = p1.individualCount<span class="kw">;</span></span>
+<span id="cb40-7"><a href="variable-population-size.html#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">newSize</span> = asInteger<span class="er">(</span><span class="ex">currentSize</span> <span class="pp">*</span> 0.97<span class="kw">);</span></span>
+<span id="cb40-8"><a href="variable-population-size.html#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setSubpopulationSize</span><span class="er">(</span><span class="ex">newSize</span><span class="kw">);</span></span>
+<span id="cb40-9"><a href="variable-population-size.html#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>Here, we’ve done the following:</p>
+<ul>
+<li>Rather than occurring in one generation, the event now occurs from generations <code>150:170</code></li>
+<li>We get the current population size using the syntax <code>p1.individualCount</code></li>
+<li>We calculate the new population size by multiplying by 0.97, and then converting to an integer using <code>asInteger()</code></li>
+<li>We set the population size to the new calculated size .</li>
+</ul>
+</div>
+<div id="maximumminimum-population-size" class="section level3" number="3.13.4">
+<h3><span class="header-section-number">3.13.4</span> Maximum/Minimum Population Size</h3>
+<p>In the example above, our population grows or shrinks at a constant rate, indefinitely. In reality, the possible size of a population will have an upper bound.</p>
+<p>We can impose this limit by adding an <em>if</em> statement, as done below. The crucial line here is: <code>if (p1.individualCount &lt; 2000)</code> - the block following this line is only evaluated if the condition is true. That is, once your population hits a size of 2000, it stops growing.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="variable-population-size.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb41-2"><a href="variable-population-size.html#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb41-3"><a href="variable-population-size.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb41-4"><a href="variable-population-size.html#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="variable-population-size.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="ex">150:</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb41-6"><a href="variable-population-size.html#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="kw">(</span><span class="ex">p1.individualCount</span> <span class="op">&lt;</span> 2000<span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb41-7"><a href="variable-population-size.html#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">currentSize</span> = p1.individualCount<span class="kw">;</span></span>
+<span id="cb41-8"><a href="variable-population-size.html#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">newSize</span> = asInteger<span class="er">(</span><span class="ex">currentSize</span> <span class="pp">*</span> 1.05<span class="kw">);</span></span>
+<span id="cb41-9"><a href="variable-population-size.html#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setSubpopulationSize</span><span class="er">(</span><span class="ex">newSize</span><span class="kw">);</span></span>
+<span id="cb41-10"><a href="variable-population-size.html#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
+<span id="cb41-11"><a href="variable-population-size.html#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+</div>
+<div id="exercise-1" class="section level3" number="3.13.5">
+<h3><span class="header-section-number">3.13.5</span> <strong>Exercise</strong></h3>
+<p>The above code is used to create a simulation where the population grows until it hits a maximum population size. Try modifying it to create a population that shrinks until it hits a minimum.</p>
+</div>
+<div id="growth-rate-dependent-on-fitness" class="section level3" number="3.13.6">
+<h3><span class="header-section-number">3.13.6</span> Growth rate dependent on fitness</h3>
+<p>One small change is necessary to make the population size dendent on mean fitness.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="variable-population-size.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb42-2"><a href="variable-population-size.html#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb42-3"><a href="variable-population-size.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb42-4"><a href="variable-population-size.html#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="variable-population-size.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="ex">2:</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb42-6"><a href="variable-population-size.html#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="kw">(</span><span class="ex">p1.individualCount</span> <span class="op">&lt;</span> 2000 <span class="kw">&amp;</span> <span class="ex">p1.individualCount</span> <span class="op">&gt;</span> 1<span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb42-7"><a href="variable-population-size.html#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">currentSize</span> = p1.individualCount<span class="kw">;</span></span>
+<span id="cb42-8"><a href="variable-population-size.html#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">meanFitness</span> = mean<span class="er">(</span><span class="ex">p1.cachedFitness</span><span class="er">(</span><span class="ex">NULL</span><span class="kw">));</span></span>
+<span id="cb42-9"><a href="variable-population-size.html#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">newSize</span> = asInteger<span class="er">(</span><span class="ex">currentSize</span> <span class="pp">*</span> meanFitness<span class="kw">);</span> </span>
+<span id="cb42-10"><a href="variable-population-size.html#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setSubpopulationSize</span><span class="er">(</span><span class="ex">newSize</span><span class="kw">);</span></span>
+<span id="cb42-11"><a href="variable-population-size.html#cb42-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
+<span id="cb42-12"><a href="variable-population-size.html#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>First, we have modified our <code>if</code> statement to have the following condition: <code>p1.individualCount &lt; 2000 &amp; p1.individualCount &gt; 1</code> - that is, we track both a maximum and a minimum population size. The <code>&amp;</code> in the statement indicates that both conditions need to be true for the code block to be evaluated.</p>
+<p>The other relevant lines are:</p>
+<p><code>meanFitness = mean(p1.cachedFitness(NULL));</code>
+<code>newSize = asInteger(currentSize * meanFitness);</code></p>
+<p>The first line gets the mean fitness of our population (don’t worry about the exact syntax of how this is calculated - a bit beyond the scope of our course). The second line changes the calculation of the new population size dependent on the mean fitness. Recall that a fitness value of 1.0 is neutral - that is the population size doesn’t change. If mean fitness is &gt;1, the population size grows; if mean fitness is &lt;1, the population size shrinks.</p>
+</div>
+<div id="exercise-2" class="section level3" number="3.13.7">
+<h3><span class="header-section-number">3.13.7</span> <strong>Exercise</strong></h3>
+<p>Create a simulation with multiple mutation types - some neutral, some beneficial, some deleterious. Use the above code block to create a simulation where the population size grows or shrinks depending on mean fitness.</p>
 
 </div>
+</div>
+<!-- </div> -->
 <hr>
 <center> 
   <div class="footer">
@@ -271,8 +340,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="running-a-simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multiple-mutations-elements-and-regions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multiple-populations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="papers-of-interest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
