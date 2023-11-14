@@ -10,21 +10,23 @@ The goal of your work this week will be to explore migration between different p
 
 Try to recreate in SLiM the following population dynamics. Remember that to visualize your populations, click the bar chart emoji on the right (above the output) and then click "Graph Population Visualization." If you're able to recreate these graphics, great! Just drop us an email saying you did it and let us know if you have any questions or comments. If you can't get it to work, send us your SLiM code and some specific questions/pain points and we'll address it with you via email.
 
+Use relatively small population sizes for each (e.g., 500, 2000, 5000) to help the simulations run quickly. You can slow down the appearance of the simulation using the time-bar on the top right of your SLiM window. 
+
 1. Example 1 
 
-<img src="img/week3/example1.png." title="Mammoth populations" alt="Mammoth populations." style="display: block; margin: auto;" />
+<img src="img/week3/example1.png." title="Example 1" alt="Example 1." style="display: block; margin: auto;" />
 
 2. Example 2
 
-<img src="img/week3/example2.png." title="Mammoth populations" alt="Mammoth populations." style="display: block; margin: auto;" />
+<img src="img/week3/example2.png." title="Example 2" alt="Example 2." style="display: block; margin: auto;" />
 
 3. Example 3
 
-<img src="img/week3/example3.png." title="Mammoth populations" alt="Mammoth populations." style="display: block; margin: auto;" />
+<img src="img/week3/example3.png." title="Example 3" alt="Example 3." style="display: block; margin: auto;" />
 
 4. Example 4 
 
-<img src="img/week3/example4.png." title="Mammoth populations" alt="Mammoth populations." style="display: block; margin: auto;" />
+<img src="img/week3/example4.png." title="Example 4" alt="Example 4." style="display: block; margin: auto;" />
 
 ### Multiple Populations - Real World 
 
