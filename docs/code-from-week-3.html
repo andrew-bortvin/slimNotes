@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 SLiM Guide | Syllabus</title>
+  <title>5.1 Code from Week 3 | Syllabus</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 SLiM Guide | Syllabus" />
+  <meta property="og:title" content="5.1 Code from Week 3 | Syllabus" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 SLiM Guide | Syllabus" />
+  <meta name="twitter:title" content="5.1 Code from Week 3 | Syllabus" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="syllabus-population-genetics-simulation-visualization.html"/>
-<link rel="next" href="a-basic-slim-simulation.html"/>
+<link rel="prev" href="lecture-slides.html"/>
+<link rel="next" href="week-3-assignment.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -247,9 +247,61 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="slim-guide" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> SLiM Guide</h1>
-<p>Notes on usage of SLiM for evolutionary modeling. Adapted from the SLiM manual: <a href="http://benhaller.com/slim/SLiM_Manual.pdf" class="uri">http://benhaller.com/slim/SLiM_Manual.pdf</a></p>
+<div id="code-from-week-3" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Code from Week 3</h2>
+<p>Here is the final simulation developed in class:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="code-from-week-3.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> set up a simple neutral simulation</span>
+<span id="cb43-2"><a href="code-from-week-3.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span> <span class="kw">{</span></span>
+<span id="cb43-3"><a href="code-from-week-3.html#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
+<span id="cb43-4"><a href="code-from-week-3.html#cb43-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb43-5"><a href="code-from-week-3.html#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> m1 mutation type: neutral</span>
+<span id="cb43-6"><a href="code-from-week-3.html#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
+<span id="cb43-7"><a href="code-from-week-3.html#cb43-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb43-8"><a href="code-from-week-3.html#cb43-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> g1 genomic element type: uses m1 for all mutations</span>
+<span id="cb43-9"><a href="code-from-week-3.html#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1.0<span class="kw">);</span></span>
+<span id="cb43-10"><a href="code-from-week-3.html#cb43-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb43-11"><a href="code-from-week-3.html#cb43-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> uniform chromosome of length 100 kb with uniform recombination</span>
+<span id="cb43-12"><a href="code-from-week-3.html#cb43-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 99999<span class="kw">);</span></span>
+<span id="cb43-13"><a href="code-from-week-3.html#cb43-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
+<span id="cb43-14"><a href="code-from-week-3.html#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb43-15"><a href="code-from-week-3.html#cb43-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-16"><a href="code-from-week-3.html#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> create a population of 500 individuals</span>
+<span id="cb43-17"><a href="code-from-week-3.html#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb43-18"><a href="code-from-week-3.html#cb43-18" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb43-19"><a href="code-from-week-3.html#cb43-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 3000<span class="kw">);</span></span>
+<span id="cb43-20"><a href="code-from-week-3.html#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb43-21"><a href="code-from-week-3.html#cb43-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-22"><a href="code-from-week-3.html#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> allow migration from p1 to p2 </span>
+<span id="cb43-23"><a href="code-from-week-3.html#cb43-23" aria-hidden="true" tabindex="-1"></a><span class="ex">100</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb43-24"><a href="code-from-week-3.html#cb43-24" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.2<span class="kw">);</span></span>
+<span id="cb43-25"><a href="code-from-week-3.html#cb43-25" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb43-26"><a href="code-from-week-3.html#cb43-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-27"><a href="code-from-week-3.html#cb43-27" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> allow migration from p2 to p1 </span>
+<span id="cb43-28"><a href="code-from-week-3.html#cb43-28" aria-hidden="true" tabindex="-1"></a><span class="ex">200</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb43-29"><a href="code-from-week-3.html#cb43-29" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.5<span class="kw">);</span></span>
+<span id="cb43-30"><a href="code-from-week-3.html#cb43-30" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb43-31"><a href="code-from-week-3.html#cb43-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-32"><a href="code-from-week-3.html#cb43-32" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> stop allowing migration from p2 to p1</span>
+<span id="cb43-33"><a href="code-from-week-3.html#cb43-33" aria-hidden="true" tabindex="-1"></a><span class="ex">300</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb43-34"><a href="code-from-week-3.html#cb43-34" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0<span class="kw">);</span></span>
+<span id="cb43-35"><a href="code-from-week-3.html#cb43-35" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb43-36"><a href="code-from-week-3.html#cb43-36" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> view these dynamics by clicking the bar chart button on the right and then <span class="st">&quot;Graph Population Visualization&quot;</span></span>
+<span id="cb43-37"><a href="code-from-week-3.html#cb43-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-38"><a href="code-from-week-3.html#cb43-38" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> create a new population </span>
+<span id="cb43-39"><a href="code-from-week-3.html#cb43-39" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> allow to migrate into both p1 and p2 </span>
+<span id="cb43-40"><a href="code-from-week-3.html#cb43-40" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> don<span class="st">&#39;t receive any migration</span></span>
+<span id="cb43-41"><a href="code-from-week-3.html#cb43-41" aria-hidden="true" tabindex="-1"></a><span class="st">400 early() {</span></span>
+<span id="cb43-42"><a href="code-from-week-3.html#cb43-42" aria-hidden="true" tabindex="-1"></a><span class="st">    sim.addSubpop(&quot;p3&quot;, 3000);</span></span>
+<span id="cb43-43"><a href="code-from-week-3.html#cb43-43" aria-hidden="true" tabindex="-1"></a><span class="st">    p2.setMigrationRates(c(p1, p3), c(0.2,0.1)); //allow migration from p1 and p3 into p2</span></span>
+<span id="cb43-44"><a href="code-from-week-3.html#cb43-44" aria-hidden="true" tabindex="-1"></a><span class="st">    p1.setMigrationRates(p3, 0.25);</span></span>
+<span id="cb43-45"><a href="code-from-week-3.html#cb43-45" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb43-46"><a href="code-from-week-3.html#cb43-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-47"><a href="code-from-week-3.html#cb43-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-48"><a href="code-from-week-3.html#cb43-48" aria-hidden="true" tabindex="-1"></a><span class="st">// output samples of 10 genomes periodically, all fixed mutations at end</span></span>
+<span id="cb43-49"><a href="code-from-week-3.html#cb43-49" aria-hidden="true" tabindex="-1"></a><span class="st">1000 late() { p1.outputSample(10); }</span></span>
+<span id="cb43-50"><a href="code-from-week-3.html#cb43-50" aria-hidden="true" tabindex="-1"></a><span class="st">2000 late() { p1.outputSample(10); }</span></span>
+<span id="cb43-51"><a href="code-from-week-3.html#cb43-51" aria-hidden="true" tabindex="-1"></a><span class="st">2000 late() { sim.outputFixedMutations(); }</span></span></code></pre></div>
+
 </div>
 <hr>
 <center> 
@@ -264,8 +316,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="syllabus-population-genetics-simulation-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="a-basic-slim-simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lecture-slides.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-3-assignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
