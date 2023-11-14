@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 SLiM Guide | Syllabus</title>
+  <title>5.2 Week 3 Assignment | Syllabus</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 SLiM Guide | Syllabus" />
+  <meta property="og:title" content="5.2 Week 3 Assignment | Syllabus" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 SLiM Guide | Syllabus" />
+  <meta name="twitter:title" content="5.2 Week 3 Assignment | Syllabus" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="syllabus-population-genetics-simulation-visualization.html"/>
-<link rel="next" href="a-basic-slim-simulation.html"/>
+<link rel="prev" href="code-from-week-3.html"/>
+<link rel="next" href="about-the-authors.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -247,10 +247,51 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="slim-guide" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> SLiM Guide</h1>
-<p>Notes on usage of SLiM for evolutionary modeling. Adapted from the SLiM manual: <a href="http://benhaller.com/slim/SLiM_Manual.pdf" class="uri">http://benhaller.com/slim/SLiM_Manual.pdf</a></p>
+<div id="week-3-assignment" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Week 3 Assignment</h2>
+<div id="multiple-populations---graphic" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Multiple Populations - Graphic</h3>
+<p>The goal of your work this week will be to explore migration between different populations. Start with an initialize statement and early events (either based on code from class, the default SLiM recipe, or a situation of your own design).</p>
+<p>Try to recreate in SLiM the following population dynamics. Remember that to visualize your populations, click the bar chart emoji on the right (above the output) and then click “Graph Population Visualization.” If you’re able to recreate these graphics, great! Just drop us an email saying you did it and let us know if you have any questions or comments. If you can’t get it to work, send us your SLiM code and some specific questions/pain points and we’ll address it with you via email.</p>
+<p>Use relatively small population sizes for each (e.g., 500, 2000, 5000) to help the simulations run quickly. You can slow down the appearance of the simulation using the time-bar on the top right of your SLiM window.</p>
+<ol style="list-style-type: decimal">
+<li>Example 1</li>
+</ol>
+<p><img src="img/week3/example1.png." title="Example 1" alt="Example 1." style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Example 2</li>
+</ol>
+<p><img src="img/week3/example2.png." title="Example 2" alt="Example 2." style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Example 3</li>
+</ol>
+<p><img src="img/week3/example3.png." title="Example 3" alt="Example 3." style="display: block; margin: auto;" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Example 4</li>
+</ol>
+<p><img src="img/week3/example4.png." title="Example 4" alt="Example 4." style="display: block; margin: auto;" /></p>
 </div>
+<div id="multiple-populations---real-world" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Multiple Populations - Real World</h3>
+<p>Try to develop SLiM code to investigate the following real-world situations. Feel free to use comments in your code to detail each step. Email us with your resulting SLiM code (preferably saved as a <code>.txt</code> file) and let us know if this went well or if you struggled with any code or concept.</p>
+<ol style="list-style-type: decimal">
+<li>Stickleback Fish</li>
+</ol>
+<p>There are two populations of a fish species - one at the top of a river and one at the bottom. Develop a model that allows for some migration between the two populations, with the knowledge that more fish swim downriver (i.e., with the current) than upriver. Update your model to include an intermediate population, that develops mid-river. Allow migration between all three populations at different rates, based on the up vs. downriver and distance between them.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Wooly Mammoth on Wrangel Island</li>
+</ol>
+<p>There are two populations of wooly mammoths - a large (n = 4500) population on the mainland and a small (n = 450) population on Wrangel Island. For some generations, bidirectional migration is allowed between the populations via an ice bridge. However, after some time, the ice bridge melts, and migration ends. First, simulate migration between the two populations. Then, track the allele frequency (using code from week 2) of a slightly deleterious allele in each population. How often does it fix in the larger, mainland population? How often does it fix in the smaller, island population?</p>
+<p><img src="img/mammoth_wrangel.png." title="Mammoth populations" alt="Mammoth populations." style="display: block; margin: auto;" /></p>
+<p>Here’s a paper if you’re curious about this (you can just glance at the abstract): <a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006601" class="uri">https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006601</a>.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>European Mice</li>
+</ol>
+<p>There are two distinct populations of mice in western Europe. A hybrid zone (aka a third population) forms based on individuals from both of the original populations. This third population has some very limited migration back to the original two populations. (This represents an example of limited backflow - meaning the two populations can hybridize and reproduce, but the hybrids don’t usually reproduce with the original individuals. Rather, they stay among themselves.)</p>
+
+</div>
+</div>
+<!-- </div> -->
 <hr>
 <center> 
   <div class="footer">
@@ -264,8 +305,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="syllabus-population-genetics-simulation-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="a-basic-slim-simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="code-from-week-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

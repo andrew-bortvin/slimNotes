@@ -55,5 +55,10 @@ growth-rate-dependent-on-fitness
 exercise-2
 papers-of-interest
 week-2---selection-and-sweeps
+week-3---multiple-populations
 lecture-slides
+code-from-week-3
+week-3-assignment
+multiple-populations---graphic
+multiple-populations---real-world
 references
