@@ -65,6 +65,7 @@ initialize(){
 	line = "Generation, Allele.Frequency, Trial";
 	
 	// Get a file name
+	// this is standard syntax for Mac; see below for non-Mac systems
 	defineConstant("fname", paste("~/slim/AF_trial", trialNumber, ".csv", sep =""));
 	
 	// Write to file
@@ -115,6 +116,8 @@ This initializes a generation counter and sets it equal to 0. Because this is sa
 ```
 
 Here, we define the local variable `line` to be the text of the first line of our file. Next, we define a constant containing our output file name. To do this, we use the `paste()` function - this function takes as input a set of variables and combines them together, separating them by the characters provided in the argument `sep =""`. For example, the above paste command produces the filename `"~/AF_trial1.csv"`. Finally, we write to file. Because we do want this line to be the first line of our file, we do not append. 
+
+For non-Mac users, the syntax `"~/directory/filename"` won't work. Instead, you'll need to specify the exact path to where you want the file, starting with the system path (e.g., C for computer, D for downloads, etc. depending on your system). In the above example, everything would be the same, but you'd replace the `defineConstant` line with `defineConstant("fname", paste("C:/Users/[user]/Downloads/AF_trial", trialNumber, ".csv", sep=""));`. The "user" should be accessible via your system; for me, it's firstnamelastname. You can also create a folder (titled "popsims") within Downloads (or whatever directory you choose) to host the files from this class. In that case, your line would be `defineConstant("fname", paste("C:/Users/[user]/Downloads/popsims/AF_trial", trialNumber, ".csv", sep=""));`. This syntax will be the same for writing files in SLiM; just choose a filepath and folder that you'll be able to access so you can view your output files and use them downstream in visualizations. 
 
 * We've added the following code block:
 ```{r, engine='bash', eval=FALSE}
