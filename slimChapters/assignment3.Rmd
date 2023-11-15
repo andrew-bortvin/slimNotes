@@ -40,7 +40,7 @@ There are two populations of a fish species - one at the top of a river and one 
 
 There are two populations of wooly mammoths - a large (n = 4500) population on the mainland and a small (n = 450) population on Wrangel Island. For some generations, bidirectional migration is allowed between the populations via an ice bridge. However, after some time, the ice bridge melts, and migration ends. First, simulate migration between the two populations. Then, track the allele frequency (using code from week 2) of a slightly deleterious allele in each population. How often does it fix in the larger, mainland population? How often does it fix in the smaller, island population? 
 
-<img src="img/mammoth_wrangel.png." title="Mammoth populations" alt="Mammoth populations." style="display: block; margin: auto;" />
+<img src="img/mammoth_wrangel.png" title="Mammoth populations" alt="Mammoth populations." style="display: block; margin: auto;" />
 
 Here's a paper if you're curious about this (you can just glance at the abstract): https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006601. 
 
