@@ -14,19 +14,19 @@ Use relatively small population sizes for each (e.g., 500, 2000, 5000) to help t
 
 1. Example 1 
 
-<img src="img/week3/example1.png." title="Example 1" alt="Example 1." style="display: block; margin: auto;" />
+<img src="img/week3/example1.png" title="Example 1" alt="Example 1." style="display: block; margin: auto;" />
 
 2. Example 2
 
-<img src="img/week3/example2.png." title="Example 2" alt="Example 2." style="display: block; margin: auto;" />
+<img src="img/week3/example2.png" title="Example 2" alt="Example 2." style="display: block; margin: auto;" />
 
 3. Example 3
 
-<img src="img/week3/example3.png." title="Example 3" alt="Example 3." style="display: block; margin: auto;" />
+<img src="img/week3/example3.png" title="Example 3" alt="Example 3." style="display: block; margin: auto;" />
 
 4. Example 4 
 
-<img src="img/week3/example4.png." title="Example 4" alt="Example 4." style="display: block; margin: auto;" />
+<img src="img/week3/example4.png" title="Example 4" alt="Example 4." style="display: block; margin: auto;" />
 
 ### Multiple Populations - Real World 
 
