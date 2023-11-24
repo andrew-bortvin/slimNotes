@@ -12,7 +12,7 @@ The extent that genetic drift can influence allele frequencies is dependent on t
 
 ### 1.2 - Selection
 
-So far, we focused on simulations where all mutations were neutral. Change the selection coefficient of your mutations. Try making your mutation slightly favorable. How does the number of fixed mutations change when you add favorable mutations? How low a selection coefficiet do you need for the effect to be visible? 
+So far, we focused on simulations where all mutations were neutral. Change the selection coefficient of your mutations. Try making your mutation slightly favorable. How does the number of fixed mutations change when you add favorable mutations? How low a selection coefficient do you need for the effect to be visible? 
 
 Do the same with a slightly deleterious mutation. 
 
