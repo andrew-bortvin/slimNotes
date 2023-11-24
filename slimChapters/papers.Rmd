@@ -18,7 +18,7 @@ In this section, we will curate a list of papers, both recent and historical, th
 
 [Evershed et al, 2022](https://drive.google.com/file/d/1GSxjUHitzkV_I2-RWrmWfIO8x_bM8LOG/view?usp=sharing) - A recent paper looking at how LP originated in Europe. Using a combination of genomic and archaeological methods, this paper shows how milk was used in Europe for thousands of years prior to the rise of LP, and supports the role of evolutionary pressures such as famine and disease in the rise of European LP. 
 
-[Gould and Leowntin, 1979](https://drive.google.com/file/d/1Pq-DRC0YeMTUTzMeLHVZWPYQO0jYmBqX/view?usp=sharing) - A famous and controversial paper. This paper is a major part of the debate about the role of adaptation in natural selection, and had a huge impact on how scientists think about adaptation and evolutionary storytelling. The extent that adaptation shapes organismal form and function is still an open question. 
+[Gould and Lewontin, 1979](https://drive.google.com/file/d/1Pq-DRC0YeMTUTzMeLHVZWPYQO0jYmBqX/view?usp=sharing) - A famous and controversial paper. This paper is a major part of the debate about the role of adaptation in natural selection, and had a huge impact on how scientists think about adaptation and evolutionary storytelling. The extent that adaptation shapes organismal form and function is still an open question. 
 
 ### Week 3 - Multiple Populations
 [Yan et al, 2021](https://elifesciences.org/articles/67615) - A recent work leveraging simulation to identify a variant with a strong selective coefficient in some populations (s = 0.6 - one of the highest examples in humans!). This variant was also found to be introgressed from Neandertals. 
