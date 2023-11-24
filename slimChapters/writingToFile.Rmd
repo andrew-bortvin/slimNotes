@@ -133,7 +133,7 @@ For non-Mac users, the syntax `"~/directory/filename"` won't work. Instead, you'
 }
 ```
 
-Here, we access the m2 mutations using the syntax: `p1.genomes.countOfMutationsOfType(m2)`. Then, we paste together the number of generations since m2 was introduced, the current m2 count, and the trial number, this time separating our entires by commas. We add this line to the end our file (by appending). Finally, we take our generation counter and raise it by one. 
+Here, we access the m2 mutations using the syntax: `p1.genomes.countOfMutationsOfType(m2)`. Then, we paste together the number of generations since m2 was introduced, the current m2 count, and the trial number, this time separating our entries by commas. We add this line to the end our file (by appending). Finally, we take our generation counter and raise it by one. 
 
 
 
