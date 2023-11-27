@@ -36,9 +36,9 @@ Try to develop SLiM code to investigate the following real-world situations. Fee
 
 There are two populations of a fish species - one at the top of a river and one at the bottom. Develop a model that allows for some migration between the two populations, with the knowledge that more fish swim downriver (i.e., with the current) than upriver. Update your model to include an intermediate population, that develops mid-river. Allow migration between all three populations at different rates, based on the up vs. downriver and distance between them. 
 
-2. Wooly Mammoth on Wrangel Island 
+2. Woolly Mammoth on Wrangel Island 
 
-There are two populations of wooly mammoths - a large (n = 4500) population on the mainland and a small (n = 450) population on Wrangel Island. For some generations, bidirectional migration is allowed between the populations via an ice bridge. However, after some time, the ice bridge melts, and migration ends. First, simulate migration between the two populations. 
+There are two populations of woolly mammoths - a large (n = 4500) population on the mainland and a small (n = 450) population on Wrangel Island. For some generations, bidirectional migration is allowed between the populations via an ice bridge. However, after some time, the ice bridge melts, and migration ends. First, simulate migration between the two populations. 
 
 Then, track the allele frequency (using code from week 2) of a slightly deleterious allele in each population. How often does it fix in the larger, mainland population? How often does it fix in the smaller, island population? You can also use the following block of code to look at the mean fitness of both populations, if you want to observe how removing the ice bridge impacts fitness of your populations: 
 
@@ -57,7 +57,9 @@ Here's a paper if you're curious about this (you can just glance at the abstract
 
 3. European Mice 
 
-There are two distinct populations of mice in western Europe. A hybrid zone (aka a third population) forms based on individuals from both of the original populations. This third population has some very limited migration back to the original two populations. (This represents an example of limited backflow - meaning the two populations can hybridize and reproduce, but the hybrids don't usually reproduce with the original individuals. Rather, they stay among themselves.)
+There are two distinct populations of mice in western Europe. A hybrid zone (here, a third population) forms based on individuals from both of the original populations. This third population has some very limited migration back to the original two populations. (This represents an example of limited backflow - meaning the two populations can hybridize and reproduce, but the hybrids don't usually reproduce with the original individuals. Rather, they stay among themselves.)
+
+Hint: in SLiM you can't use the same syntax to create an empty population. Try starting the hybrid population with just one individual. 
 
 
 

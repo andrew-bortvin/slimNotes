@@ -36,7 +36,7 @@ initialize() {
 }
 ```
 
-## Initliazing a Simulation 
+## Initializing a Simulation 
 
 The first step in running a simulation is defining all of the parameters that characterize our populations - how many populations are we studying? How big are they? What do individual genomes look like? We use an `initialize()` block to define any parameters like this. 
 
@@ -68,7 +68,7 @@ We can define a type of DNA using the `initializeGenomicElementType()` function.
 
 * the **name** of the genomic region (in the form `"g"` + an integer)
 * the **kinds of mutations** that can occur in this type of DNA region. 
-* the **relative frequencies** of differnet mutation types
+* the **relative frequencies** of different mutation types
 
 Here is a simple example of this command: 
 
@@ -78,7 +78,7 @@ This creates a type of DNA region called `"g1"`, which can only have `m1` type m
 
 ### Genomic Regions 
 
-Now that we have definied a type of DNA that we can see in our genome, we need to great a specific instance of it. This is done with the `initializeGenomicElement()` command. This takes as arguments:
+Now that we have defined a type of DNA that we can see in our genome, we need to great a specific instance of it. This is done with the `initializeGenomicElement()` command. This takes as arguments:
 
 * the *type of genomic element* 
 * the *start coordinate* 

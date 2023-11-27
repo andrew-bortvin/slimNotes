@@ -14,7 +14,7 @@ Now that we have initialized a simulation, we can define the events that happen 
 
 ### Adding subpopulations
 
-We have used the `initialize` block to precisely define how the DNA of all of our organisms is structured. Now, we can create a subpopulation. This is conventionaly done as an `early` event in the first generation (that is, this will be the first thing that happens in your simulation). For example:  
+We have used the `initialize` block to precisely define how the DNA of all of our organisms is structured. Now, we can create a subpopulation. This is conventionally done as an `early` event in the first generation (that is, this will be the first thing that happens in your simulation). For example:  
 
 ```{r, engine='bash', eval=FALSE}
 1 early()

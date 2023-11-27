@@ -75,7 +75,7 @@ Note that we can use multiple calls of `setMigrationRates()` to change the migra
 
 Real biological populations have common origins, rather than originating independently. We can incorporate this into our SLiM simulations by creating a new population as an offshoot of an existing population. This is accomplished with the function `sim.addSubpopSplit(<new pop name>, <new pop size>, <source pop>)`  
 
-For example, we can initialize a population wiht 500 individuals as such: 
+For example, we can initialize a population with 500 individuals as such: 
 
 ```{r, engine='bash', eval=FALSE}
 1 early() {

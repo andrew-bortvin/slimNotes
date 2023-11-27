@@ -20,7 +20,7 @@ Local variables are **temporary** and **mutable**. We can define a local variabl
 }
 ```
 
-We can redfine a local variable using the `=` operator. For example, here we refined `nChr` to be 3 times `nChr`: 
+We can redefine a local variable using the `=` operator. For example, here we refined `nChr` to be 3 times `nChr`: 
 
 ```{r, engine='bash', eval=FALSE}
 400 late(){

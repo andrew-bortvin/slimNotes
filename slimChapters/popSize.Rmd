@@ -80,7 +80,7 @@ The above code is used to create a simulation where the population grows until i
 
 ### Growth rate dependent on fitness 
 
-One small change is necessary to make the population size dendent on mean fitness. 
+One small change is necessary to make the population size dependent on mean fitness. 
 
 ```{r, engine='bash', eval=FALSE}
 1 early() {
