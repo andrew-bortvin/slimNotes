@@ -7,7 +7,7 @@ grading
 student-hours
 slim-guide
 a-basic-slim-simulation
-initliazing-a-simulation
+initializing-a-simulation
 global-mutation-rates
 mutation-types
 types-of-dna
@@ -58,7 +58,8 @@ exercise-1
 growth-rate-dependent-on-fitness
 exercise-2
 papers-of-interest
-week-2---selection-and-sweeps
 week-3---multiple-populations
+week-2---selection-and-sweeps
+week-3---multiple-populations-1
 lecture-slides
 references

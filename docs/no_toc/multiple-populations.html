@@ -146,12 +146,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="slim-guide.html"><a href="slim-guide.html"><i class="fa fa-check"></i><b>3</b> SLiM Guide</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="a-basic-slim-simulation.html"><a href="a-basic-slim-simulation.html"><i class="fa fa-check"></i><b>3.1</b> A Basic SLiM Simulation</a></li>
-<li class="chapter" data-level="3.2" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html"><i class="fa fa-check"></i><b>3.2</b> Initliazing a Simulation</a>
+<li class="chapter" data-level="3.2" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html"><i class="fa fa-check"></i><b>3.2</b> Initializing a Simulation</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#global-mutation-rates"><i class="fa fa-check"></i><b>3.2.1</b> Global Mutation Rates</a></li>
-<li class="chapter" data-level="3.2.2" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#mutation-types"><i class="fa fa-check"></i><b>3.2.2</b> Mutation Types</a></li>
-<li class="chapter" data-level="3.2.3" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#types-of-dna"><i class="fa fa-check"></i><b>3.2.3</b> Types of DNA</a></li>
-<li class="chapter" data-level="3.2.4" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#genomic-regions"><i class="fa fa-check"></i><b>3.2.4</b> Genomic Regions</a></li>
+<li class="chapter" data-level="3.2.1" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#global-mutation-rates"><i class="fa fa-check"></i><b>3.2.1</b> Global Mutation Rates</a></li>
+<li class="chapter" data-level="3.2.2" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#mutation-types"><i class="fa fa-check"></i><b>3.2.2</b> Mutation Types</a></li>
+<li class="chapter" data-level="3.2.3" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#types-of-dna"><i class="fa fa-check"></i><b>3.2.3</b> Types of DNA</a></li>
+<li class="chapter" data-level="3.2.4" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#genomic-regions"><i class="fa fa-check"></i><b>3.2.4</b> Genomic Regions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="running-a-simulation.html"><a href="running-a-simulation.html"><i class="fa fa-check"></i><b>3.3</b> Running a simulation</a>
 <ul>
@@ -218,8 +218,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="papers-of-interest.html"><a href="papers-of-interest.html"><i class="fa fa-check"></i><b>4</b> Papers of Interest</a>
 <ul>
-<li class="chapter" data-level="4.0.1" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-2---selection-and-sweeps"><i class="fa fa-check"></i><b>4.0.1</b> Week 2 - Selection and Sweeps</a></li>
-<li class="chapter" data-level="4.0.2" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations"><i class="fa fa-check"></i><b>4.0.2</b> Week 3 - Multiple Populations</a></li>
+<li class="chapter" data-level="4.0.1" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations"><i class="fa fa-check"></i><b>4.0.1</b> Week 3 - Multiple Populations</a></li>
+<li class="chapter" data-level="4.0.2" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-2---selection-and-sweeps"><i class="fa fa-check"></i><b>4.0.2</b> Week 2 - Selection and Sweeps</a></li>
+<li class="chapter" data-level="4.0.3" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations-1"><i class="fa fa-check"></i><b>4.0.3</b> Week 3 - Multiple Populations</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="lecture-slides.html"><a href="lecture-slides.html"><i class="fa fa-check"></i><b>5</b> Lecture Slides</a></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
@@ -294,7 +295,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="splitting-a-population-into-two" class="section level3" number="3.12.3">
 <h3><span class="header-section-number">3.12.3</span> Splitting a population into two</h3>
 <p>Real biological populations have common origins, rather than originating independently. We can incorporate this into our SLiM simulations by creating a new population as an offshoot of an existing population. This is accomplished with the function <code>sim.addSubpopSplit(&lt;new pop name&gt;, &lt;new pop size&gt;, &lt;source pop&gt;)</code></p>
-<p>For example, we can initialize a population wiht 500 individuals as such:</p>
+<p>For example, we can initialize a population with 500 individuals as such:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="multiple-populations.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
 <span id="cb37-2"><a href="multiple-populations.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
 <span id="cb37-3"><a href="multiple-populations.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
