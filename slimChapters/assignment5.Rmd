@@ -1,0 +1,42 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Week 5 Assignment
+
+### Splitting Populations 
+
+We can put together many of the simulation techniques we've learned so far by creating a model for early human evolution, as presented in Gravel et al. 2011: https://www.pnas.org/doi/full/10.1073/pnas.1019276108. 
+
+To build this simulation please... 
+1. Initialize the necessary parameters in your `initialize()` statement 
+2. Create an ancestral African population (with about 7,000 individuals) and allow for a burn-in period of approximately 73,000 generations 
+3. Split the population at about the 77,000th generation, creating a Eurasian population. Allow migration between the two 
+4. Split the Eurasian population into two at about the 78,000th generation, creating a European and an Asian population. allow migration between all three populations 
+5. Set up exponential growth in the European and Asian populations for the following 1000 generations (see the hint below for this code) 
+
+Please keep in mind a few things for this simulation. First, the suggested population sizes are the effective population. Second, we're suggesting round numbers that will broadly represent the model presented in Gravel 2011; for more exact numbers, see the SLiM manual on page 135. Please submit your SLiM code (ideally exported as a .txt file) for this simulation. 
+
+For exponential growth, you can do something like the below. Here we've decided to start the exponential growth in the 78000th generation and continue it until the 79000th generation. We've started the p2 population as 1000 individuals. You can change these values if you like. However, we do suggest using the 1 + 0.003789 value for the time measurement. 
+```{r, engine='bash', eval=FALSE}
+// do this at the start of each generation from 78,000 to 79,000
+78000:79000 early() { 
+  // get the count of each generation, starting at your current start of 78000
+  time = sim.cycle - 78000; // sim.cycle counts the units of time (check the manual for more details)
+  p2_size = round(1000 * (1 + 0.003789)^time);
+  // fill in similar syntax for p3_size
+  p2.setSubpopulationSize(asInteger(p2_size));
+  // fill in similar syntax for p3
+}
+
+### Local Adaptation 
+
+Sometimes a population effectively splits into two populations and experiences some force (e.g., migration) such that the resulting subpopulations are subject to different selective pressures. For example, turtles on the Galapagos Islands have extremely different traits ("phenotypes"), likely as a consequence of their local environments. Create a simulation that starts with one population of turtles, then has the population split. Imagine that one population is on an area of the island with low-growth vegetation, such that a short neck is sufficient to eat and survive; but the other population is on an area of the island with higher-growth vegetation, such that the short neck is detrimental to survival. A longer neck is survivable in the low-growth vegetation population, but those turtles do have reduced fitness relative to the shorter neck individuals (e.g., maybe their necks get tired from leaning down to get the vegetation and need to rest more). 
+
+In both populations, track the mutation for shorter neck and longer neck. What do you notice? Modify your simulation to allow low rates of migration between the two populations. Any difference in the allele rates in either population? 
+
+
+
+
+
+
