@@ -146,12 +146,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="slim-guide.html"><a href="slim-guide.html"><i class="fa fa-check"></i><b>3</b> SLiM Guide</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="a-basic-slim-simulation.html"><a href="a-basic-slim-simulation.html"><i class="fa fa-check"></i><b>3.1</b> A Basic SLiM Simulation</a></li>
-<li class="chapter" data-level="3.2" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html"><i class="fa fa-check"></i><b>3.2</b> Initliazing a Simulation</a>
+<li class="chapter" data-level="3.2" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html"><i class="fa fa-check"></i><b>3.2</b> Initializing a Simulation</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#global-mutation-rates"><i class="fa fa-check"></i><b>3.2.1</b> Global Mutation Rates</a></li>
-<li class="chapter" data-level="3.2.2" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#mutation-types"><i class="fa fa-check"></i><b>3.2.2</b> Mutation Types</a></li>
-<li class="chapter" data-level="3.2.3" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#types-of-dna"><i class="fa fa-check"></i><b>3.2.3</b> Types of DNA</a></li>
-<li class="chapter" data-level="3.2.4" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#genomic-regions"><i class="fa fa-check"></i><b>3.2.4</b> Genomic Regions</a></li>
+<li class="chapter" data-level="3.2.1" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#global-mutation-rates"><i class="fa fa-check"></i><b>3.2.1</b> Global Mutation Rates</a></li>
+<li class="chapter" data-level="3.2.2" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#mutation-types"><i class="fa fa-check"></i><b>3.2.2</b> Mutation Types</a></li>
+<li class="chapter" data-level="3.2.3" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#types-of-dna"><i class="fa fa-check"></i><b>3.2.3</b> Types of DNA</a></li>
+<li class="chapter" data-level="3.2.4" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#genomic-regions"><i class="fa fa-check"></i><b>3.2.4</b> Genomic Regions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="running-a-simulation.html"><a href="running-a-simulation.html"><i class="fa fa-check"></i><b>3.3</b> Running a simulation</a>
 <ul>
@@ -218,8 +218,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="papers-of-interest.html"><a href="papers-of-interest.html"><i class="fa fa-check"></i><b>4</b> Papers of Interest</a>
 <ul>
-<li class="chapter" data-level="4.0.1" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-2---selection-and-sweeps"><i class="fa fa-check"></i><b>4.0.1</b> Week 2 - Selection and Sweeps</a></li>
-<li class="chapter" data-level="4.0.2" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations"><i class="fa fa-check"></i><b>4.0.2</b> Week 3 - Multiple Populations</a></li>
+<li class="chapter" data-level="4.0.1" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations"><i class="fa fa-check"></i><b>4.0.1</b> Week 3 - Multiple Populations</a></li>
+<li class="chapter" data-level="4.0.2" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-2---selection-and-sweeps"><i class="fa fa-check"></i><b>4.0.2</b> Week 2 - Selection and Sweeps</a></li>
+<li class="chapter" data-level="4.0.3" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations-1"><i class="fa fa-check"></i><b>4.0.3</b> Week 3 - Multiple Populations</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="lecture-slides.html"><a href="lecture-slides.html"><i class="fa fa-check"></i><b>5</b> Lecture Slides</a></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
@@ -291,7 +292,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s break this down line by line:</p>
 <ul>
 <li><code>p1_size = size(p1.genomes);</code>: <code>p1.genomes</code> is a list of all the chromosomes in our population. The <code>size()</code> function gets the length of this list, i.e. the total number of chromosomes. We save this as a local variable, <code>p1_size</code>.</li>
-<li><code>initial_freq = asInteger(p1_size * 0.05);</code>. We multiply our number of chromosomes by 0.05 to get the number of chromosomes into which we want to insert the mutation. Depeding on our population size, we might get a non-integer number. Since we can’t add a mutation into, say, 3.2 chromosomes, we convert to an integer, rounding down, using the <code>asInteger()</code> function.</li>
+<li><code>initial_freq = asInteger(p1_size * 0.05);</code>. We multiply our number of chromosomes by 0.05 to get the number of chromosomes into which we want to insert the mutation. Depending on our population size, we might get a non-integer number. Since we can’t add a mutation into, say, 3.2 chromosomes, we convert to an integer, rounding down, using the <code>asInteger()</code> function.</li>
 <li><code>target = sample(p1.genomes, initial_freq);</code> The <code>sample()</code> function randomly samples from a set of items. It takes two arguments - what we are sampling from and how many items to sample. This essentially says, we should sample 5% of our genomes.</li>
 <li><code>target.addNewDrawnMutation(m2, 1000);</code>: The <code>addNewDrawnMutation()</code> function takes two arguments, the mutation type to add, and the genomic position to add it to. Note that we call the function as <code>target.addNewDrawnMutation()</code> - the <code>target</code> here indicates the object we are operating on.</li>
 </ul>
