@@ -146,12 +146,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="slim-guide.html"><a href="slim-guide.html"><i class="fa fa-check"></i><b>3</b> SLiM Guide</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="a-basic-slim-simulation.html"><a href="a-basic-slim-simulation.html"><i class="fa fa-check"></i><b>3.1</b> A Basic SLiM Simulation</a></li>
-<li class="chapter" data-level="3.2" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html"><i class="fa fa-check"></i><b>3.2</b> Initliazing a Simulation</a>
+<li class="chapter" data-level="3.2" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html"><i class="fa fa-check"></i><b>3.2</b> Initializing a Simulation</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#global-mutation-rates"><i class="fa fa-check"></i><b>3.2.1</b> Global Mutation Rates</a></li>
-<li class="chapter" data-level="3.2.2" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#mutation-types"><i class="fa fa-check"></i><b>3.2.2</b> Mutation Types</a></li>
-<li class="chapter" data-level="3.2.3" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#types-of-dna"><i class="fa fa-check"></i><b>3.2.3</b> Types of DNA</a></li>
-<li class="chapter" data-level="3.2.4" data-path="initliazing-a-simulation.html"><a href="initliazing-a-simulation.html#genomic-regions"><i class="fa fa-check"></i><b>3.2.4</b> Genomic Regions</a></li>
+<li class="chapter" data-level="3.2.1" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#global-mutation-rates"><i class="fa fa-check"></i><b>3.2.1</b> Global Mutation Rates</a></li>
+<li class="chapter" data-level="3.2.2" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#mutation-types"><i class="fa fa-check"></i><b>3.2.2</b> Mutation Types</a></li>
+<li class="chapter" data-level="3.2.3" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#types-of-dna"><i class="fa fa-check"></i><b>3.2.3</b> Types of DNA</a></li>
+<li class="chapter" data-level="3.2.4" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#genomic-regions"><i class="fa fa-check"></i><b>3.2.4</b> Genomic Regions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="running-a-simulation.html"><a href="running-a-simulation.html"><i class="fa fa-check"></i><b>3.3</b> Running a simulation</a>
 <ul>
@@ -218,8 +218,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="papers-of-interest.html"><a href="papers-of-interest.html"><i class="fa fa-check"></i><b>4</b> Papers of Interest</a>
 <ul>
-<li class="chapter" data-level="4.0.1" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-2---selection-and-sweeps"><i class="fa fa-check"></i><b>4.0.1</b> Week 2 - Selection and Sweeps</a></li>
-<li class="chapter" data-level="4.0.2" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations"><i class="fa fa-check"></i><b>4.0.2</b> Week 3 - Multiple Populations</a></li>
+<li class="chapter" data-level="4.0.1" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations"><i class="fa fa-check"></i><b>4.0.1</b> Week 3 - Multiple Populations</a></li>
+<li class="chapter" data-level="4.0.2" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-2---selection-and-sweeps"><i class="fa fa-check"></i><b>4.0.2</b> Week 2 - Selection and Sweeps</a></li>
+<li class="chapter" data-level="4.0.3" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations-1"><i class="fa fa-check"></i><b>4.0.3</b> Week 3 - Multiple Populations</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="lecture-slides.html"><a href="lecture-slides.html"><i class="fa fa-check"></i><b>5</b> Lecture Slides</a></li>
 <li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
@@ -259,7 +260,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-2"><a href="storing-information.html#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">nChr</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span> <span class="ex">//</span> Define number of chromosomes</span>
 <span id="cb13-3"><a href="storing-information.html#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">print</span><span class="er">(</span><span class="ex">nChr</span><span class="kw">);</span> </span>
 <span id="cb13-4"><a href="storing-information.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p>We can redfine a local variable using the <code>=</code> operator. For example, here we refined <code>nChr</code> to be 3 times <code>nChr</code>:</p>
+<p>We can redefine a local variable using the <code>=</code> operator. For example, here we refined <code>nChr</code> to be 3 times <code>nChr</code>:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="storing-information.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">400</span> late<span class="er">(</span><span class="kw">){</span></span>
 <span id="cb14-2"><a href="storing-information.html#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">nChr</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span> <span class="ex">//</span> Define number of chromosomes</span>
 <span id="cb14-3"><a href="storing-information.html#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">nChr</span> = nChr <span class="pp">*</span> 3<span class="kw">;</span> <span class="ex">//</span> Multiply by 3 and store value </span>
