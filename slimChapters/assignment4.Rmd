@@ -1,0 +1,87 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Plotting in R 
+
+### Visualizing Simulations 
+
+So far in class and for homework we've simulated a variety of evolutionary dynamics and visualized their results with built-in plots in SLiM. In some cases, the things you'll simulate will be best visualized by custom plots, which we'll start writing in R. This introduction to R will be useful as you move into futher coding projects as the fundamentals of plotting will remain the same. 
+
+### R basics 
+
+A few coding terms:
+- function: code that is used to execute something (e.g., the `print()` function is the same in R as it is in SLiM)
+- package: a set of functions that already exist and can be loaded into your workspace
+- comment: in R, you indicate a comment with the pound (or hashtag) `#` 
+- script: a file (typically with the suffix `.R`) that contains your R code
+
+### Reading data in to R 
+
+To start your plot, you'll need to have your data in your R workspace. Recall that you wrote the output of your allele frequency simulations to file; you created 3 different files, each exploring a unqiue set of parameters, so you could compare the dynamics resulting from changing those parameters (e.g., population size, selection coefficient). You can read those files (or any other file you'd like to investigate in R). 
+
+```{r, engine='R', eval=FALSE}
+# read in the data from your first allele frequency simulation
+
+af1 <- read.csv("~/slim/AF_trial1.csv")
+```
+
+In the above example, you're using the `read.csv` function (which is built in to R) to save your allele frequency file with the variable name `af1`. If you did `head(af1)` or `print(af1)` you would see the contents of this file. We use the `read.csv` function becase your file was saved in csv (comma separated values) format, as you can see from the suffix of your filename. 
+
+### Using published packages 
+
+We will plot with the package `ggplot2`. This library offers a set of functions designed for visualizations in R. You can read more about it [here](https://ggplot2.tidyverse.org/). 
+
+When using a new package, you'll first need to install it into your workspace's library. Each time you write a script you will load any package you wish to use from your library. 
+
+```{r, engine='R', eval=FALSE}
+# the first time you're using ggplot (or any package), install it
+install.packages("ggplot2")
+
+# each time you want to use the package, load it in your script 
+library(ggplot2) 
+```
+
+Note that the `install.packages()` function requires its argument to be in quotes (a string) but the `library()` function accepts a variable name without quotes. 
+
+### Psuedocode 
+
+It is often helpful to outline in plain language (not code) what you intend to do in your script. This allows you to clearly outline your plans and design your plots without getting bogged down by the syntax of your code. Comments (which begin with the `#` in R) are a useful way to do this. 
+
+### `ggplot2` basics 
+
+The main function in `ggplot2` is very simply `ggplot()`. It then takes the major arguments `data` (which will be the data you read in from your file, i.e., `af1` in the above example) and `aes()`. `Aes()` is short for aesthetics; it usually includes the data column needed for the x axis and the data column needed for the y axis. It can also include the data column used for the color. 
+
+Additional information is then applied to that function via `+`. To plot the frequency trajectory of an allele in a population, we'll use a line plot; this is added through the `geom_line()` function. We'll also specify which data column to label the information by via the `labs()` function. 
+
+Check out the ggplot2 website above for examples of additional information and customization you can apply to your plots. You might consider `theme_classic()` or setting a limit on the x axis via `xlim()`, in addition to others. 
+
+The syntax would therefore be something like: 
+
+```{r, engine='R', eval=FALSE}
+# create your plot 
+ggplot(data = my_data, aes(x = column_for_x_axis, y = column_for_y_axis, color = as.factor(column_to_base_colors_on))) + 
+  geom_line() + # create a line plot 
+  theme_classic() + # apply a theme
+  labs(colour="Column that color is based on") # indicate that the color is based on whatever column you chose   
+```
+
+### Assignment 
+
+1. Work through the ggplot2 [tutorial](https://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html). 
+
+2. Plot the frequency trajectory of one allele in the population. 
+1a. Write psuedocode for each step (think about the x axis, the y axis, what style (e.g., scatterplot, line plot) would best represent your data and answer your question).
+1b. Fill in the name of the data as well as the aesthetics (x and y). Remember that you're plotting allele frequency, which is a measure of the number of a given allele in the population divided by the number of possible instances at that site. For example, if you have 10 copies of the allele A at a given position and there are 20 individuals in your population, there are 40 possible instances at that site (humans are diploid - two copies of each chromosome), so the frequency of the A allele is 10 / (20 * 2) = 0.25. 
+
+3. Update your code to include three additional allele frequency trajectories on a single plot. To do so, merge the data from the four allele frequency files into a single data structure.
+3a. Add any additional psuedocode necessary.
+3b. Consider using the `rbind()` [function](https://www.digitalocean.com/community/tutorials/rbind-function-r) to combine the information from the four trials into a single data structure. 
+3c. Add an aesthetic to color each allele frequency trajectory by the value in the `Trial` column. Consider using the `as.factor()` [function](https://www.educative.io/answers/what-is-the-asfactor-function-in-r) to ensure each trial is treated as a discrete variable and plotted in a distinct color. 
+3d. Limit the x axis to include only values from 0 to 4000. 
+3e. Explore various [themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) available in `ggplot2` and apply one to your plot. 
+
+
+
+
+
