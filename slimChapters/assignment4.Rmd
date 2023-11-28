@@ -87,8 +87,8 @@ The function `ggsave()` is built-in to the `ggplot2` package. It expects two arg
 1. Work through the ggplot2 [tutorial](https://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html). 
 
 2. Plot the frequency trajectory of one allele in the population. 
-1a. Write psuedocode for each step (think about the x axis, the y axis, what style (e.g., scatterplot, line plot) would best represent your data and answer your question).
-1b. Fill in the name of the data as well as the aesthetics (x and y). Remember that you're plotting allele frequency, which is a measure of the number of a given allele in the population divided by the number of possible instances at that site. For example, if you have 10 copies of the allele A at a given position and there are 20 individuals in your population, there are 40 possible instances at that site (humans are diploid - two copies of each chromosome), so the frequency of the A allele is 10 / (20 * 2) = 0.25. 
+2a. Write psuedocode for each step (think about the x axis, the y axis, what style (e.g., scatterplot, line plot) would best represent your data and answer your question).
+2b. Fill in the name of the data as well as the aesthetics (x and y). Remember that you're plotting allele frequency, which is a measure of the number of a given allele in the population divided by the number of possible instances at that site. For example, if you have 10 copies of the allele A at a given position and there are 20 individuals in your population, there are 40 possible instances at that site (humans are diploid - two copies of each chromosome), so the frequency of the A allele is 10 / (20 * 2) = 0.25. 
 
 3. Update your code to include three additional allele frequency trajectories on a single plot. To do so, merge the data from the four allele frequency files into a single data structure.
 3a. Add any additional psuedocode necessary.
