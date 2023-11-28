@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.12 Multiple Populations | Syllabus</title>
+  <title>3.18 Code from Week 5 | Syllabus</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.12 Multiple Populations | Syllabus" />
+  <meta property="og:title" content="3.18 Code from Week 5 | Syllabus" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.12 Multiple Populations | Syllabus" />
+  <meta name="twitter:title" content="3.18 Code from Week 5 | Syllabus" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="week-2-assignment.html"/>
-<link rel="next" href="code-from-week-3.html"/>
+<link rel="prev" href="different-conditions-for-different-populations.html"/>
+<link rel="next" href="week-5-assignment.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -264,71 +264,51 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multiple-populations" class="section level2" number="3.12">
-<h2><span class="header-section-number">3.12</span> Multiple Populations</h2>
-<p>So far, we have only looked at simulations that involve one population. Adding multiple populations that interact with each other requires only a few additions to our code.</p>
-<p>SLiM has a great way of visualizing your populations, accessed through the following menu:</p>
-<p><img src="img/popViz.png" title="population view" alt="population view." style="display: block; margin: auto;" /></p>
-<div id="adding-a-new-population" class="section level3" number="3.12.1">
-<h3><span class="header-section-number">3.12.1</span> Adding a new population</h3>
-<p>In past simulations, we’ve added a single population using the command <code>sim.addSubpop();</code>. To add multiple subpopulations, simply use the command multiple times, creating multiple populations with different names.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="multiple-populations.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb33-2"><a href="multiple-populations.html#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
-<span id="cb33-3"><a href="multiple-populations.html#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 3000<span class="kw">);</span></span>
-<span id="cb33-4"><a href="multiple-populations.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p>Looking at our population viewer, we can see that there are now two populations displayed. The size of the circles in the viewer is proportionate to the size of the subpopulations that they represent.</p>
-<p><img src="img/twoPop.png" title="population view, two pops" alt="population view, two pops" style="display: block; margin: auto;" /></p>
-</div>
-<div id="migration-between-populations" class="section level3" number="3.12.2">
-<h3><span class="header-section-number">3.12.2</span> Migration between populations</h3>
-<p>To set migration in SLiM, we can use <code>&lt;destination population&gt;.setMigrationRates(&lt;source population&gt;, &lt;rate&gt;)</code>. An example of this function is: <code>p1.setMigrationRates(p2, 0.2);</code> The first population here, <code>p1</code>, is the population <strong><em>into</em></strong> which we migrate. The population in the parentheses is the population <strong><em>from</em></strong> which we migrate. The final number is the migration rate.</p>
-<p>Adding migration to our simulation:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="multiple-populations.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb34-2"><a href="multiple-populations.html#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
-<span id="cb34-3"><a href="multiple-populations.html#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 3000<span class="kw">);</span></span>
-<span id="cb34-4"><a href="multiple-populations.html#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.2<span class="kw">);</span></span>
-<span id="cb34-5"><a href="multiple-populations.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p>Looking at our population visualization, we can see migration represented by an arrow:</p>
-<p><img src="img/twoPop_migration.png" title="population view, two pops + migration" alt="population view, two pops + migration" style="display: block; margin: auto;" /></p>
-<p>If we add reverse migration, we can see that the size of the arrow is proportionate to the migration rate</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="multiple-populations.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb35-2"><a href="multiple-populations.html#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
-<span id="cb35-3"><a href="multiple-populations.html#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 3000<span class="kw">);</span></span>
-<span id="cb35-4"><a href="multiple-populations.html#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.2<span class="kw">);</span></span>
-<span id="cb35-5"><a href="multiple-populations.html#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.8<span class="kw">);</span></span>
-<span id="cb35-6"><a href="multiple-populations.html#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p><img src="img/twoPop_moreMigration.png" title="population view, two pops + migration, more complex" alt="population view, two pops + migration, more complex" style="display: block; margin: auto;" /></p>
-<p>Note that we can use multiple calls of <code>setMigrationRates()</code> to change the migration rate throughout our simulation, as such:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="multiple-populations.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb36-2"><a href="multiple-populations.html#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
-<span id="cb36-3"><a href="multiple-populations.html#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 3000<span class="kw">);</span></span>
-<span id="cb36-4"><a href="multiple-populations.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.2<span class="kw">);</span></span>
-<span id="cb36-5"><a href="multiple-populations.html#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-6"><a href="multiple-populations.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb36-7"><a href="multiple-populations.html#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-8"><a href="multiple-populations.html#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="ex">15</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb36-9"><a href="multiple-populations.html#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.4<span class="kw">);</span></span>
-<span id="cb36-10"><a href="multiple-populations.html#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-</div>
-<div id="splitting-a-population-into-two" class="section level3" number="3.12.3">
-<h3><span class="header-section-number">3.12.3</span> Splitting a population into two</h3>
-<p>Real biological populations have common origins, rather than originating independently. We can incorporate this into our SLiM simulations by creating a new population as an offshoot of an existing population. This is accomplished with the function <code>sim.addSubpopSplit(&lt;new pop name&gt;, &lt;new pop size&gt;, &lt;source pop&gt;)</code></p>
-<p>For example, we can initialize a population with 500 individuals as such:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="multiple-populations.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb37-2"><a href="multiple-populations.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
-<span id="cb37-3"><a href="multiple-populations.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p>Our population viewer looks like this:</p>
-<p><img src="img/onePop.png" title="population view, one pop" alt="one pop" style="display: block; margin: auto;" /></p>
-<p>We can add a population split as such:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="multiple-populations.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">300</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb38-2"><a href="multiple-populations.html#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpopSplit</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 200, p1<span class="kw">);</span></span>
-<span id="cb38-3"><a href="multiple-populations.html#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.1<span class="kw">);</span></span>
-<span id="cb38-4"><a href="multiple-populations.html#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.04<span class="kw">);</span></span>
-<span id="cb38-5"><a href="multiple-populations.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
-<p>Here we create a population <code>p2</code>, derived from population <code>p1</code> with 200 individuals. We subsequently set weak migration rates between the populations. Our population viewer now looks like this:</p>
-<p><img src="img/split.png" title="population view, split pops" alt="split pops" style="display: block; margin: auto;" /></p>
+<div id="code-from-week-5" class="section level2" number="3.18">
+<h2><span class="header-section-number">3.18</span> Code from Week 5</h2>
+<p>Here is the final simulation developed in class:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="code-from-week-5.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> set up a simple neutral simulation</span>
+<span id="cb52-2"><a href="code-from-week-5.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span> <span class="kw">{</span></span>
+<span id="cb52-3"><a href="code-from-week-5.html#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
+<span id="cb52-4"><a href="code-from-week-5.html#cb52-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb52-5"><a href="code-from-week-5.html#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> m1 mutation type: neutral</span>
+<span id="cb52-6"><a href="code-from-week-5.html#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
+<span id="cb52-7"><a href="code-from-week-5.html#cb52-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, <span class="at">-0.03</span><span class="kw">);</span></span>
+<span id="cb52-8"><a href="code-from-week-5.html#cb52-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution=F</span><span class="kw">;</span> </span>
+<span id="cb52-9"><a href="code-from-week-5.html#cb52-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb52-10"><a href="code-from-week-5.html#cb52-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> g1 genomic element type: uses m1 for all mutations</span>
+<span id="cb52-11"><a href="code-from-week-5.html#cb52-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1.0<span class="kw">);</span></span>
+<span id="cb52-12"><a href="code-from-week-5.html#cb52-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb52-13"><a href="code-from-week-5.html#cb52-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> uniform chromosome of length 100 kb with uniform recombination</span>
+<span id="cb52-14"><a href="code-from-week-5.html#cb52-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 99999<span class="kw">);</span></span>
+<span id="cb52-15"><a href="code-from-week-5.html#cb52-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
+<span id="cb52-16"><a href="code-from-week-5.html#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb52-17"><a href="code-from-week-5.html#cb52-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-18"><a href="code-from-week-5.html#cb52-18" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> create a population of 500 individuals</span>
+<span id="cb52-19"><a href="code-from-week-5.html#cb52-19" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb52-20"><a href="code-from-week-5.html#cb52-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 5000<span class="kw">);</span></span>
+<span id="cb52-21"><a href="code-from-week-5.html#cb52-21" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb52-22"><a href="code-from-week-5.html#cb52-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-23"><a href="code-from-week-5.html#cb52-23" aria-hidden="true" tabindex="-1"></a><span class="ex">299</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb52-24"><a href="code-from-week-5.html#cb52-24" aria-hidden="true" tabindex="-1"></a>   <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span>  <span class="ex">//</span> Count how many chromosomes we have </span>
+<span id="cb52-25"><a href="code-from-week-5.html#cb52-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> 0.05<span class="kw">);</span>  <span class="ex">//</span> Find 5% of total number of chromosomes</span>
+<span id="cb52-26"><a href="code-from-week-5.html#cb52-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span>  <span class="ex">//</span> Randomly sample 5% of chromosomes</span>
+<span id="cb52-27"><a href="code-from-week-5.html#cb52-27" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   <span class="ex">//</span> Add new mutation</span>
+<span id="cb52-28"><a href="code-from-week-5.html#cb52-28" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb52-29"><a href="code-from-week-5.html#cb52-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-30"><a href="code-from-week-5.html#cb52-30" aria-hidden="true" tabindex="-1"></a><span class="ex">300</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb52-31"><a href="code-from-week-5.html#cb52-31" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpopSplit</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 5000, p1<span class="kw">);</span></span>
+<span id="cb52-32"><a href="code-from-week-5.html#cb52-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.0<span class="kw">);</span></span>
+<span id="cb52-33"><a href="code-from-week-5.html#cb52-33" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.0<span class="kw">);</span></span>
+<span id="cb52-34"><a href="code-from-week-5.html#cb52-34" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb52-35"><a href="code-from-week-5.html#cb52-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-36"><a href="code-from-week-5.html#cb52-36" aria-hidden="true" tabindex="-1"></a><span class="ex">400:700</span> mutationEffect<span class="er">(</span><span class="ex">m2,</span> p2<span class="kw">)</span> <span class="kw">{</span> <span class="cf">return</span> <span class="ex">effect</span> + 0.1<span class="kw">;</span> <span class="kw">}</span></span>
+<span id="cb52-37"><a href="code-from-week-5.html#cb52-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-38"><a href="code-from-week-5.html#cb52-38" aria-hidden="true" tabindex="-1"></a><span class="ex">300:2000</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb52-39"><a href="code-from-week-5.html#cb52-39" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="ex">c</span><span class="er">(</span><span class="fu">sum</span><span class="er">(</span><span class="ex">p1.genomes.countOfMutationsOfType</span><span class="er">(</span><span class="ex">m2</span><span class="kw">))</span><span class="ex">,</span></span>
+<span id="cb52-40"><a href="code-from-week-5.html#cb52-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span><span class="er">(</span><span class="ex">p2.genomes.countOfMutationsOfType</span><span class="er">(</span><span class="ex">m2</span><span class="kw">))));</span></span>
+<span id="cb52-41"><a href="code-from-week-5.html#cb52-41" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
 
-</div>
 </div>
 <hr>
 <center> 
@@ -343,8 +323,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="week-2-assignment.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="code-from-week-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="different-conditions-for-different-populations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-5-assignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
