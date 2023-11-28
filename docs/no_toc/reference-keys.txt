@@ -57,6 +57,7 @@ maximumminimum-population-size
 exercise-1
 growth-rate-dependent-on-fitness
 exercise-2
+different-conditions-for-different-populations
 papers-of-interest
 week-3---multiple-populations
 week-2---selection-and-sweeps
