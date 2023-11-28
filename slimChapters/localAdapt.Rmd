@@ -1,0 +1,114 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Different Conditions for Different Populations
+
+Now that we have developed models with multiple populations, we can create different conditions for our populations. One of the simplest ways to do this is to change the fitness effect of a mutation in a population-specific manner. Let's model this by simulating local adaptation - that is to say, when an allele that is beneficial in one specific environment while being neutral in all others. 
+
+We can start by initializing a simple two population model, with a common neutral mutation and a deleterious allele type that isn't yet used. Let's set a relatively low (1%) migration rate between both populations. 
+
+```{r, engine='bash', eval=FALSE}
+initialize() {
+	initializeMutationRate(1e-7);
+	
+	initializeMutationType("m1", 0.5, "f", 0.0); // m1 mutation type: neutral
+	initializeMutationType("m2", 0.5, "f", -0.03); // m2 mutation type: deleterious
+	m2.convertToSubstitution = F;
+	
+	initializeGenomicElementType("g1", m1, 1.0);
+	
+	// uniform chromosome of length 100 kb with uniform recombination
+	initializeGenomicElement(g1, 0, 9999);
+	initializeRecombinationRate(1e-8);
+}
+
+// create two populations of 500 individuals
+// 1% migration rate in both directions 
+1 early() {
+	sim.addSubpop("p1", 500);
+	sim.addSubpop("p2", 500);
+	p1.setMigrationRates(p2, 0.01);
+	p2.setMigrationRates(p1, 0.01);
+}
+```
+
+Now, let's add deleterious `m2` mutations into `p1` at a frequency of 5%.
+
+```{r, engine='bash', eval=FALSE}
+400 late() {
+    p1_size = size(p1.genomes);  // Count how many chromosomes we have 
+    initial_freq = asInteger(p1_size * 0.05);  // Find 5% of total number of chromosomes
+    target = sample(p1.genomes, initial_freq);  // Randomly sample 5% of chromosomes
+    target.addNewDrawnMutation(m2, 1000);   // Add new mutation
+}
+```
+
+If you run this simulation a few times, you'll see that `m2` will always disappear. We can create population specific effects for our mutation using the `mutationEffect()` function. 
+
+For example, we can add in the following line of code:
+
+`mutationEffect(m2, p2) { return 1.1; }`
+
+Let's break this down: 
+
+* Because no generation/tick numbers are provided, this mutationEffect will persist until the end of the simulation. If we wanted to temporarily modify the mutation effect, we could write something like: `400:600 mutationEffect(m2, p2) { return 1.1; }`
+* `(m2, p2)` indicates that we are modifying the effect of `m2` in the population `p2`. We could have provided the argument `(m2)` to modify the effect of `m2` across all populations. 
+* `return 1.1;` indicates how we want to modify our mutation effect. Two things happen here. **1.** The previous mutation effect of the mutation is ignored. Specifically, the previous value of `-0.03` is forgotten. **2.** To calculate our new fitness, we multiply the individual's fitness by the value provided here. That is, our fitness is calculated as 1.1 * current fitness. In other words, to make a mutation neutral, we would write `return 1.0;`. To make it deleterious, we would return a value lower than 1. 
+
+Another way of writing this statement is by directly modifying the fitness effect of our mutation: `mutationEffect(m2, p2) { return effect + 0.05; }`. This takes our fitness value, `-0.03`, and updates it to be `-0.03 + 0.05`, or `0.02`. 
+
+Putting this all together, along with a line that prints out our allele count for `m2` in both populations; 
+
+```{r, engine='bash', eval=FALSE}
+initialize() {
+	initializeMutationRate(1e-7);
+	
+	initializeMutationType("m1", 0.5, "f", 0.0); // m1 mutation type: neutral
+	initializeMutationType("m2", 0.5, "f", -0.03); // m2 mutation type: deleterious
+	m2.convertToSubstitution = F;
+	
+	initializeGenomicElementType("g1", m1, 1.0);
+	
+	// uniform chromosome of length 100 kb with uniform recombination
+	initializeGenomicElement(g1, 0, 9999);
+	initializeRecombinationRate(1e-8);
+}
+
+
+// create two populations of 500 individuals
+// 1% migration rate in both directions 
+1 early() {
+	sim.addSubpop("p1", 500);
+	sim.addSubpop("p2", 500);
+	p1.setMigrationRates(p2, 0.01);
+	p2.setMigrationRates(p1, 0.01);
+}
+
+400 late() {
+    p1_size = size(p1.genomes);  // Count how many chromosomes we have 
+    initial_freq = asInteger(p1_size * 0.05);  // Find 5% of total number of chromosomes
+    target = sample(p1.genomes, initial_freq);  // Randomly sample 5% of chromosomes
+    target.addNewDrawnMutation(m2, 1000);   // Add new mutation
+}
+
+// modify our mutation to be beneficial in p2
+mutationEffect(m2, p2) { return effect + 0.1; } 
+
+// print out m2 count in both populations 
+400:1000 late() {
+print(c(sum(p1.genomes.countOfMutationsOfType(m2)),
+	sum(p2.genomes.countOfMutationsOfType(m2))));
+}
+```
+
+
+
+
+
+
+
+
+
+
+
