@@ -1,0 +1,51 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Code from Week 5
+
+Here is the final simulation developed in class: 
+
+```{r, engine='bash', eval=FALSE}
+// set up a simple neutral simulation
+initialize() {
+	initializeMutationRate(1e-7);
+	
+	// m1 mutation type: neutral
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeMutationType("m2", 0.5, "f", -0.03);
+	m2.convertToSubstitution=F; 
+	
+	// g1 genomic element type: uses m1 for all mutations
+	initializeGenomicElementType("g1", m1, 1.0);
+	
+	// uniform chromosome of length 100 kb with uniform recombination
+	initializeGenomicElement(g1, 0, 99999);
+	initializeRecombinationRate(1e-8);
+}
+
+// create a population of 500 individuals
+1 early() {
+	sim.addSubpop("p1", 5000);
+}
+
+299 late() {
+   p1_size = size(p1.genomes);  // Count how many chromosomes we have 
+    initial_freq = asInteger(p1_size * 0.05);  // Find 5% of total number of chromosomes
+    target = sample(p1.genomes, initial_freq);  // Randomly sample 5% of chromosomes
+    target.addNewDrawnMutation(m2, 1000);   // Add new mutation
+}
+
+300 early() {
+	sim.addSubpopSplit("p2", 5000, p1);
+	p2.setMigrationRates(p1, 0.0);
+	p1.setMigrationRates(p2, 0.0);
+}
+
+400:700 mutationEffect(m2, p2) { return effect + 0.1; }
+
+300:2000 late() {
+print(c(sum(p1.genomes.countOfMutationsOfType(m2)),
+    sum(p2.genomes.countOfMutationsOfType(m2))));
+}
+```
