@@ -66,6 +66,22 @@ ggplot(data = my_data, aes(x = column_for_x_axis, y = column_for_y_axis, color =
   labs(colour="Column that color is based on") # indicate that the color is based on whatever column you chose   
 ```
 
+### Saving a plot 
+
+When you're done with your plot, you can save it by going to the file menu and exporting it as you would any other file. Or you can do so in R code with the function `ggsave()`: 
+
+```{r, engine='R', eval=FALSE}
+# assign your plot to an object 
+plot1 <- ggplot(data = my_data, aes(x = column_for_x_axis, y = column_for_y_axis, color = as.factor(column_to_base_colors_on))) + 
+  geom_line() + # create a line plot 
+  theme_classic() + # apply a theme
+  labs(colour="Column that color is based on")
+
+ggsave(plot1, "filepath/filename.pdf")
+```
+
+The function `ggsave()` is built-in to the `ggplot2` package. It expects two arguments: the variable name of the plot you're interested in printing, and then the name of the file (along with full file path) you'd like to save the image to. 
+
 ### Assignment 
 
 1. Work through the ggplot2 [tutorial](https://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html). 
@@ -80,6 +96,8 @@ ggplot(data = my_data, aes(x = column_for_x_axis, y = column_for_y_axis, color =
 3c. Add an aesthetic to color each allele frequency trajectory by the value in the `Trial` column. Consider using the `as.factor()` [function](https://www.educative.io/answers/what-is-the-asfactor-function-in-r) to ensure each trial is treated as a discrete variable and plotted in a distinct color. 
 3d. Limit the x axis to include only values from 0 to 4000. 
 3e. Explore various [themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) available in `ggplot2` and apply one to your plot. 
+
+4. Email your code and the resulting `pdf` files for the images. 
 
 
 
