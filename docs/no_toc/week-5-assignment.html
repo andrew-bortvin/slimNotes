@@ -257,12 +257,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="splitting-populations" class="section level3" number="3.17.1">
 <h3><span class="header-section-number">3.17.1</span> Splitting Populations</h3>
 <p>We can put together many of the simulation techniques we’ve learned so far by creating a model for early human evolution, as presented in Gravel et al. 2011: <a href="https://www.pnas.org/doi/full/10.1073/pnas.1019276108" class="uri">https://www.pnas.org/doi/full/10.1073/pnas.1019276108</a>.</p>
-<p>To build this simulation please…
-1. Initialize the necessary parameters in your <code>initialize()</code> statement
-2. Create an ancestral African population (with about 7,000 individuals) and allow for a burn-in period of approximately 73,000 generations
-3. Split the population at about the 77,000th generation, creating a Eurasian population. Allow migration between the two
-4. Split the Eurasian population into two at about the 78,000th generation, creating a European and an Asian population. allow migration between all three populations
-5. Set up exponential growth in the European and Asian populations for the following 1000 generations (see the hint below for this code)</p>
+<p>To build this simulation please…</p>
+<ol style="list-style-type: decimal">
+<li>Initialize the necessary parameters in your <code>initialize()</code> statement</li>
+<li>Create an ancestral African population (with about 7,000 individuals) and allow for a burn-in period of approximately 73,000 generations</li>
+<li>Split the population at about the 77,000th generation, creating a Eurasian population. Allow migration between the two</li>
+<li>Split the Eurasian population into two at about the 78,000th generation, creating a European and an Asian population. allow migration between all three populations</li>
+<li>Set up exponential growth in the European and Asian populations for the following 1000 generations (see the hint below for this code)</li>
+</ol>
 <p>Please keep in mind a few things for this simulation. First, the suggested population sizes are the effective population. Second, we’re suggesting round numbers that will broadly represent the model presented in Gravel 2011; for more exact numbers, see the SLiM manual on page 135. Please submit your SLiM code (ideally exported as a .txt file) for this simulation.</p>
 <p>For exponential growth, you can do something like the below. Here we’ve decided to start the exponential growth in the 78000th generation and continue it until the 79000th generation. We’ve started the p2 population as 1000 individuals. You can change these values if you like. However, we do suggest using the 1 + 0.003789 value for the time measurement.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb48-1"><a href="week-5-assignment.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> do this at the start of each generation from 78,000 to 79,000</span>
