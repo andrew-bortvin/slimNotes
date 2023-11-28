@@ -219,6 +219,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.17" data-path="week-5-assignment.html"><a href="week-5-assignment.html"><i class="fa fa-check"></i><b>3.17</b> Week 5 Assignment</a>
 <ul>
 <li class="chapter" data-level="3.17.1" data-path="week-5-assignment.html"><a href="week-5-assignment.html#splitting-populations"><i class="fa fa-check"></i><b>3.17.1</b> Splitting Populations</a></li>
+<li class="chapter" data-level="3.17.2" data-path="week-5-assignment.html"><a href="week-5-assignment.html#local-adaptation"><i class="fa fa-check"></i><b>3.17.2</b> Local Adaptation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="papers-of-interest.html"><a href="papers-of-interest.html"><i class="fa fa-check"></i><b>4</b> Papers of Interest</a>
@@ -272,21 +273,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb48-6"><a href="week-5-assignment.html#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">//</span> fill in similar syntax for p3_size</span>
 <span id="cb48-7"><a href="week-5-assignment.html#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">p2.setSubpopulationSize</span><span class="er">(</span><span class="ex">asInteger</span><span class="er">(</span><span class="ex">p2_size</span><span class="kw">));</span></span>
 <span id="cb48-8"><a href="week-5-assignment.html#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">//</span> fill in similar syntax for p3</span>
-<span id="cb48-9"><a href="week-5-assignment.html#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb48-10"><a href="week-5-assignment.html#cb48-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-11"><a href="week-5-assignment.html#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="co">### Local Adaptation </span></span>
-<span id="cb48-12"><a href="week-5-assignment.html#cb48-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-13"><a href="week-5-assignment.html#cb48-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Sometimes</span> a population effectively splits into two populations and experiences some force <span class="er">(</span><span class="ex">e.g.,</span> migration<span class="kw">)</span> <span class="ex">such</span> that the resulting subpopulations are subject to different selective pressures. For example, turtles on the Galapagos Islands have extremely different traits <span class="er">(</span><span class="st">&quot;phenotypes&quot;</span><span class="kw">)</span><span class="ex">,</span> likely as a consequence of their local environments. Create a simulation that starts with one population of turtles, then has the population split. Imagine that one population is on an area of the island with low-growth vegetation, such that a short neck is sufficient to eat and survive<span class="kw">;</span> <span class="ex">but</span> the other population is on an area of the island with higher-growth vegetation, such that the short neck is detrimental to survival. A longer neck is survivable in the low-growth vegetation population, but those turtles do have reduced fitness relative to the shorter neck individuals <span class="er">(</span><span class="ex">e.g.,</span> maybe their necks get tired from leaning down to get the vegetation and need to rest more<span class="kw">)</span><span class="bu">.</span> </span>
-<span id="cb48-14"><a href="week-5-assignment.html#cb48-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-15"><a href="week-5-assignment.html#cb48-15" aria-hidden="true" tabindex="-1"></a><span class="ex">In</span> both populations, track the mutation for shorter neck and longer neck. What do you notice<span class="pp">?</span> Modify your simulation to allow low rates of migration between the two populations. Any difference in the allele rates in either population<span class="pp">?</span> </span>
-<span id="cb48-16"><a href="week-5-assignment.html#cb48-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-17"><a href="week-5-assignment.html#cb48-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-18"><a href="week-5-assignment.html#cb48-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-19"><a href="week-5-assignment.html#cb48-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-20"><a href="week-5-assignment.html#cb48-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-21"><a href="week-5-assignment.html#cb48-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-22"><a href="week-5-assignment.html#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-23"><a href="week-5-assignment.html#cb48-23" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>!--chapter:end:slimChapters/assignment5.Rmd--<span class="op">&gt;</span></span></code></pre></div>
+<span id="cb48-9"><a href="week-5-assignment.html#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+</div>
+<div id="local-adaptation" class="section level3" number="3.17.2">
+<h3><span class="header-section-number">3.17.2</span> Local Adaptation</h3>
+<p>Sometimes a population effectively splits into two populations and experiences some force (e.g., migration) such that the resulting subpopulations are subject to different selective pressures. For example, turtles on the Galapagos Islands have extremely different traits (“phenotypes”), likely as a consequence of their local environments. Create a simulation that starts with one population of turtles, then has the population split. Imagine that one population is on an area of the island with low-growth vegetation, such that a short neck is sufficient to eat and survive; but the other population is on an area of the island with higher-growth vegetation, such that the short neck is detrimental to survival. A longer neck is survivable in the low-growth vegetation population, but those turtles do have reduced fitness relative to the shorter neck individuals (e.g., maybe their necks get tired from leaning down to get the vegetation and need to rest more).</p>
+<p>In both populations, track the mutation for shorter neck and longer neck. What do you notice? Modify your simulation to allow low rates of migration between the two populations. Any difference in the allele rates in either population?</p>
+
 </div>
 </div>
 <!-- </div> -->

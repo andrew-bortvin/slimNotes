@@ -60,6 +60,7 @@ exercise-2
 different-conditions-for-different-populations
 week-5-assignment
 splitting-populations
+local-adaptation
 papers-of-interest
 week-3---multiple-populations
 week-2---selection-and-sweeps
