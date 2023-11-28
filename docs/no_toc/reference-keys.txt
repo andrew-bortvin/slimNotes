@@ -49,6 +49,15 @@ code-from-week-3
 week-3-assignment
 multiple-populations---graphic
 multiple-populations---real-world
+plotting-in-r
+visualizing-simulations
+r-basics
+reading-data-in-to-r
+using-published-packages
+psuedocode
+ggplot2-basics
+saving-a-plot
+assignment
 variable-population-size
 changing-population-size
 exercise
@@ -58,6 +67,7 @@ exercise-1
 growth-rate-dependent-on-fitness
 exercise-2
 different-conditions-for-different-populations
+code-from-week-5
 week-5-assignment
 splitting-populations
 local-adaptation
