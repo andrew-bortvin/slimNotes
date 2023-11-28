@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 SLiM Guide | Syllabus</title>
+  <title>3.16 Different Conditions for Different Populations | Syllabus</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 SLiM Guide | Syllabus" />
+  <meta property="og:title" content="3.16 Different Conditions for Different Populations | Syllabus" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 SLiM Guide | Syllabus" />
+  <meta name="twitter:title" content="3.16 Different Conditions for Different Populations | Syllabus" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="syllabus-population-genetics-simulation-visualization.html"/>
-<link rel="next" href="a-basic-slim-simulation.html"/>
+<link rel="prev" href="variable-population-size.html"/>
+<link rel="next" href="papers-of-interest.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -247,10 +247,92 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="slim-guide" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> SLiM Guide</h1>
-<p>Notes on usage of SLiM for evolutionary modeling. Adapted from the SLiM manual: <a href="http://benhaller.com/slim/SLiM_Manual.pdf" class="uri">http://benhaller.com/slim/SLiM_Manual.pdf</a></p>
+<div id="different-conditions-for-different-populations" class="section level2" number="3.16">
+<h2><span class="header-section-number">3.16</span> Different Conditions for Different Populations</h2>
+<p>Now that we have developed models with multiple populations, we can create different conditions for our populations. One of the simplest ways to do this is to change the fitness effect of a mutation in a population-specific manner. Let’s model this by simulating local adaptation - that is to say, when an allele that is beneficial in one specific environment while being neutral in all others.</p>
+<p>We can start by initializing a simple two population model, with a common neutral mutation and a deleterious allele type that isn’t yet used. Let’s set a relatively low (1%) migration rate between both populations.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="different-conditions-for-different-populations.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span> <span class="kw">{</span></span>
+<span id="cb45-2"><a href="different-conditions-for-different-populations.html#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
+<span id="cb45-3"><a href="different-conditions-for-different-populations.html#cb45-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-4"><a href="different-conditions-for-different-populations.html#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span> <span class="ex">//</span> m1 mutation type: neutral</span>
+<span id="cb45-5"><a href="different-conditions-for-different-populations.html#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, <span class="at">-0.03</span><span class="kw">);</span> <span class="ex">//</span> m2 mutation type: deleterious</span>
+<span id="cb45-6"><a href="different-conditions-for-different-populations.html#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution</span> = F<span class="kw">;</span></span>
+<span id="cb45-7"><a href="different-conditions-for-different-populations.html#cb45-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-8"><a href="different-conditions-for-different-populations.html#cb45-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1.0<span class="kw">);</span></span>
+<span id="cb45-9"><a href="different-conditions-for-different-populations.html#cb45-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-10"><a href="different-conditions-for-different-populations.html#cb45-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> uniform chromosome of length 100 kb with uniform recombination</span>
+<span id="cb45-11"><a href="different-conditions-for-different-populations.html#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 9999<span class="kw">);</span></span>
+<span id="cb45-12"><a href="different-conditions-for-different-populations.html#cb45-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
+<span id="cb45-13"><a href="different-conditions-for-different-populations.html#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb45-14"><a href="different-conditions-for-different-populations.html#cb45-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-15"><a href="different-conditions-for-different-populations.html#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> create two populations of 500 individuals</span>
+<span id="cb45-16"><a href="different-conditions-for-different-populations.html#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> 1% migration rate in both directions </span>
+<span id="cb45-17"><a href="different-conditions-for-different-populations.html#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb45-18"><a href="different-conditions-for-different-populations.html#cb45-18" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb45-19"><a href="different-conditions-for-different-populations.html#cb45-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb45-20"><a href="different-conditions-for-different-populations.html#cb45-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.01<span class="kw">);</span></span>
+<span id="cb45-21"><a href="different-conditions-for-different-populations.html#cb45-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.01<span class="kw">);</span></span>
+<span id="cb45-22"><a href="different-conditions-for-different-populations.html#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>Now, let’s add deleterious <code>m2</code> mutations into <code>p1</code> at a frequency of 5%.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="different-conditions-for-different-populations.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="ex">400</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb46-2"><a href="different-conditions-for-different-populations.html#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span>  <span class="ex">//</span> Count how many chromosomes we have </span>
+<span id="cb46-3"><a href="different-conditions-for-different-populations.html#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> 0.05<span class="kw">);</span>  <span class="ex">//</span> Find 5% of total number of chromosomes</span>
+<span id="cb46-4"><a href="different-conditions-for-different-populations.html#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span>  <span class="ex">//</span> Randomly sample 5% of chromosomes</span>
+<span id="cb46-5"><a href="different-conditions-for-different-populations.html#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   <span class="ex">//</span> Add new mutation</span>
+<span id="cb46-6"><a href="different-conditions-for-different-populations.html#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>If you run this simulation a few times, you’ll see that <code>m2</code> will always disappear. We can create population specific effects for our mutation using the <code>mutationEffect()</code> function.</p>
+<p>For example, we can add in the following line of code:</p>
+<p><code>mutationEffect(m2, p2) { return 1.1; }</code></p>
+<p>Let’s break this down:</p>
+<ul>
+<li>Because no generation/tick numbers are provided, this mutationEffect will persist until the end of the simulation. If we wanted to temporarily modify the mutation effect, we could write something like: <code>400:600 mutationEffect(m2, p2) { return 1.1; }</code></li>
+<li><code>(m2, p2)</code> indicates that we are modifying the effect of <code>m2</code> in the population <code>p2</code>. We could have provided the argument <code>(m2)</code> to modify the effect of <code>m2</code> across all populations.</li>
+<li><code>return 1.1;</code> indicates how we want to modify our mutation effect. Two things happen here. <strong>1.</strong> The previous mutation effect of the mutation is ignored. Specifically, the previous value of <code>-0.03</code> is forgotten. <strong>2.</strong> To calculate our new fitness, we multiply the individual’s fitness by the value provided here. That is, our fitness is calculated as 1.1 * current fitness. In other words, to make a mutation neutral, we would write <code>return 1.0;</code>. To make it deleterious, we would return a value lower than 1.</li>
+</ul>
+<p>Another way of writing this statement is by directly modifying the fitness effect of our mutation: <code>mutationEffect(m2, p2) { return effect + 0.05; }</code>. This takes our fitness value, <code>-0.03</code>, and updates it to be <code>-0.03 + 0.05</code>, or <code>0.02</code>.</p>
+<p>Putting this all together, along with a line that prints out our allele count for <code>m2</code> in both populations;</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="different-conditions-for-different-populations.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span> <span class="kw">{</span></span>
+<span id="cb47-2"><a href="different-conditions-for-different-populations.html#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
+<span id="cb47-3"><a href="different-conditions-for-different-populations.html#cb47-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb47-4"><a href="different-conditions-for-different-populations.html#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span> <span class="ex">//</span> m1 mutation type: neutral</span>
+<span id="cb47-5"><a href="different-conditions-for-different-populations.html#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, <span class="at">-0.03</span><span class="kw">);</span> <span class="ex">//</span> m2 mutation type: deleterious</span>
+<span id="cb47-6"><a href="different-conditions-for-different-populations.html#cb47-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution</span> = F<span class="kw">;</span></span>
+<span id="cb47-7"><a href="different-conditions-for-different-populations.html#cb47-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb47-8"><a href="different-conditions-for-different-populations.html#cb47-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1.0<span class="kw">);</span></span>
+<span id="cb47-9"><a href="different-conditions-for-different-populations.html#cb47-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb47-10"><a href="different-conditions-for-different-populations.html#cb47-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> uniform chromosome of length 100 kb with uniform recombination</span>
+<span id="cb47-11"><a href="different-conditions-for-different-populations.html#cb47-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 9999<span class="kw">);</span></span>
+<span id="cb47-12"><a href="different-conditions-for-different-populations.html#cb47-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
+<span id="cb47-13"><a href="different-conditions-for-different-populations.html#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb47-14"><a href="different-conditions-for-different-populations.html#cb47-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-15"><a href="different-conditions-for-different-populations.html#cb47-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-16"><a href="different-conditions-for-different-populations.html#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> create two populations of 500 individuals</span>
+<span id="cb47-17"><a href="different-conditions-for-different-populations.html#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> 1% migration rate in both directions </span>
+<span id="cb47-18"><a href="different-conditions-for-different-populations.html#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb47-19"><a href="different-conditions-for-different-populations.html#cb47-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb47-20"><a href="different-conditions-for-different-populations.html#cb47-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 500<span class="kw">);</span></span>
+<span id="cb47-21"><a href="different-conditions-for-different-populations.html#cb47-21" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.01<span class="kw">);</span></span>
+<span id="cb47-22"><a href="different-conditions-for-different-populations.html#cb47-22" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.01<span class="kw">);</span></span>
+<span id="cb47-23"><a href="different-conditions-for-different-populations.html#cb47-23" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb47-24"><a href="different-conditions-for-different-populations.html#cb47-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-25"><a href="different-conditions-for-different-populations.html#cb47-25" aria-hidden="true" tabindex="-1"></a><span class="ex">400</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb47-26"><a href="different-conditions-for-different-populations.html#cb47-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span>  <span class="ex">//</span> Count how many chromosomes we have </span>
+<span id="cb47-27"><a href="different-conditions-for-different-populations.html#cb47-27" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> 0.05<span class="kw">);</span>  <span class="ex">//</span> Find 5% of total number of chromosomes</span>
+<span id="cb47-28"><a href="different-conditions-for-different-populations.html#cb47-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span>  <span class="ex">//</span> Randomly sample 5% of chromosomes</span>
+<span id="cb47-29"><a href="different-conditions-for-different-populations.html#cb47-29" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   <span class="ex">//</span> Add new mutation</span>
+<span id="cb47-30"><a href="different-conditions-for-different-populations.html#cb47-30" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb47-31"><a href="different-conditions-for-different-populations.html#cb47-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-32"><a href="different-conditions-for-different-populations.html#cb47-32" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> modify our mutation to be beneficial in p2</span>
+<span id="cb47-33"><a href="different-conditions-for-different-populations.html#cb47-33" aria-hidden="true" tabindex="-1"></a><span class="ex">mutationEffect</span><span class="er">(</span><span class="ex">m2,</span> p2<span class="kw">)</span> <span class="kw">{</span> <span class="cf">return</span> <span class="ex">effect</span> + 0.1<span class="kw">;</span> <span class="kw">}</span> </span>
+<span id="cb47-34"><a href="different-conditions-for-different-populations.html#cb47-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-35"><a href="different-conditions-for-different-populations.html#cb47-35" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> print out m2 count in both populations </span>
+<span id="cb47-36"><a href="different-conditions-for-different-populations.html#cb47-36" aria-hidden="true" tabindex="-1"></a><span class="ex">400:1000</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb47-37"><a href="different-conditions-for-different-populations.html#cb47-37" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="ex">c</span><span class="er">(</span><span class="fu">sum</span><span class="er">(</span><span class="ex">p1.genomes.countOfMutationsOfType</span><span class="er">(</span><span class="ex">m2</span><span class="kw">))</span><span class="ex">,</span></span>
+<span id="cb47-38"><a href="different-conditions-for-different-populations.html#cb47-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span><span class="er">(</span><span class="ex">p2.genomes.countOfMutationsOfType</span><span class="er">(</span><span class="ex">m2</span><span class="kw">))));</span></span>
+<span id="cb47-39"><a href="different-conditions-for-different-populations.html#cb47-39" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+
 </div>
+<!-- </div> -->
 <hr>
 <center> 
   <div class="footer">
@@ -264,8 +346,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="syllabus-population-genetics-simulation-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="a-basic-slim-simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="variable-population-size.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="papers-of-interest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
