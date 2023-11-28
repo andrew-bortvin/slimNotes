@@ -9,6 +9,7 @@ ottrpal::set_knitr_image_path()
 We can put together many of the simulation techniques we've learned so far by creating a model for early human evolution, as presented in Gravel et al. 2011: https://www.pnas.org/doi/full/10.1073/pnas.1019276108. 
 
 To build this simulation please... 
+
 1. Initialize the necessary parameters in your `initialize()` statement 
 2. Create an ancestral African population (with about 7,000 individuals) and allow for a burn-in period of approximately 73,000 generations 
 3. Split the population at about the 77,000th generation, creating a Eurasian population. Allow migration between the two 
