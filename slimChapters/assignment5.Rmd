@@ -18,6 +18,7 @@ To build this simulation please...
 Please keep in mind a few things for this simulation. First, the suggested population sizes are the effective population. Second, we're suggesting round numbers that will broadly represent the model presented in Gravel 2011; for more exact numbers, see the SLiM manual on page 135. Please submit your SLiM code (ideally exported as a .txt file) for this simulation. 
 
 For exponential growth, you can do something like the below. Here we've decided to start the exponential growth in the 78000th generation and continue it until the 79000th generation. We've started the p2 population as 1000 individuals. You can change these values if you like. However, we do suggest using the 1 + 0.003789 value for the time measurement. 
+
 ```{r, engine='bash', eval=FALSE}
 // do this at the start of each generation from 78,000 to 79,000
 78000:79000 early() { 
@@ -28,7 +29,7 @@ For exponential growth, you can do something like the below. Here we've decided 
   p2.setSubpopulationSize(asInteger(p2_size));
   // fill in similar syntax for p3
 }
-
+```
 ### Local Adaptation 
 
 Sometimes a population effectively splits into two populations and experiences some force (e.g., migration) such that the resulting subpopulations are subject to different selective pressures. For example, turtles on the Galapagos Islands have extremely different traits ("phenotypes"), likely as a consequence of their local environments. Create a simulation that starts with one population of turtles, then has the population split. Imagine that one population is on an area of the island with low-growth vegetation, such that a short neck is sufficient to eat and survive; but the other population is on an area of the island with higher-growth vegetation, such that the short neck is detrimental to survival. A longer neck is survivable in the low-growth vegetation population, but those turtles do have reduced fitness relative to the shorter neck individuals (e.g., maybe their necks get tired from leaning down to get the vegetation and need to rest more). 
