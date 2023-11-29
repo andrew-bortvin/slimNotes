@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.18 Code from Week 5 | Syllabus</title>
+  <title>3.15 Week 4 Assignment | Syllabus</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.18 Code from Week 5 | Syllabus" />
+  <meta property="og:title" content="3.15 Week 4 Assignment | Syllabus" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.18 Code from Week 5 | Syllabus" />
+  <meta name="twitter:title" content="3.15 Week 4 Assignment | Syllabus" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="different-conditions-for-different-populations.html"/>
-<link rel="next" href="week-5-assignment.html"/>
+<link rel="prev" href="week-3-assignment.html"/>
+<link rel="next" href="variable-population-size.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -264,51 +264,92 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="code-from-week-5" class="section level2" number="3.18">
-<h2><span class="header-section-number">3.18</span> Code from Week 5</h2>
-<p>Here is the final simulation developed in class:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb52-1"><a href="code-from-week-5.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> set up a simple neutral simulation</span>
-<span id="cb52-2"><a href="code-from-week-5.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span> <span class="kw">{</span></span>
-<span id="cb52-3"><a href="code-from-week-5.html#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
-<span id="cb52-4"><a href="code-from-week-5.html#cb52-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb52-5"><a href="code-from-week-5.html#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> m1 mutation type: neutral</span>
-<span id="cb52-6"><a href="code-from-week-5.html#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span></span>
-<span id="cb52-7"><a href="code-from-week-5.html#cb52-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, <span class="at">-0.03</span><span class="kw">);</span></span>
-<span id="cb52-8"><a href="code-from-week-5.html#cb52-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution=F</span><span class="kw">;</span> </span>
-<span id="cb52-9"><a href="code-from-week-5.html#cb52-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb52-10"><a href="code-from-week-5.html#cb52-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> g1 genomic element type: uses m1 for all mutations</span>
-<span id="cb52-11"><a href="code-from-week-5.html#cb52-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1.0<span class="kw">);</span></span>
-<span id="cb52-12"><a href="code-from-week-5.html#cb52-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb52-13"><a href="code-from-week-5.html#cb52-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> uniform chromosome of length 100 kb with uniform recombination</span>
-<span id="cb52-14"><a href="code-from-week-5.html#cb52-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 99999<span class="kw">);</span></span>
-<span id="cb52-15"><a href="code-from-week-5.html#cb52-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-8</span><span class="kw">);</span></span>
-<span id="cb52-16"><a href="code-from-week-5.html#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb52-17"><a href="code-from-week-5.html#cb52-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-18"><a href="code-from-week-5.html#cb52-18" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> create a population of 500 individuals</span>
-<span id="cb52-19"><a href="code-from-week-5.html#cb52-19" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb52-20"><a href="code-from-week-5.html#cb52-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 5000<span class="kw">);</span></span>
-<span id="cb52-21"><a href="code-from-week-5.html#cb52-21" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb52-22"><a href="code-from-week-5.html#cb52-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-23"><a href="code-from-week-5.html#cb52-23" aria-hidden="true" tabindex="-1"></a><span class="ex">299</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb52-24"><a href="code-from-week-5.html#cb52-24" aria-hidden="true" tabindex="-1"></a>   <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span>  <span class="ex">//</span> Count how many chromosomes we have </span>
-<span id="cb52-25"><a href="code-from-week-5.html#cb52-25" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> 0.05<span class="kw">);</span>  <span class="ex">//</span> Find 5% of total number of chromosomes</span>
-<span id="cb52-26"><a href="code-from-week-5.html#cb52-26" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span>  <span class="ex">//</span> Randomly sample 5% of chromosomes</span>
-<span id="cb52-27"><a href="code-from-week-5.html#cb52-27" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   <span class="ex">//</span> Add new mutation</span>
-<span id="cb52-28"><a href="code-from-week-5.html#cb52-28" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb52-29"><a href="code-from-week-5.html#cb52-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-30"><a href="code-from-week-5.html#cb52-30" aria-hidden="true" tabindex="-1"></a><span class="ex">300</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb52-31"><a href="code-from-week-5.html#cb52-31" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpopSplit</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 5000, p1<span class="kw">);</span></span>
-<span id="cb52-32"><a href="code-from-week-5.html#cb52-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.0<span class="kw">);</span></span>
-<span id="cb52-33"><a href="code-from-week-5.html#cb52-33" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.0<span class="kw">);</span></span>
-<span id="cb52-34"><a href="code-from-week-5.html#cb52-34" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb52-35"><a href="code-from-week-5.html#cb52-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-36"><a href="code-from-week-5.html#cb52-36" aria-hidden="true" tabindex="-1"></a><span class="ex">400:700</span> mutationEffect<span class="er">(</span><span class="ex">m2,</span> p2<span class="kw">)</span> <span class="kw">{</span> <span class="cf">return</span> <span class="ex">effect</span> + 0.1<span class="kw">;</span> <span class="kw">}</span></span>
-<span id="cb52-37"><a href="code-from-week-5.html#cb52-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-38"><a href="code-from-week-5.html#cb52-38" aria-hidden="true" tabindex="-1"></a><span class="ex">300:2000</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
-<span id="cb52-39"><a href="code-from-week-5.html#cb52-39" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="ex">c</span><span class="er">(</span><span class="fu">sum</span><span class="er">(</span><span class="ex">p1.genomes.countOfMutationsOfType</span><span class="er">(</span><span class="ex">m2</span><span class="kw">))</span><span class="ex">,</span></span>
-<span id="cb52-40"><a href="code-from-week-5.html#cb52-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span><span class="er">(</span><span class="ex">p2.genomes.countOfMutationsOfType</span><span class="er">(</span><span class="ex">m2</span><span class="kw">))));</span></span>
-<span id="cb52-41"><a href="code-from-week-5.html#cb52-41" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<div id="week-4-assignment" class="section level2" number="3.15">
+<h2><span class="header-section-number">3.15</span> Week 4 Assignment</h2>
+<div id="visualizing-simulations" class="section level3" number="3.15.1">
+<h3><span class="header-section-number">3.15.1</span> Visualizing Simulations</h3>
+<p>So far in class and for homework we’ve simulated a variety of evolutionary dynamics and visualized their results with built-in plots in SLiM. In some cases, the things you’ll simulate will be best visualized by custom plots, which we’ll start writing in R. This introduction to R will be useful as you move into futher coding projects as the fundamentals of plotting will remain the same.</p>
+</div>
+<div id="r-basics" class="section level3" number="3.15.2">
+<h3><span class="header-section-number">3.15.2</span> R basics</h3>
+<p>A few coding terms:
+- function: code that is used to execute something (e.g., the <code>print()</code> function is the same in R as it is in SLiM)
+- package: a set of functions that already exist and can be loaded into your workspace
+- comment: in R, you indicate a comment with the pound (or hashtag) <code>#</code>
+- script: a file (typically with the suffix <code>.R</code>) that contains your R code</p>
+</div>
+<div id="reading-data-in-to-r" class="section level3" number="3.15.3">
+<h3><span class="header-section-number">3.15.3</span> Reading data in to R</h3>
+<p>To start your plot, you’ll need to have your data in your R workspace. Recall that you wrote the output of your allele frequency simulations to file; you created 3 different files, each exploring a unqiue set of parameters, so you could compare the dynamics resulting from changing those parameters (e.g., population size, selection coefficient). You can read those files (or any other file you’d like to investigate in R).</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="week-4-assignment.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in the data from your first allele frequency simulation</span></span>
+<span id="cb41-2"><a href="week-4-assignment.html#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="week-4-assignment.html#cb41-3" aria-hidden="true" tabindex="-1"></a>af1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/slim/AF_trial1.csv&quot;</span>)</span></code></pre></div>
+<p>In the above example, you’re using the <code>read.csv</code> function (which is built in to R) to save your allele frequency file with the variable name <code>af1</code>. If you did <code>head(af1)</code> or <code>print(af1)</code> you would see the contents of this file. We use the <code>read.csv</code> function becase your file was saved in csv (comma separated values) format, as you can see from the suffix of your filename.</p>
+</div>
+<div id="using-published-packages" class="section level3" number="3.15.4">
+<h3><span class="header-section-number">3.15.4</span> Using published packages</h3>
+<p>We will plot with the package <code>ggplot2</code>. This library offers a set of functions designed for visualizations in R. You can read more about it <a href="https://ggplot2.tidyverse.org/">here</a>.</p>
+<p>When using a new package, you’ll first need to install it into your workspace’s library. Each time you write a script you will load any package you wish to use from your library.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="week-4-assignment.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the first time you&#39;re using ggplot (or any package), install it</span></span>
+<span id="cb42-2"><a href="week-4-assignment.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb42-3"><a href="week-4-assignment.html#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="week-4-assignment.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># each time you want to use the package, load it in your script </span></span>
+<span id="cb42-5"><a href="week-4-assignment.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) </span></code></pre></div>
+<p>Note that the <code>install.packages()</code> function requires its argument to be in quotes (a string) but the <code>library()</code> function accepts a variable name without quotes.</p>
+</div>
+<div id="psuedocode" class="section level3" number="3.15.5">
+<h3><span class="header-section-number">3.15.5</span> Psuedocode</h3>
+<p>It is often helpful to outline in plain language (not code) what you intend to do in your script. This allows you to clearly outline your plans and design your plots without getting bogged down by the syntax of your code. Comments (which begin with the <code>#</code> in R) are a useful way to do this.</p>
+</div>
+<div id="ggplot2-basics" class="section level3" number="3.15.6">
+<h3><span class="header-section-number">3.15.6</span> <code>ggplot2</code> basics</h3>
+<p>The main function in <code>ggplot2</code> is very simply <code>ggplot()</code>. It then takes the major arguments <code>data</code> (which will be the data you read in from your file, i.e., <code>af1</code> in the above example) and <code>aes()</code>. <code>Aes()</code> is short for aesthetics; it usually includes the data column needed for the x axis and the data column needed for the y axis. It can also include the data column used for the color.</p>
+<p>Additional information is then applied to that function via <code>+</code>. To plot the frequency trajectory of an allele in a population, we’ll use a line plot; this is added through the <code>geom_line()</code> function. We’ll also specify which data column to label the information by via the <code>labs()</code> function.</p>
+<p>Check out the ggplot2 website above for examples of additional information and customization you can apply to your plots. You might consider <code>theme_classic()</code> or setting a limit on the x axis via <code>xlim()</code>, in addition to others.</p>
+<p>The syntax would therefore be something like:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="week-4-assignment.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create your plot </span></span>
+<span id="cb43-2"><a href="week-4-assignment.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> my_data, <span class="fu">aes</span>(<span class="at">x =</span> column_for_x_axis, <span class="at">y =</span> column_for_y_axis, <span class="at">color =</span> <span class="fu">as.factor</span>(column_to_base_colors_on))) <span class="sc">+</span> </span>
+<span id="cb43-3"><a href="week-4-assignment.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="co"># create a line plot </span></span>
+<span id="cb43-4"><a href="week-4-assignment.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="co"># apply a theme</span></span>
+<span id="cb43-5"><a href="week-4-assignment.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour=</span><span class="st">&quot;Column that color is based on&quot;</span>) <span class="co"># indicate that the color is based on whatever column you chose   </span></span></code></pre></div>
+</div>
+<div id="saving-a-plot" class="section level3" number="3.15.7">
+<h3><span class="header-section-number">3.15.7</span> Saving a plot</h3>
+<p>When you’re done with your plot, you can save it by going to the file menu and exporting it as you would any other file. Or you can do so in R code with the function <code>ggsave()</code>:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="week-4-assignment.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign your plot to an object </span></span>
+<span id="cb44-2"><a href="week-4-assignment.html#cb44-2" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> my_data, <span class="fu">aes</span>(<span class="at">x =</span> column_for_x_axis, <span class="at">y =</span> column_for_y_axis, <span class="at">color =</span> <span class="fu">as.factor</span>(column_to_base_colors_on))) <span class="sc">+</span> </span>
+<span id="cb44-3"><a href="week-4-assignment.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="co"># create a line plot </span></span>
+<span id="cb44-4"><a href="week-4-assignment.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="co"># apply a theme</span></span>
+<span id="cb44-5"><a href="week-4-assignment.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour=</span><span class="st">&quot;Column that color is based on&quot;</span>)</span>
+<span id="cb44-6"><a href="week-4-assignment.html#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="week-4-assignment.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(plot1, <span class="st">&quot;filepath/filename.pdf&quot;</span>)</span></code></pre></div>
+<p>The function <code>ggsave()</code> is built-in to the <code>ggplot2</code> package. It expects two arguments: the variable name of the plot you’re interested in printing, and then the name of the file (along with full file path) you’d like to save the image to.</p>
+</div>
+<div id="assignment" class="section level3" number="3.15.8">
+<h3><span class="header-section-number">3.15.8</span> Assignment</h3>
+<ol style="list-style-type: decimal">
+<li><p>Work through the ggplot2 <a href="https://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html">tutorial</a>.</p></li>
+<li><p>Plot the frequency trajectory of one allele in the population.</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Write psuedocode for each step (think about the x axis, the y axis, what style (e.g., scatterplot, line plot) would best represent your data and answer your question).</li>
+<li>Fill in the name of the data as well as the aesthetics (x and y). Remember that you’re plotting allele frequency, which is a measure of the number of a given allele in the population divided by the number of possible instances at that site. For example, if you have 10 copies of the allele A at a given position and there are 20 individuals in your population, there are 40 possible instances at that site (humans are diploid - two copies of each chromosome), so the frequency of the A allele is 10 / (20 * 2) = 0.25.</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>Update your code to include three additional allele frequency trajectories on a single plot. To do so, merge the data from the four allele frequency files into a single data structure.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Add any additional psuedocode necessary.</li>
+<li>Consider using the <code>rbind()</code> <a href="https://www.digitalocean.com/community/tutorials/rbind-function-r">function</a> to combine the information from the four trials into a single data structure.</li>
+<li>Add an aesthetic to color each allele frequency trajectory by the value in the <code>Trial</code> column. Consider using the <code>as.factor()</code> <a href="https://www.educative.io/answers/what-is-the-asfactor-function-in-r">function</a> to ensure each trial is treated as a discrete variable and plotted in a distinct color.</li>
+<li>Limit the x axis to include only values from 0 to 4000.</li>
+<li>Explore various <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">themes</a> available in <code>ggplot2</code> and apply one to your plot.</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>Email your code and the resulting <code>pdf</code> files for the images.</li>
+</ol>
 
+</div>
 </div>
 <hr>
 <center> 
@@ -323,8 +364,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="different-conditions-for-different-populations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-5-assignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-3-assignment.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="variable-population-size.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
