@@ -1,0 +1,89 @@
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+``` 
+
+## Code to plot in Week 6 
+
+Here is a simulation generating allele frequency (AF) trajectories, whereby local adaptation occurs in one population but not the other. Further, we include a burst of selection in that population. You can run this code and generate AF trajectory files for us to plot together in class using R; change "trialNumber" to 1, 2, 3 and 4 in each iteration to create 4 different AF files for each population. (We'll also send you the resulting files via email at the start of class, so we're all plotting the same thing.) 
+
+```{r, engine='bash', eval=FALSE}
+initialize(){
+    initializeMutationRate(1e-7);
+    // Create mutation type
+    initializeMutationType("m1", 0.5, "f", 0.0); // neutral mutation
+    initializeMutationType("m2", 1, "f", -0.05); // slightly deleterious mutation
+    m2.convertToSubstitution = F;
+    m1.convertToSubstitution = F;
+    
+    
+    // Create Types of DNA 
+    initializeGenomicElementType("g1", m1, 1);   
+    
+    // Arrange DNA into a genome
+    initializeGenomicElement(g1, 0, 3000);
+    
+    initializeRecombinationRate(1e-4);
+    
+    defineConstant('trialNumber', 1); // define the trial number
+    initializeSex("A");
+}
+
+1 early(){
+    sim.addSubpop("p1", 5000);
+}
+
+299 late() {
+   p1_size = size(p1.genomes);  // Count how many chromosomes we have 
+    initial_freq = asInteger(p1_size * 0.05);  // Find 5% of total number of chromosomes
+    target = sample(p1.genomes, initial_freq);  // Randomly sample 5% of chromosomes
+    target.addNewDrawnMutation(m2, 1000);   // Add new mutation
+}
+
+// split population and allow slight migration
+300 early() {
+    sim.addSubpopSplit("p2", 5000, p1);
+    p2.setMigrationRates(p1, 0.01);
+    p1.setMigrationRates(p2, 0.01);
+}
+
+300 late(){
+	// Initialize generation counter
+	sim.setValue("generationCount", 0);
+    
+    // Write the header for your files
+    line = "Generation, Allele.Frequency, Trial, Population";
+    
+    // Get a file name
+    // this is standard syntax for Mac; for PC, see https://andrew-bortvin.github.io/slimNotes/writing-output.html
+    defineConstant("fname_p1", paste("~/slim/p1_AF_trial", trialNumber, ".csv", sep =""));
+    defineConstant("fname_p2", paste("~/slim/p2_AF_trial", trialNumber, ".csv", sep =""));
+    
+    // Write to file (one for each population) 
+    writeFile(fname_p1, line, append=F); 
+    writeFile(fname_p2, line, append=F); 
+}
+
+// Create local adaptation for m2 in p2
+400:700 mutationEffect(m2, p2) { return effect + 0.1; }
+
+300:1000 late(){
+    gen = sim.getValue("generationCount");
+	// Record mutations in p1    
+    // Count number of m2 mutations 
+    m2_count_p1 = sum(p1.genomes.countOfMutationsOfType(m2));
+    // Write data to file
+    line_p1 = paste(gen, m2_count_p1, trialNumber, "p1", sep = ",");
+    writeFile(fname_p1, line_p1, append=T);
+    
+	// Record mutations in p2
+	 // Count number of m2 mutations
+    m2_count_p2 = sum(p2.genomes.countOfMutationsOfType(m2));
+    // Write data to file
+    line_p2 = paste(gen, m2_count_p2, trialNumber, "p2", sep = ",");    
+    writeFile(fname_p2, line_p2, append=T);
+    // Update generation counter
+    sim.setValue("generationCount", gen + 1);
+}
+
+
+```
