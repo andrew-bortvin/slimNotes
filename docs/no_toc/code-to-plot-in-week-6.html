@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 SLiM Guide | Syllabus</title>
+  <title>5.1 Code to plot in Week 6 | Syllabus</title>
   <meta name="description" content="Description about Course/Book." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 SLiM Guide | Syllabus" />
+  <meta property="og:title" content="5.1 Code to plot in Week 6 | Syllabus" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 SLiM Guide | Syllabus" />
+  <meta name="twitter:title" content="5.1 Code to plot in Week 6 | Syllabus" />
   
   <meta name="twitter:description" content="Description about Course/Book." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
-<link rel="prev" href="syllabus-population-genetics-simulation-visualization.html"/>
-<link rel="next" href="a-basic-slim-simulation.html"/>
+<link rel="prev" href="lecture-slides.html"/>
+<link rel="next" href="about-the-authors.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -267,10 +267,89 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="slim-guide" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> SLiM Guide</h1>
-<p>Notes on usage of SLiM for evolutionary modeling. Adapted from the SLiM manual: <a href="http://benhaller.com/slim/SLiM_Manual.pdf" class="uri">http://benhaller.com/slim/SLiM_Manual.pdf</a></p>
+<div id="code-to-plot-in-week-6" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Code to plot in Week 6</h2>
+<p>Here is a simulation generating allele frequency (AF) trajectories, whereby local adaptation occurs in one population but not the other. Further, we include a burst of selection in that population. You can run this code and generate AF trajectory files for us to plot together in class using R; change “trialNumber” to 1, 2, 3 and 4 in each iteration to create 4 different AF files for each population. (We’ll also send you the resulting files via email at the start of class, so we’re all plotting the same thing.)</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb54-1"><a href="code-to-plot-in-week-6.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialize()</span><span class="kw">{</span></span>
+<span id="cb54-2"><a href="code-to-plot-in-week-6.html#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationRate</span><span class="er">(</span><span class="ex">1e-7</span><span class="kw">);</span></span>
+<span id="cb54-3"><a href="code-to-plot-in-week-6.html#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create mutation type</span>
+<span id="cb54-4"><a href="code-to-plot-in-week-6.html#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m1&quot;</span><span class="ex">,</span> 0.5, <span class="st">&quot;f&quot;</span>, 0.0<span class="kw">);</span> <span class="ex">//</span> neutral mutation</span>
+<span id="cb54-5"><a href="code-to-plot-in-week-6.html#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeMutationType</span><span class="er">(</span><span class="st">&quot;m2&quot;</span><span class="ex">,</span> 1, <span class="st">&quot;f&quot;</span>, <span class="at">-0.05</span><span class="kw">);</span> <span class="ex">//</span> slightly deleterious mutation</span>
+<span id="cb54-6"><a href="code-to-plot-in-week-6.html#cb54-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2.convertToSubstitution</span> = F<span class="kw">;</span></span>
+<span id="cb54-7"><a href="code-to-plot-in-week-6.html#cb54-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m1.convertToSubstitution</span> = F<span class="kw">;</span></span>
+<span id="cb54-8"><a href="code-to-plot-in-week-6.html#cb54-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-9"><a href="code-to-plot-in-week-6.html#cb54-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-10"><a href="code-to-plot-in-week-6.html#cb54-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Create Types of DNA </span>
+<span id="cb54-11"><a href="code-to-plot-in-week-6.html#cb54-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElementType</span><span class="er">(</span><span class="st">&quot;g1&quot;</span><span class="ex">,</span> m1, 1<span class="kw">);</span>   </span>
+<span id="cb54-12"><a href="code-to-plot-in-week-6.html#cb54-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-13"><a href="code-to-plot-in-week-6.html#cb54-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Arrange DNA into a genome</span>
+<span id="cb54-14"><a href="code-to-plot-in-week-6.html#cb54-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeGenomicElement</span><span class="er">(</span><span class="ex">g1,</span> 0, 3000<span class="kw">);</span></span>
+<span id="cb54-15"><a href="code-to-plot-in-week-6.html#cb54-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-16"><a href="code-to-plot-in-week-6.html#cb54-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeRecombinationRate</span><span class="er">(</span><span class="ex">1e-4</span><span class="kw">);</span></span>
+<span id="cb54-17"><a href="code-to-plot-in-week-6.html#cb54-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-18"><a href="code-to-plot-in-week-6.html#cb54-18" aria-hidden="true" tabindex="-1"></a>    <span class="ex">defineConstant</span><span class="er">(</span><span class="st">&#39;trialNumber&#39;</span><span class="ex">,</span> 1<span class="kw">);</span> <span class="ex">//</span> define the trial number</span>
+<span id="cb54-19"><a href="code-to-plot-in-week-6.html#cb54-19" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initializeSex</span><span class="er">(</span><span class="st">&quot;A&quot;</span><span class="kw">);</span></span>
+<span id="cb54-20"><a href="code-to-plot-in-week-6.html#cb54-20" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb54-21"><a href="code-to-plot-in-week-6.html#cb54-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-22"><a href="code-to-plot-in-week-6.html#cb54-22" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> early<span class="er">(</span><span class="kw">){</span></span>
+<span id="cb54-23"><a href="code-to-plot-in-week-6.html#cb54-23" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpop</span><span class="er">(</span><span class="st">&quot;p1&quot;</span><span class="ex">,</span> 5000<span class="kw">);</span></span>
+<span id="cb54-24"><a href="code-to-plot-in-week-6.html#cb54-24" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb54-25"><a href="code-to-plot-in-week-6.html#cb54-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-26"><a href="code-to-plot-in-week-6.html#cb54-26" aria-hidden="true" tabindex="-1"></a><span class="ex">299</span> late<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb54-27"><a href="code-to-plot-in-week-6.html#cb54-27" aria-hidden="true" tabindex="-1"></a>   <span class="ex">p1_size</span> = size<span class="er">(</span><span class="ex">p1.genomes</span><span class="kw">);</span>  <span class="ex">//</span> Count how many chromosomes we have </span>
+<span id="cb54-28"><a href="code-to-plot-in-week-6.html#cb54-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">initial_freq</span> = asInteger<span class="er">(</span><span class="ex">p1_size</span> <span class="pp">*</span> 0.05<span class="kw">);</span>  <span class="ex">//</span> Find 5% of total number of chromosomes</span>
+<span id="cb54-29"><a href="code-to-plot-in-week-6.html#cb54-29" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target</span> = sample<span class="er">(</span><span class="ex">p1.genomes,</span> initial_freq<span class="kw">);</span>  <span class="ex">//</span> Randomly sample 5% of chromosomes</span>
+<span id="cb54-30"><a href="code-to-plot-in-week-6.html#cb54-30" aria-hidden="true" tabindex="-1"></a>    <span class="ex">target.addNewDrawnMutation</span><span class="er">(</span><span class="ex">m2,</span> 1000<span class="kw">);</span>   <span class="ex">//</span> Add new mutation</span>
+<span id="cb54-31"><a href="code-to-plot-in-week-6.html#cb54-31" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb54-32"><a href="code-to-plot-in-week-6.html#cb54-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-33"><a href="code-to-plot-in-week-6.html#cb54-33" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> split population and allow slight migration</span>
+<span id="cb54-34"><a href="code-to-plot-in-week-6.html#cb54-34" aria-hidden="true" tabindex="-1"></a><span class="ex">300</span> early<span class="er">(</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb54-35"><a href="code-to-plot-in-week-6.html#cb54-35" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.addSubpopSplit</span><span class="er">(</span><span class="st">&quot;p2&quot;</span><span class="ex">,</span> 5000, p1<span class="kw">);</span></span>
+<span id="cb54-36"><a href="code-to-plot-in-week-6.html#cb54-36" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p2.setMigrationRates</span><span class="er">(</span><span class="ex">p1,</span> 0.01<span class="kw">);</span></span>
+<span id="cb54-37"><a href="code-to-plot-in-week-6.html#cb54-37" aria-hidden="true" tabindex="-1"></a>    <span class="ex">p1.setMigrationRates</span><span class="er">(</span><span class="ex">p2,</span> 0.01<span class="kw">);</span></span>
+<span id="cb54-38"><a href="code-to-plot-in-week-6.html#cb54-38" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb54-39"><a href="code-to-plot-in-week-6.html#cb54-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-40"><a href="code-to-plot-in-week-6.html#cb54-40" aria-hidden="true" tabindex="-1"></a><span class="ex">300</span> late<span class="er">(</span><span class="kw">){</span></span>
+<span id="cb54-41"><a href="code-to-plot-in-week-6.html#cb54-41" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Initialize generation counter</span>
+<span id="cb54-42"><a href="code-to-plot-in-week-6.html#cb54-42" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.setValue</span><span class="er">(</span><span class="st">&quot;generationCount&quot;</span><span class="ex">,</span> 0<span class="kw">);</span></span>
+<span id="cb54-43"><a href="code-to-plot-in-week-6.html#cb54-43" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-44"><a href="code-to-plot-in-week-6.html#cb54-44" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Write the header for your files</span>
+<span id="cb54-45"><a href="code-to-plot-in-week-6.html#cb54-45" aria-hidden="true" tabindex="-1"></a>    <span class="ex">line</span> = <span class="st">&quot;Generation, Allele.Frequency, Trial, Population&quot;</span><span class="kw">;</span></span>
+<span id="cb54-46"><a href="code-to-plot-in-week-6.html#cb54-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-47"><a href="code-to-plot-in-week-6.html#cb54-47" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Get a file name</span>
+<span id="cb54-48"><a href="code-to-plot-in-week-6.html#cb54-48" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> this is standard syntax for Mac<span class="kw">;</span> <span class="cf">for</span> PC<span class="ex">,</span> see https://andrew-bortvin.github.io/slimNotes/writing-output.html</span>
+<span id="cb54-49"><a href="code-to-plot-in-week-6.html#cb54-49" aria-hidden="true" tabindex="-1"></a>    <span class="ex">defineConstant</span><span class="er">(</span><span class="st">&quot;fname_p1&quot;</span><span class="ex">,</span> paste<span class="er">(</span><span class="st">&quot;~/slim/p1_AF_trial&quot;</span><span class="ex">,</span> trialNumber, <span class="st">&quot;.csv&quot;</span>, sep =<span class="st">&quot;&quot;</span><span class="kw">));</span></span>
+<span id="cb54-50"><a href="code-to-plot-in-week-6.html#cb54-50" aria-hidden="true" tabindex="-1"></a>    <span class="ex">defineConstant</span><span class="er">(</span><span class="st">&quot;fname_p2&quot;</span><span class="ex">,</span> paste<span class="er">(</span><span class="st">&quot;~/slim/p2_AF_trial&quot;</span><span class="ex">,</span> trialNumber, <span class="st">&quot;.csv&quot;</span>, sep =<span class="st">&quot;&quot;</span><span class="kw">));</span></span>
+<span id="cb54-51"><a href="code-to-plot-in-week-6.html#cb54-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-52"><a href="code-to-plot-in-week-6.html#cb54-52" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Write to file <span class="er">(</span><span class="ex">one</span> for each population<span class="kw">)</span> </span>
+<span id="cb54-53"><a href="code-to-plot-in-week-6.html#cb54-53" aria-hidden="true" tabindex="-1"></a>    <span class="ex">writeFile</span><span class="er">(</span><span class="ex">fname_p1,</span> line, append=F<span class="kw">);</span> </span>
+<span id="cb54-54"><a href="code-to-plot-in-week-6.html#cb54-54" aria-hidden="true" tabindex="-1"></a>    <span class="ex">writeFile</span><span class="er">(</span><span class="ex">fname_p2,</span> line, append=F<span class="kw">);</span> </span>
+<span id="cb54-55"><a href="code-to-plot-in-week-6.html#cb54-55" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb54-56"><a href="code-to-plot-in-week-6.html#cb54-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-57"><a href="code-to-plot-in-week-6.html#cb54-57" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Create local adaptation for m2 in p2</span>
+<span id="cb54-58"><a href="code-to-plot-in-week-6.html#cb54-58" aria-hidden="true" tabindex="-1"></a><span class="ex">400:700</span> mutationEffect<span class="er">(</span><span class="ex">m2,</span> p2<span class="kw">)</span> <span class="kw">{</span> <span class="cf">return</span> <span class="ex">effect</span> + 0.1<span class="kw">;</span> <span class="kw">}</span></span>
+<span id="cb54-59"><a href="code-to-plot-in-week-6.html#cb54-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-60"><a href="code-to-plot-in-week-6.html#cb54-60" aria-hidden="true" tabindex="-1"></a><span class="ex">300:1000</span> late<span class="er">(</span><span class="kw">){</span></span>
+<span id="cb54-61"><a href="code-to-plot-in-week-6.html#cb54-61" aria-hidden="true" tabindex="-1"></a>    <span class="ex">gen</span> = sim.getValue<span class="er">(</span><span class="st">&quot;generationCount&quot;</span><span class="kw">);</span></span>
+<span id="cb54-62"><a href="code-to-plot-in-week-6.html#cb54-62" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Record mutations in p1    </span>
+<span id="cb54-63"><a href="code-to-plot-in-week-6.html#cb54-63" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Count number of m2 mutations </span>
+<span id="cb54-64"><a href="code-to-plot-in-week-6.html#cb54-64" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2_count_p1</span> = sum<span class="er">(</span><span class="ex">p1.genomes.countOfMutationsOfType</span><span class="er">(</span><span class="ex">m2</span><span class="kw">));</span></span>
+<span id="cb54-65"><a href="code-to-plot-in-week-6.html#cb54-65" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Write data to file</span>
+<span id="cb54-66"><a href="code-to-plot-in-week-6.html#cb54-66" aria-hidden="true" tabindex="-1"></a>    <span class="ex">line_p1</span> = paste<span class="er">(</span><span class="ex">gen,</span> m2_count_p1, trialNumber, <span class="st">&quot;p1&quot;</span>, sep = <span class="st">&quot;,&quot;</span><span class="kw">);</span></span>
+<span id="cb54-67"><a href="code-to-plot-in-week-6.html#cb54-67" aria-hidden="true" tabindex="-1"></a>    <span class="ex">writeFile</span><span class="er">(</span><span class="ex">fname_p1,</span> line_p1, append=T<span class="kw">);</span></span>
+<span id="cb54-68"><a href="code-to-plot-in-week-6.html#cb54-68" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-69"><a href="code-to-plot-in-week-6.html#cb54-69" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Record mutations in p2</span>
+<span id="cb54-70"><a href="code-to-plot-in-week-6.html#cb54-70" aria-hidden="true" tabindex="-1"></a>     <span class="ex">//</span> Count number of m2 mutations</span>
+<span id="cb54-71"><a href="code-to-plot-in-week-6.html#cb54-71" aria-hidden="true" tabindex="-1"></a>    <span class="ex">m2_count_p2</span> = sum<span class="er">(</span><span class="ex">p2.genomes.countOfMutationsOfType</span><span class="er">(</span><span class="ex">m2</span><span class="kw">));</span></span>
+<span id="cb54-72"><a href="code-to-plot-in-week-6.html#cb54-72" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Write data to file</span>
+<span id="cb54-73"><a href="code-to-plot-in-week-6.html#cb54-73" aria-hidden="true" tabindex="-1"></a>    <span class="ex">line_p2</span> = paste<span class="er">(</span><span class="ex">gen,</span> m2_count_p2, trialNumber, <span class="st">&quot;p2&quot;</span>, sep = <span class="st">&quot;,&quot;</span><span class="kw">);</span>    </span>
+<span id="cb54-74"><a href="code-to-plot-in-week-6.html#cb54-74" aria-hidden="true" tabindex="-1"></a>    <span class="ex">writeFile</span><span class="er">(</span><span class="ex">fname_p2,</span> line_p2, append=T<span class="kw">);</span></span>
+<span id="cb54-75"><a href="code-to-plot-in-week-6.html#cb54-75" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> Update generation counter</span>
+<span id="cb54-76"><a href="code-to-plot-in-week-6.html#cb54-76" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sim.setValue</span><span class="er">(</span><span class="st">&quot;generationCount&quot;</span><span class="ex">,</span> gen + 1<span class="kw">);</span></span>
+<span id="cb54-77"><a href="code-to-plot-in-week-6.html#cb54-77" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+
 </div>
+<!-- </div> -->
 <hr>
 <center> 
   <div class="footer">
@@ -284,8 +363,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="syllabus-population-genetics-simulation-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="a-basic-slim-simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lecture-slides.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
