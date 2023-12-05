@@ -76,4 +76,5 @@ week-3---multiple-populations
 week-2---selection-and-sweeps
 week-3---multiple-populations-1
 lecture-slides
+code-to-plot-in-week-6
 references
