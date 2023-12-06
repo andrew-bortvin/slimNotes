@@ -29,7 +29,7 @@ Each day, we will reserve time to work on in-class assignments, which will prima
 
 Please submit all files via email to both instructors. Please save your .slim files as .txt (export and save as) and your resulting plots as .png files. 
 
-You are welcome to work together in small groups, and collaboration is encouraged. Likewise, we encourage you to seek answers online when encountering. However, please refrain from just copying someone else's code – you should understand and be able to explain every line of code in your scripts. 
+You are welcome to work together in small groups, and collaboration is encouraged. Likewise, we encourage you to seek answers online when encountering code or topics you're unfamiliar with. However, please refrain from just copying someone else's code – you should understand and be able to explain every line of code in your scripts. 
 
 ### Schedule 
 
@@ -40,7 +40,7 @@ You are welcome to work together in small groups, and collaboration is encourage
 | 3           | 11/14/23    | Multiple Populations  |
 | 4           | 11/21/23    | Reading in files and visualizing in R (virtual/asynch)  |
 | 5           | 11/28/23    | Splitting Populations  |
-| 6           | 12/5/23     | TBD  |
+| 6           | 12/5/23     | Visualizing local adaptation  |
 
 ### Grading
 
@@ -50,4 +50,4 @@ All assignments will be due at the end of the course period. However, please try
 
 ### Student Hours
 
-We will host open student hours (time for students to chat about anything! biology, coding, graduate school, materials directly or slightly less directly related to the course, actual assignments) through the end of the semester. In addition to scheduled times above, please email both instructors to schedule a time for either in-person or Zoom. 
+We will host open student hours (time for students to chat about anything! Biology, coding, graduate school, materials directly or slightly less directly related to the course, actual assignments) through the end of the semester. In addition to scheduled times above, please email both instructors to schedule a time for either in-person or Zoom. 

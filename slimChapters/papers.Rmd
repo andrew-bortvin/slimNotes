@@ -6,11 +6,19 @@ ottrpal::set_knitr_image_path()
 
 In this section, we will curate a list of papers, both recent and historical, that are relevant to the topics discussed in class. 
 
+### Week 5 - Population Splitting 
+
+[Gravel et al. 2011](https://www.pnas.org/doi/full/10.1073/pnas.1019276108) - Demographic history among human populations 
+
+[Wadgymar et al. 2022](https://www.annualreviews.org/doi/10.1146/annurev-ecolsys-012722-035231) - Local adaptation 
+
 ### Week 3 - Multiple Populations
 
 [Rogers & Slatkin 2017](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006601) - Genomic differences between Woolly mammoth populations 
 
 [Arai et al. 2020](https://www.nature.com/articles/s41598-020-71400-4) - Inferring and analyzing migration among stickleback fish populations 
+
+[Yan et al, 2021](https://elifesciences.org/articles/67615) - A recent work leveraging simulation to identify a variant with a strong selective coefficient in some populations (s = 0.6 - one of the highest examples in humans!). This variant was also found to be introgressed from Neandertals. 
 
 ### Week 2 - Selection and Sweeps 
 
@@ -20,5 +28,4 @@ In this section, we will curate a list of papers, both recent and historical, th
 
 [Gould and Lewontin, 1979](https://drive.google.com/file/d/1Pq-DRC0YeMTUTzMeLHVZWPYQO0jYmBqX/view?usp=sharing) - A famous and controversial paper. This paper is a major part of the debate about the role of adaptation in natural selection, and had a huge impact on how scientists think about adaptation and evolutionary storytelling. The extent that adaptation shapes organismal form and function is still an open question. 
 
-### Week 3 - Multiple Populations
-[Yan et al, 2021](https://elifesciences.org/articles/67615) - A recent work leveraging simulation to identify a variant with a strong selective coefficient in some populations (s = 0.6 - one of the highest examples in humans!). This variant was also found to be introgressed from Neandertals. 
+
