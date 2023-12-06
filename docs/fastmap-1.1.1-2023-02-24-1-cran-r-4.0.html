@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.29 fastmap 1.1.1 2023-02-24 [1] CRAN (R 4.0.2) | Syllabus</title>
+  <meta name="description" content="Description about Course/Book." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5.29 fastmap 1.1.1 2023-02-24 [1] CRAN (R 4.0.2) | Syllabus" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Description about Course/Book." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5.29 fastmap 1.1.1 2023-02-24 [1] CRAN (R 4.0.2) | Syllabus" />
+  
+  <meta name="twitter:description" content="Description about Course/Book." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/peppa.png" type="image/x-icon" />
+<link rel="prev" href="fansi-0.4.1-2020-01-08-1-rspm-r-4.0.html"/>
+<link rel="next" href="fs-1.5.0-2020-07-31-1-rspm-r-4.0.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://andrew-bortvin.github.io/slimNotes/"><img src="assets/peppa.png" style=" width: 80%; padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Population Genetics: Simulation and Visualization</a></li>
+<li class="chapter" data-level="2" data-path="syllabus-population-genetics-simulation-visualization.html"><a href="syllabus-population-genetics-simulation-visualization.html"><i class="fa fa-check"></i><b>2</b> Syllabus: Population Genetics Simulation &amp; Visualization</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="syllabus-population-genetics-simulation-visualization.html"><a href="syllabus-population-genetics-simulation-visualization.html#course-description"><i class="fa fa-check"></i><b>2.0.1</b> Course Description</a></li>
+<li class="chapter" data-level="2.0.2" data-path="syllabus-population-genetics-simulation-visualization.html"><a href="syllabus-population-genetics-simulation-visualization.html#class-structure"><i class="fa fa-check"></i><b>2.0.2</b> Class Structure</a></li>
+<li class="chapter" data-level="2.0.3" data-path="syllabus-population-genetics-simulation-visualization.html"><a href="syllabus-population-genetics-simulation-visualization.html#schedule"><i class="fa fa-check"></i><b>2.0.3</b> Schedule</a></li>
+<li class="chapter" data-level="2.0.4" data-path="syllabus-population-genetics-simulation-visualization.html"><a href="syllabus-population-genetics-simulation-visualization.html#grading"><i class="fa fa-check"></i><b>2.0.4</b> Grading</a></li>
+<li class="chapter" data-level="2.0.5" data-path="syllabus-population-genetics-simulation-visualization.html"><a href="syllabus-population-genetics-simulation-visualization.html#student-hours"><i class="fa fa-check"></i><b>2.0.5</b> Student Hours</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="slim-guide.html"><a href="slim-guide.html"><i class="fa fa-check"></i><b>3</b> SLiM Guide</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="a-basic-slim-simulation.html"><a href="a-basic-slim-simulation.html"><i class="fa fa-check"></i><b>3.1</b> A Basic SLiM Simulation</a></li>
+<li class="chapter" data-level="3.2" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html"><i class="fa fa-check"></i><b>3.2</b> Initializing a Simulation</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#global-mutation-rates"><i class="fa fa-check"></i><b>3.2.1</b> Global Mutation Rates</a></li>
+<li class="chapter" data-level="3.2.2" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#mutation-types"><i class="fa fa-check"></i><b>3.2.2</b> Mutation Types</a></li>
+<li class="chapter" data-level="3.2.3" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#types-of-dna"><i class="fa fa-check"></i><b>3.2.3</b> Types of DNA</a></li>
+<li class="chapter" data-level="3.2.4" data-path="initializing-a-simulation.html"><a href="initializing-a-simulation.html#genomic-regions"><i class="fa fa-check"></i><b>3.2.4</b> Genomic Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="running-a-simulation.html"><a href="running-a-simulation.html"><i class="fa fa-check"></i><b>3.3</b> Running a simulation</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="running-a-simulation.html"><a href="running-a-simulation.html#adding-subpopulations"><i class="fa fa-check"></i><b>3.3.1</b> Adding subpopulations</a></li>
+<li class="chapter" data-level="3.3.2" data-path="running-a-simulation.html"><a href="running-a-simulation.html#events-that-occur-every-generation"><i class="fa fa-check"></i><b>3.3.2</b> Events that occur every generation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ending-a-simulation.html"><a href="ending-a-simulation.html"><i class="fa fa-check"></i><b>3.4</b> Ending a simulation</a></li>
+<li class="chapter" data-level="3.5" data-path="multiple-mutations-elements-and-regions.html"><a href="multiple-mutations-elements-and-regions.html"><i class="fa fa-check"></i><b>3.5</b> Multiple Mutations, Elements and Regions</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="multiple-mutations-elements-and-regions.html"><a href="multiple-mutations-elements-and-regions.html#making-multiple-mutations"><i class="fa fa-check"></i><b>3.5.1</b> Making multiple mutations</a></li>
+<li class="chapter" data-level="3.5.2" data-path="multiple-mutations-elements-and-regions.html"><a href="multiple-mutations-elements-and-regions.html#genomic-elements-with-multiple-mutations"><i class="fa fa-check"></i><b>3.5.2</b> Genomic Elements with multiple mutations</a></li>
+<li class="chapter" data-level="3.5.3" data-path="multiple-mutations-elements-and-regions.html"><a href="multiple-mutations-elements-and-regions.html#multiple-genomic-elements-types"><i class="fa fa-check"></i><b>3.5.3</b> Multiple Genomic Elements Types</a></li>
+<li class="chapter" data-level="3.5.4" data-path="multiple-mutations-elements-and-regions.html"><a href="multiple-mutations-elements-and-regions.html#multiple-genomic-elements"><i class="fa fa-check"></i><b>3.5.4</b> Multiple Genomic Elements</a></li>
+<li class="chapter" data-level="3.5.5" data-path="multiple-mutations-elements-and-regions.html"><a href="multiple-mutations-elements-and-regions.html#slim-gui"><i class="fa fa-check"></i><b>3.5.5</b> SLiM GUI</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="week-1-assignment.html"><a href="week-1-assignment.html"><i class="fa fa-check"></i><b>3.6</b> Week 1 Assignment</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="week-1-assignment.html"><a href="week-1-assignment.html#population-size"><i class="fa fa-check"></i><b>3.6.1</b> 1.1 - Population Size</a></li>
+<li class="chapter" data-level="3.6.2" data-path="week-1-assignment.html"><a href="week-1-assignment.html#selection"><i class="fa fa-check"></i><b>3.6.2</b> 1.2 - Selection</a></li>
+<li class="chapter" data-level="3.6.3" data-path="week-1-assignment.html"><a href="week-1-assignment.html#multiple-mutation-types-multiple-genomic-regions"><i class="fa fa-check"></i><b>3.6.3</b> 1.3 - Multiple mutation types; multiple genomic regions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="storing-information.html"><a href="storing-information.html"><i class="fa fa-check"></i><b>3.7</b> Storing Information</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="storing-information.html"><a href="storing-information.html#local-variables"><i class="fa fa-check"></i><b>3.7.1</b> Local variables</a></li>
+<li class="chapter" data-level="3.7.2" data-path="storing-information.html"><a href="storing-information.html#constants"><i class="fa fa-check"></i><b>3.7.2</b> Constants</a></li>
+<li class="chapter" data-level="3.7.3" data-path="storing-information.html"><a href="storing-information.html#simulation-values"><i class="fa fa-check"></i><b>3.7.3</b> Simulation Values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="introducing-sweep-mutations.html"><a href="introducing-sweep-mutations.html"><i class="fa fa-check"></i><b>3.8</b> Introducing Sweep Mutations</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="introducing-sweep-mutations.html"><a href="introducing-sweep-mutations.html#defining-the-mutation"><i class="fa fa-check"></i><b>3.8.1</b> Defining the Mutation</a></li>
+<li class="chapter" data-level="3.8.2" data-path="introducing-sweep-mutations.html"><a href="introducing-sweep-mutations.html#sampling-individuals"><i class="fa fa-check"></i><b>3.8.2</b> Sampling individuals</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="writing-output.html"><a href="writing-output.html"><i class="fa fa-check"></i><b>3.9</b> Writing Output</a></li>
+<li class="chapter" data-level="3.10" data-path="code-from-week-2.html"><a href="code-from-week-2.html"><i class="fa fa-check"></i><b>3.10</b> Code from Week 2</a></li>
+<li class="chapter" data-level="3.11" data-path="week-2-assignment.html"><a href="week-2-assignment.html"><i class="fa fa-check"></i><b>3.11</b> Week 2 Assignment</a>
+<ul>
+<li class="chapter" data-level="3.11.1" data-path="week-2-assignment.html"><a href="week-2-assignment.html#hard-sweeps"><i class="fa fa-check"></i><b>3.11.1</b> Hard Sweeps</a></li>
+<li class="chapter" data-level="3.11.2" data-path="week-2-assignment.html"><a href="week-2-assignment.html#advanced-exercises"><i class="fa fa-check"></i><b>3.11.2</b> Advanced Exercises</a></li>
+<li class="chapter" data-level="3.11.3" data-path="week-2-assignment.html"><a href="week-2-assignment.html#advanced-exercise-1---hard-sweeps-recombination-and-hitchhiker-mutations."><i class="fa fa-check"></i><b>3.11.3</b> Advanced Exercise 1 - Hard Sweeps, Recombination, and Hitchhiker mutations.</a></li>
+<li class="chapter" data-level="3.11.4" data-path="week-2-assignment.html"><a href="week-2-assignment.html#advanced-exercise-2---soft-sweeps-and-burts-of-environmental-pressure"><i class="fa fa-check"></i><b>3.11.4</b> Advanced Exercise 2 - Soft Sweeps and Burts of Environmental Pressure</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="multiple-populations.html"><a href="multiple-populations.html"><i class="fa fa-check"></i><b>3.12</b> Multiple Populations</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="multiple-populations.html"><a href="multiple-populations.html#adding-a-new-population"><i class="fa fa-check"></i><b>3.12.1</b> Adding a new population</a></li>
+<li class="chapter" data-level="3.12.2" data-path="multiple-populations.html"><a href="multiple-populations.html#migration-between-populations"><i class="fa fa-check"></i><b>3.12.2</b> Migration between populations</a></li>
+<li class="chapter" data-level="3.12.3" data-path="multiple-populations.html"><a href="multiple-populations.html#splitting-a-population-into-two"><i class="fa fa-check"></i><b>3.12.3</b> Splitting a population into two</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="code-from-week-3.html"><a href="code-from-week-3.html"><i class="fa fa-check"></i><b>3.13</b> Code from Week 3</a></li>
+<li class="chapter" data-level="3.14" data-path="week-3-assignment.html"><a href="week-3-assignment.html"><i class="fa fa-check"></i><b>3.14</b> Week 3 Assignment</a>
+<ul>
+<li class="chapter" data-level="3.14.1" data-path="week-3-assignment.html"><a href="week-3-assignment.html#multiple-populations---graphic"><i class="fa fa-check"></i><b>3.14.1</b> Multiple Populations - Graphic</a></li>
+<li class="chapter" data-level="3.14.2" data-path="week-3-assignment.html"><a href="week-3-assignment.html#multiple-populations---real-world"><i class="fa fa-check"></i><b>3.14.2</b> Multiple Populations - Real World</a></li>
+</ul></li>
+<li class="chapter" data-level="3.15" data-path="week-4-assignment.html"><a href="week-4-assignment.html"><i class="fa fa-check"></i><b>3.15</b> Week 4 Assignment</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="week-4-assignment.html"><a href="week-4-assignment.html#visualizing-simulations"><i class="fa fa-check"></i><b>3.15.1</b> Visualizing Simulations</a></li>
+<li class="chapter" data-level="3.15.2" data-path="week-4-assignment.html"><a href="week-4-assignment.html#r-basics"><i class="fa fa-check"></i><b>3.15.2</b> R basics</a></li>
+<li class="chapter" data-level="3.15.3" data-path="week-4-assignment.html"><a href="week-4-assignment.html#reading-data-in-to-r"><i class="fa fa-check"></i><b>3.15.3</b> Reading data in to R</a></li>
+<li class="chapter" data-level="3.15.4" data-path="week-4-assignment.html"><a href="week-4-assignment.html#using-published-packages"><i class="fa fa-check"></i><b>3.15.4</b> Using published packages</a></li>
+<li class="chapter" data-level="3.15.5" data-path="week-4-assignment.html"><a href="week-4-assignment.html#psuedocode"><i class="fa fa-check"></i><b>3.15.5</b> Psuedocode</a></li>
+<li class="chapter" data-level="3.15.6" data-path="week-4-assignment.html"><a href="week-4-assignment.html#ggplot2-basics"><i class="fa fa-check"></i><b>3.15.6</b> <code>ggplot2</code> basics</a></li>
+<li class="chapter" data-level="3.15.7" data-path="week-4-assignment.html"><a href="week-4-assignment.html#saving-a-plot"><i class="fa fa-check"></i><b>3.15.7</b> Saving a plot</a></li>
+<li class="chapter" data-level="3.15.8" data-path="week-4-assignment.html"><a href="week-4-assignment.html#assignment"><i class="fa fa-check"></i><b>3.15.8</b> Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="variable-population-size.html"><a href="variable-population-size.html"><i class="fa fa-check"></i><b>3.16</b> Variable Population Size</a>
+<ul>
+<li class="chapter" data-level="3.16.1" data-path="variable-population-size.html"><a href="variable-population-size.html#changing-population-size"><i class="fa fa-check"></i><b>3.16.1</b> Changing Population Size</a></li>
+<li class="chapter" data-level="3.16.2" data-path="variable-population-size.html"><a href="variable-population-size.html#exercise"><i class="fa fa-check"></i><b>3.16.2</b> <strong>Exercise</strong></a></li>
+<li class="chapter" data-level="3.16.3" data-path="variable-population-size.html"><a href="variable-population-size.html#multiple-size-changes"><i class="fa fa-check"></i><b>3.16.3</b> Multiple size changes</a></li>
+<li class="chapter" data-level="3.16.4" data-path="variable-population-size.html"><a href="variable-population-size.html#maximumminimum-population-size"><i class="fa fa-check"></i><b>3.16.4</b> Maximum/Minimum Population Size</a></li>
+<li class="chapter" data-level="3.16.5" data-path="variable-population-size.html"><a href="variable-population-size.html#exercise-1"><i class="fa fa-check"></i><b>3.16.5</b> <strong>Exercise</strong></a></li>
+<li class="chapter" data-level="3.16.6" data-path="variable-population-size.html"><a href="variable-population-size.html#growth-rate-dependent-on-fitness"><i class="fa fa-check"></i><b>3.16.6</b> Growth rate dependent on fitness</a></li>
+<li class="chapter" data-level="3.16.7" data-path="variable-population-size.html"><a href="variable-population-size.html#exercise-2"><i class="fa fa-check"></i><b>3.16.7</b> <strong>Exercise</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.17" data-path="different-conditions-for-different-populations.html"><a href="different-conditions-for-different-populations.html"><i class="fa fa-check"></i><b>3.17</b> Different Conditions for Different Populations</a></li>
+<li class="chapter" data-level="3.18" data-path="code-from-week-5.html"><a href="code-from-week-5.html"><i class="fa fa-check"></i><b>3.18</b> Code from Week 5</a></li>
+<li class="chapter" data-level="3.19" data-path="week-5-assignment.html"><a href="week-5-assignment.html"><i class="fa fa-check"></i><b>3.19</b> Week 5 Assignment</a>
+<ul>
+<li class="chapter" data-level="3.19.1" data-path="week-5-assignment.html"><a href="week-5-assignment.html#splitting-populations"><i class="fa fa-check"></i><b>3.19.1</b> Splitting Populations</a></li>
+<li class="chapter" data-level="3.19.2" data-path="week-5-assignment.html"><a href="week-5-assignment.html#local-adaptation"><i class="fa fa-check"></i><b>3.19.2</b> Local Adaptation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="papers-of-interest.html"><a href="papers-of-interest.html"><i class="fa fa-check"></i><b>4</b> Papers of Interest</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations"><i class="fa fa-check"></i><b>4.0.1</b> Week 3 - Multiple Populations</a></li>
+<li class="chapter" data-level="4.0.2" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-2---selection-and-sweeps"><i class="fa fa-check"></i><b>4.0.2</b> Week 2 - Selection and Sweeps</a></li>
+<li class="chapter" data-level="4.0.3" data-path="papers-of-interest.html"><a href="papers-of-interest.html#week-3---multiple-populations-1"><i class="fa fa-check"></i><b>4.0.3</b> Week 3 - Multiple Populations</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lecture-slides.html"><a href="lecture-slides.html"><i class="fa fa-check"></i><b>5</b> Lecture Slides</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="slim-code-for-allele-frequency-and-local-adaptation.html"><a href="slim-code-for-allele-frequency-and-local-adaptation.html"><i class="fa fa-check"></i><b>5.1</b> SLiM Code for Allele Frequency and Local Adaptation</a></li>
+<li class="chapter" data-level="5.2" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>5.2</b> ─ Session info ───────────────────────────────────────────────────────────────</a></li>
+<li class="chapter" data-level="5.3" data-path="setting-value.html"><a href="setting-value.html"><i class="fa fa-check"></i><b>5.3</b> setting value</a></li>
+<li class="chapter" data-level="5.4" data-path="version-r-version-4.0.2-2020-06-22.html"><a href="version-r-version-4.0.2-2020-06-22.html"><i class="fa fa-check"></i><b>5.4</b> version R version 4.0.2 (2020-06-22)</a></li>
+<li class="chapter" data-level="5.5" data-path="os-ubuntu-20.04.5-lts.html"><a href="os-ubuntu-20.04.5-lts.html"><i class="fa fa-check"></i><b>5.5</b> os Ubuntu 20.04.5 LTS</a></li>
+<li class="chapter" data-level="5.6" data-path="system-x86_64-linux-gnu.html"><a href="system-x86_64-linux-gnu.html"><i class="fa fa-check"></i><b>5.6</b> system x86_64, linux-gnu</a></li>
+<li class="chapter" data-level="5.7" data-path="ui-x11.html"><a href="ui-x11.html"><i class="fa fa-check"></i><b>5.7</b> ui X11</a></li>
+<li class="chapter" data-level="5.8" data-path="language-en.html"><a href="language-en.html"><i class="fa fa-check"></i><b>5.8</b> language (EN)</a></li>
+<li class="chapter" data-level="5.9" data-path="collate-en_us.utf-8.html"><a href="collate-en_us.utf-8.html"><i class="fa fa-check"></i><b>5.9</b> collate en_US.UTF-8</a></li>
+<li class="chapter" data-level="5.10" data-path="ctype-en_us.utf-8.html"><a href="ctype-en_us.utf-8.html"><i class="fa fa-check"></i><b>5.10</b> ctype en_US.UTF-8</a></li>
+<li class="chapter" data-level="5.11" data-path="tz-etcutc.html"><a href="tz-etcutc.html"><i class="fa fa-check"></i><b>5.11</b> tz Etc/UTC</a></li>
+<li class="chapter" data-level="5.12" data-path="date-2023-12-06.html"><a href="date-2023-12-06.html"><i class="fa fa-check"></i><b>5.12</b> date 2023-12-06</a></li>
+<li class="chapter" data-level="5.13" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>5.13</b> </a></li>
+<li class="chapter" data-level="5.14" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>5.14</b> ─ Packages ───────────────────────────────────────────────────────────────────</a></li>
+<li class="chapter" data-level="5.15" data-path="package-version-date-lib-source.html"><a href="package-version-date-lib-source.html"><i class="fa fa-check"></i><b>5.15</b> package * version date lib source</a></li>
+<li class="chapter" data-level="5.16" data-path="assertthat-0.2.1-2019-03-21-1-rspm-r-4.0.html"><a href="assertthat-0.2.1-2019-03-21-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.16</b> assertthat 0.2.1 2019-03-21 [1] RSPM (R 4.0.5)</a></li>
+<li class="chapter" data-level="5.17" data-path="bookdown-0.24-2023-03-28-1-github-rstudiobookdown88bc4ea.html"><a href="bookdown-0.24-2023-03-28-1-github-rstudiobookdown88bc4ea.html"><i class="fa fa-check"></i><b>5.17</b> bookdown 0.24 2023-03-28 [1] Github (<span>rstudio/bookdown@88bc4ea</span>)</a></li>
+<li class="chapter" data-level="5.18" data-path="bslib-0.4.2-2022-12-16-1-cran-r-4.0.html"><a href="bslib-0.4.2-2022-12-16-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.18</b> bslib 0.4.2 2022-12-16 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.19" data-path="cachem-1.0.7-2023-02-24-1-cran-r-4.0.html"><a href="cachem-1.0.7-2023-02-24-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.19</b> cachem 1.0.7 2023-02-24 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.20" data-path="callr-3.5.0-2020-10-08-1-rspm-r-4.0.html"><a href="callr-3.5.0-2020-10-08-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.20</b> callr 3.5.0 2020-10-08 [1] RSPM (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.21" data-path="cli-3.6.1-2023-03-23-1-cran-r-4.0.html"><a href="cli-3.6.1-2023-03-23-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.21</b> cli 3.6.1 2023-03-23 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.22" data-path="crayon-1.3.4-2017-09-16-1-rspm-r-4.0.html"><a href="crayon-1.3.4-2017-09-16-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.22</b> crayon 1.3.4 2017-09-16 [1] RSPM (R 4.0.0)</a></li>
+<li class="chapter" data-level="5.23" data-path="desc-1.2.0-2018-05-01-1-rspm-r-4.0.html"><a href="desc-1.2.0-2018-05-01-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.23</b> desc 1.2.0 2018-05-01 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.24" data-path="devtools-2.3.2-2020-09-18-1-rspm-r-4.0.html"><a href="devtools-2.3.2-2020-09-18-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.24</b> devtools 2.3.2 2020-09-18 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.25" data-path="digest-0.6.25-2020-02-23-1-rspm-r-4.0.html"><a href="digest-0.6.25-2020-02-23-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.25</b> digest 0.6.25 2020-02-23 [1] RSPM (R 4.0.0)</a></li>
+<li class="chapter" data-level="5.26" data-path="ellipsis-0.3.1-2020-05-15-1-rspm-r-4.0.html"><a href="ellipsis-0.3.1-2020-05-15-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.26</b> ellipsis 0.3.1 2020-05-15 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.27" data-path="evaluate-0.20-2023-01-17-1-cran-r-4.0.html"><a href="evaluate-0.20-2023-01-17-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.27</b> evaluate 0.20 2023-01-17 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.28" data-path="fansi-0.4.1-2020-01-08-1-rspm-r-4.0.html"><a href="fansi-0.4.1-2020-01-08-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.28</b> fansi 0.4.1 2020-01-08 [1] RSPM (R 4.0.0)</a></li>
+<li class="chapter" data-level="5.29" data-path="fastmap-1.1.1-2023-02-24-1-cran-r-4.0.html"><a href="fastmap-1.1.1-2023-02-24-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.29</b> fastmap 1.1.1 2023-02-24 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.30" data-path="fs-1.5.0-2020-07-31-1-rspm-r-4.0.html"><a href="fs-1.5.0-2020-07-31-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.30</b> fs 1.5.0 2020-07-31 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.31" data-path="glue-1.4.2-2020-08-27-1-rspm-r-4.0.html"><a href="glue-1.4.2-2020-08-27-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.31</b> glue 1.4.2 2020-08-27 [1] RSPM (R 4.0.5)</a></li>
+<li class="chapter" data-level="5.32" data-path="hms-0.5.3-2020-01-08-1-rspm-r-4.0.html"><a href="hms-0.5.3-2020-01-08-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.32</b> hms 0.5.3 2020-01-08 [1] RSPM (R 4.0.0)</a></li>
+<li class="chapter" data-level="5.33" data-path="htmltools-0.5.5-2023-03-23-1-cran-r-4.0.html"><a href="htmltools-0.5.5-2023-03-23-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.33</b> htmltools 0.5.5 2023-03-23 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.34" data-path="jquerylib-0.1.4-2021-04-26-1-cran-r-4.0.html"><a href="jquerylib-0.1.4-2021-04-26-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.34</b> jquerylib 0.1.4 2021-04-26 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.35" data-path="jsonlite-1.7.1-2020-09-07-1-rspm-r-4.0.html"><a href="jsonlite-1.7.1-2020-09-07-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.35</b> jsonlite 1.7.1 2020-09-07 [1] RSPM (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.36" data-path="knitr-1.33-2023-03-28-1-github-yihuiknitra1052d1.html"><a href="knitr-1.33-2023-03-28-1-github-yihuiknitra1052d1.html"><i class="fa fa-check"></i><b>5.36</b> knitr 1.33 2023-03-28 [1] Github (<span>yihui/knitr@a1052d1</span>)</a></li>
+<li class="chapter" data-level="5.37" data-path="lattice-0.20-41-2020-04-02-2-cran-r-4.0.html"><a href="lattice-0.20-41-2020-04-02-2-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.37</b> lattice 0.20-41 2020-04-02 [2] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.38" data-path="lifecycle-1.0.3-2022-10-07-1-cran-r-4.0.html"><a href="lifecycle-1.0.3-2022-10-07-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.38</b> lifecycle 1.0.3 2022-10-07 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.39" data-path="magrittr-2.0.3-2022-03-30-1-cran-r-4.0.html"><a href="magrittr-2.0.3-2022-03-30-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.39</b> magrittr 2.0.3 2022-03-30 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.40" data-path="matrix-1.2-18-2019-11-27-2-cran-r-4.0.html"><a href="matrix-1.2-18-2019-11-27-2-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.40</b> Matrix 1.2-18 2019-11-27 [2] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.41" data-path="memoise-2.0.1-2021-11-26-1-cran-r-4.0.html"><a href="memoise-2.0.1-2021-11-26-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.41</b> memoise 2.0.1 2021-11-26 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.42" data-path="ottrpal-1.0.1-2023-03-28-1-github-jhudslottrpal151e412.html"><a href="ottrpal-1.0.1-2023-03-28-1-github-jhudslottrpal151e412.html"><i class="fa fa-check"></i><b>5.42</b> ottrpal 1.0.1 2023-03-28 [1] Github (<span>jhudsl/ottrpal@151e412</span>)</a></li>
+<li class="chapter" data-level="5.43" data-path="pillar-1.9.0-2023-03-22-1-cran-r-4.0.html"><a href="pillar-1.9.0-2023-03-22-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.43</b> pillar 1.9.0 2023-03-22 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.44" data-path="pkgbuild-1.1.0-2020-07-13-1-rspm-r-4.0.html"><a href="pkgbuild-1.1.0-2020-07-13-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.44</b> pkgbuild 1.1.0 2020-07-13 [1] RSPM (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.45" data-path="pkgconfig-2.0.3-2019-09-22-1-rspm-r-4.0.html"><a href="pkgconfig-2.0.3-2019-09-22-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.45</b> pkgconfig 2.0.3 2019-09-22 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.46" data-path="pkgload-1.1.0-2020-05-29-1-rspm-r-4.0.html"><a href="pkgload-1.1.0-2020-05-29-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.46</b> pkgload 1.1.0 2020-05-29 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.47" data-path="png-0.1-8-2022-11-29-1-cran-r-4.0.html"><a href="png-0.1-8-2022-11-29-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.47</b> png 0.1-8 2022-11-29 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.48" data-path="prettyunits-1.1.1-2020-01-24-1-rspm-r-4.0.html"><a href="prettyunits-1.1.1-2020-01-24-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.48</b> prettyunits 1.1.1 2020-01-24 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.49" data-path="processx-3.4.4-2020-09-03-1-rspm-r-4.0.html"><a href="processx-3.4.4-2020-09-03-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.49</b> processx 3.4.4 2020-09-03 [1] RSPM (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.50" data-path="ps-1.4.0-2020-10-07-1-rspm-r-4.0.html"><a href="ps-1.4.0-2020-10-07-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.50</b> ps 1.4.0 2020-10-07 [1] RSPM (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.51" data-path="r6-2.4.1-2019-11-12-1-rspm-r-4.0.html"><a href="r6-2.4.1-2019-11-12-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.51</b> R6 2.4.1 2019-11-12 [1] RSPM (R 4.0.0)</a></li>
+<li class="chapter" data-level="5.52" data-path="rcpp-1.0.10-2023-01-22-1-cran-r-4.0.html"><a href="rcpp-1.0.10-2023-01-22-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.52</b> Rcpp 1.0.10 2023-01-22 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.53" data-path="readr-1.4.0-2020-10-05-1-rspm-r-4.0.html"><a href="readr-1.4.0-2020-10-05-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.53</b> readr 1.4.0 2020-10-05 [1] RSPM (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.54" data-path="remotes-2.2.0-2020-07-21-1-rspm-r-4.0.html"><a href="remotes-2.2.0-2020-07-21-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.54</b> remotes 2.2.0 2020-07-21 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.55" data-path="reticulate-1.28-2023-01-27-1-cran-r-4.0.html"><a href="reticulate-1.28-2023-01-27-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.55</b> reticulate 1.28 2023-01-27 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.56" data-path="rlang-1.1.0-2023-03-14-1-cran-r-4.0.html"><a href="rlang-1.1.0-2023-03-14-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.56</b> rlang 1.1.0 2023-03-14 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.57" data-path="rmarkdown-2.10-2023-03-28-1-github-rstudiormarkdown02d3c25.html"><a href="rmarkdown-2.10-2023-03-28-1-github-rstudiormarkdown02d3c25.html"><i class="fa fa-check"></i><b>5.57</b> rmarkdown 2.10 2023-03-28 [1] Github (<span>rstudio/rmarkdown@02d3c25</span>)</a></li>
+<li class="chapter" data-level="5.58" data-path="rprojroot-2.0.3-2022-04-02-1-cran-r-4.0.html"><a href="rprojroot-2.0.3-2022-04-02-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.58</b> rprojroot 2.0.3 2022-04-02 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.59" data-path="rstudioapi-0.11-2020-02-07-1-rspm-r-4.0.html"><a href="rstudioapi-0.11-2020-02-07-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.59</b> rstudioapi 0.11 2020-02-07 [1] RSPM (R 4.0.0)</a></li>
+<li class="chapter" data-level="5.60" data-path="sass-0.4.5-2023-01-24-1-cran-r-4.0.html"><a href="sass-0.4.5-2023-01-24-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.60</b> sass 0.4.5 2023-01-24 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.61" data-path="sessioninfo-1.1.1-2018-11-05-1-rspm-r-4.0.html"><a href="sessioninfo-1.1.1-2018-11-05-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.61</b> sessioninfo 1.1.1 2018-11-05 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.62" data-path="stringi-1.5.3-2020-09-09-1-rspm-r-4.0.html"><a href="stringi-1.5.3-2020-09-09-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.62</b> stringi 1.5.3 2020-09-09 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.63" data-path="stringr-1.4.0-2019-02-10-1-rspm-r-4.0.html"><a href="stringr-1.4.0-2019-02-10-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.63</b> stringr 1.4.0 2019-02-10 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.64" data-path="testthat-3.0.1-2023-03-28-1-github-r-libtestthate99155a.html"><a href="testthat-3.0.1-2023-03-28-1-github-r-libtestthate99155a.html"><i class="fa fa-check"></i><b>5.64</b> testthat 3.0.1 2023-03-28 [1] Github (<span>R-lib/testthat@e99155a</span>)</a></li>
+<li class="chapter" data-level="5.65" data-path="tibble-3.2.1-2023-03-20-1-cran-r-4.0.html"><a href="tibble-3.2.1-2023-03-20-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.65</b> tibble 3.2.1 2023-03-20 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.66" data-path="usethis-1.6.3-2020-09-17-1-rspm-r-4.0.html"><a href="usethis-1.6.3-2020-09-17-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.66</b> usethis 1.6.3 2020-09-17 [1] RSPM (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.67" data-path="utf8-1.1.4-2018-05-24-1-rspm-r-4.0.html"><a href="utf8-1.1.4-2018-05-24-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.67</b> utf8 1.1.4 2018-05-24 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.68" data-path="vctrs-0.6.1-2023-03-22-1-cran-r-4.0.html"><a href="vctrs-0.6.1-2023-03-22-1-cran-r-4.0.html"><i class="fa fa-check"></i><b>5.68</b> vctrs 0.6.1 2023-03-22 [1] CRAN (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.69" data-path="withr-2.3.0-2020-09-22-1-rspm-r-4.0.html"><a href="withr-2.3.0-2020-09-22-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.69</b> withr 2.3.0 2020-09-22 [1] RSPM (R 4.0.2)</a></li>
+<li class="chapter" data-level="5.70" data-path="xfun-0.26-2023-03-28-1-github-yihuixfun74c2a66.html"><a href="xfun-0.26-2023-03-28-1-github-yihuixfun74c2a66.html"><i class="fa fa-check"></i><b>5.70</b> xfun 0.26 2023-03-28 [1] Github (<span>yihui/xfun@74c2a66</span>)</a></li>
+<li class="chapter" data-level="5.71" data-path="yaml-2.2.1-2020-02-01-1-rspm-r-4.0.html"><a href="yaml-2.2.1-2020-02-01-1-rspm-r-4.0.html"><i class="fa fa-check"></i><b>5.71</b> yaml 2.2.1 2020-02-01 [1] RSPM (R 4.0.3)</a></li>
+<li class="chapter" data-level="5.72" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>5.72</b> </a></li>
+<li class="chapter" data-level="5.73" data-path="usrlocallibrsite-library.html"><a href="usrlocallibrsite-library.html"><i class="fa fa-check"></i><b>5.73</b> [1] /usr/local/lib/R/site-library</a></li>
+<li class="chapter" data-level="5.74" data-path="usrlocallibrlibrary.html"><a href="usrlocallibrlibrary.html"><i class="fa fa-check"></i><b>5.74</b> [2] /usr/local/lib/R/library</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by:</a> </p>
+<p style="text-align:center;"> <a href="http://jhudatascience.org/"> The Johns Hopkins Data Science Lab </a></p>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Syllabus</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fastmap-1.1.1-2023-02-24-1-cran-r-4.0.2" class="section level2" number="5.29">
+<h2><span class="header-section-number">5.29</span> fastmap 1.1.1 2023-02-24 [1] CRAN (R 4.0.2)</h2>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fansi-0.4.1-2020-01-08-1-rspm-r-4.0.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fs-1.5.0-2020-07-31-1-rspm-r-4.0.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"depth": 1,
+"split_bib": 1
+}
+});
+});
+</script>
+
+</body>
+
+</html>
