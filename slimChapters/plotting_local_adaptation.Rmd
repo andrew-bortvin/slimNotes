@@ -2,7 +2,7 @@
 ottrpal::set_knitr_image_path()
 ``` 
 
-## Code to plot in Week 6 
+## SLiM Code for Allele Frequency and Local Adaptation 
 
 Here is a simulation generating allele frequency (AF) trajectories, whereby local adaptation occurs in one population but not the other. Further, we include a burst of selection in that population. You can run this code and generate AF trajectory files for us to plot together in class using R; change "trialNumber" to 1, 2, 3 and 4 in each iteration to create 4 different AF files for each population. (We'll also send you the resulting files via email at the start of class, so we're all plotting the same thing.) 
 
@@ -84,6 +84,40 @@ initialize(){
     // Update generation counter
     sim.setValue("generationCount", gen + 1);
 }
+
+## Plotting Allele Frequency Trajectories in R 
+
+Here's the code we worked on together in class to plot the trajectories and compare between populations and within each trial. 
+
+```{r, engine='R', eval=FALSE}
+
+# load libraries
+# install.packages("ggplot2") # install the first time 
+library(ggplot2)
+
+# load data from p1
+p1_AF_trial1 <- read_csv("slim/p1_AF_trial1.csv")
+p1_AF_trial2 <- read_csv("slim/p1_AF_trial2.csv")
+p1_AF_trial3 <- read_csv("slim/p1_AF_trial3.csv")
+p1_AF_trial4 <- read_csv("slim/p1_AF_trial4.csv")
+
+# load data from p2
+p2_AF_trial1 <- read_csv("slim/p2_AF_trial1.csv")
+p2_AF_trial2 <- read_csv("slim/p2_AF_trial2.csv")
+p2_AF_trial3 <- read_csv("slim/p2_AF_trial3.csv")
+p2_AF_trial4 <- read_csv("slim/p2_AF_trial4.csv")
+
+# create one file for all trials and all populations
+af_trials_merged <- rbind(p1_AF_trial1, p1_AF_trial2, p1_AF_trial3, p1_AF_trial4, 
+                          p1_AF_trial1, p1_AF_trial2, p2_AF_trial3, p2_AF_trial4)
+
+# plot the four trials together 
+# color by trial, line type by population 
+ggplot(data = af_trials_merged, 
+       aes(x = Generation, y = Allele.Frequency, color = as.factor(Trial))) + 
+    geom_line(aes(linetype=as.factor(Population)))
+
+```
 
 
 ```
