@@ -23,6 +23,78 @@ https://andrew-bortvin.github.io/slimNotes/no_toc/code-from-week-5.html	3.18 Cod
 https://andrew-bortvin.github.io/slimNotes/no_toc/week-5-assignment.html	3.19 Week 5 Assignment	resources/chapt_screen_images/week-5-assignment.png
 https://andrew-bortvin.github.io/slimNotes/no_toc/papers-of-interest.html	4 Papers of Interest	resources/chapt_screen_images/papers-of-interest.png
 https://andrew-bortvin.github.io/slimNotes/no_toc/lecture-slides.html	5 Lecture Slides	resources/chapt_screen_images/lecture-slides.png
-https://andrew-bortvin.github.io/slimNotes/no_toc/code-to-plot-in-week-6.html	5.1 Code to plot in Week 6	resources/chapt_screen_images/code-to-plot-in-week-6.png
-https://andrew-bortvin.github.io/slimNotes/no_toc/about-the-authors.html	About the Authors	resources/chapt_screen_images/about-the-authors.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/slim-code-for-allele-frequency-and-local-adaptation.html	5.1 SLiM Code for Allele Frequency and Local Adaptation	resources/chapt_screen_images/slim-code-for-allele-frequency-and-local-adaptation.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/session-info.html	5.2 ─ Session info ───────────────────────────────────────────────────────────────	resources/chapt_screen_images/session-info.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/setting-value.html	5.3 setting value	resources/chapt_screen_images/setting-value.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/version-r-version-4.0.2-2020-06-22.html	5.4 version R version 4.0.2 (2020-06-22)	resources/chapt_screen_images/version-r-version-4.0.2-2020-06-22.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/os-ubuntu-20.04.5-lts.html	5.5 os Ubuntu 20.04.5 LTS	resources/chapt_screen_images/os-ubuntu-20.04.5-lts.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/system-x86_64-linux-gnu.html	5.6 system x86_64, linux-gnu	resources/chapt_screen_images/system-x86_64-linux-gnu.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/ui-x11.html	5.7 ui X11	resources/chapt_screen_images/ui-x11.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/language-en.html	5.8 language (EN)	resources/chapt_screen_images/language-en.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/collate-en_us.utf-8.html	5.9 collate en_US.UTF-8	resources/chapt_screen_images/collate-en_us.utf-8.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/ctype-en_us.utf-8.html	5.10 ctype en_US.UTF-8	resources/chapt_screen_images/ctype-en_us.utf-8.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/tz-etcutc.html	5.11 tz Etc/UTC	resources/chapt_screen_images/tz-etcutc.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/date-2023-12-06.html	5.12 date 2023-12-06	resources/chapt_screen_images/date-2023-12-06.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/section.html	5.13 	resources/chapt_screen_images/section.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/packages.html	5.14 ─ Packages ───────────────────────────────────────────────────────────────────	resources/chapt_screen_images/packages.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/package-version-date-lib-source.html	5.15 package * version date lib source	resources/chapt_screen_images/package-version-date-lib-source.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/assertthat-0.2.1-2019-03-21-1-rspm-r-4.0.html	5.16 assertthat 0.2.1 2019-03-21 [1] RSPM (R 4.0.5)	resources/chapt_screen_images/assertthat-0.2.1-2019-03-21-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/bookdown-0.24-2023-03-28-1-github-rstudiobookdown88bc4ea.html	5.17 bookdown 0.24 2023-03-28 [1] Github (rstudio/bookdown@88bc4ea)	resources/chapt_screen_images/bookdown-0.24-2023-03-28-1-github-rstudiobookdown88bc4ea.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/bslib-0.4.2-2022-12-16-1-cran-r-4.0.html	5.18 bslib 0.4.2 2022-12-16 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/bslib-0.4.2-2022-12-16-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/cachem-1.0.7-2023-02-24-1-cran-r-4.0.html	5.19 cachem 1.0.7 2023-02-24 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/cachem-1.0.7-2023-02-24-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/callr-3.5.0-2020-10-08-1-rspm-r-4.0.html	5.20 callr 3.5.0 2020-10-08 [1] RSPM (R 4.0.2)	resources/chapt_screen_images/callr-3.5.0-2020-10-08-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/cli-3.6.1-2023-03-23-1-cran-r-4.0.html	5.21 cli 3.6.1 2023-03-23 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/cli-3.6.1-2023-03-23-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/crayon-1.3.4-2017-09-16-1-rspm-r-4.0.html	5.22 crayon 1.3.4 2017-09-16 [1] RSPM (R 4.0.0)	resources/chapt_screen_images/crayon-1.3.4-2017-09-16-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/desc-1.2.0-2018-05-01-1-rspm-r-4.0.html	5.23 desc 1.2.0 2018-05-01 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/desc-1.2.0-2018-05-01-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/devtools-2.3.2-2020-09-18-1-rspm-r-4.0.html	5.24 devtools 2.3.2 2020-09-18 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/devtools-2.3.2-2020-09-18-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/digest-0.6.25-2020-02-23-1-rspm-r-4.0.html	5.25 digest 0.6.25 2020-02-23 [1] RSPM (R 4.0.0)	resources/chapt_screen_images/digest-0.6.25-2020-02-23-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/ellipsis-0.3.1-2020-05-15-1-rspm-r-4.0.html	5.26 ellipsis 0.3.1 2020-05-15 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/ellipsis-0.3.1-2020-05-15-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/evaluate-0.20-2023-01-17-1-cran-r-4.0.html	5.27 evaluate 0.20 2023-01-17 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/evaluate-0.20-2023-01-17-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/fansi-0.4.1-2020-01-08-1-rspm-r-4.0.html	5.28 fansi 0.4.1 2020-01-08 [1] RSPM (R 4.0.0)	resources/chapt_screen_images/fansi-0.4.1-2020-01-08-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/fastmap-1.1.1-2023-02-24-1-cran-r-4.0.html	5.29 fastmap 1.1.1 2023-02-24 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/fastmap-1.1.1-2023-02-24-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/fs-1.5.0-2020-07-31-1-rspm-r-4.0.html	5.30 fs 1.5.0 2020-07-31 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/fs-1.5.0-2020-07-31-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/glue-1.4.2-2020-08-27-1-rspm-r-4.0.html	5.31 glue 1.4.2 2020-08-27 [1] RSPM (R 4.0.5)	resources/chapt_screen_images/glue-1.4.2-2020-08-27-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/hms-0.5.3-2020-01-08-1-rspm-r-4.0.html	5.32 hms 0.5.3 2020-01-08 [1] RSPM (R 4.0.0)	resources/chapt_screen_images/hms-0.5.3-2020-01-08-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/htmltools-0.5.5-2023-03-23-1-cran-r-4.0.html	5.33 htmltools 0.5.5 2023-03-23 [1] CRAN (R 4.0.2)	resources/chapt_screen_images.pngtools-0.5.5-2023-03-23-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/jquerylib-0.1.4-2021-04-26-1-cran-r-4.0.html	5.34 jquerylib 0.1.4 2021-04-26 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/jquerylib-0.1.4-2021-04-26-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/jsonlite-1.7.1-2020-09-07-1-rspm-r-4.0.html	5.35 jsonlite 1.7.1 2020-09-07 [1] RSPM (R 4.0.2)	resources/chapt_screen_images/jsonlite-1.7.1-2020-09-07-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/knitr-1.33-2023-03-28-1-github-yihuiknitra1052d1.html	5.36 knitr 1.33 2023-03-28 [1] Github (yihui/knitr@a1052d1)	resources/chapt_screen_images/knitr-1.33-2023-03-28-1-github-yihuiknitra1052d1.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/lattice-0.20-41-2020-04-02-2-cran-r-4.0.html	5.37 lattice 0.20-41 2020-04-02 [2] CRAN (R 4.0.2)	resources/chapt_screen_images/lattice-0.20-41-2020-04-02-2-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/lifecycle-1.0.3-2022-10-07-1-cran-r-4.0.html	5.38 lifecycle 1.0.3 2022-10-07 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/lifecycle-1.0.3-2022-10-07-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/magrittr-2.0.3-2022-03-30-1-cran-r-4.0.html	5.39 magrittr 2.0.3 2022-03-30 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/magrittr-2.0.3-2022-03-30-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/matrix-1.2-18-2019-11-27-2-cran-r-4.0.html	5.40 Matrix 1.2-18 2019-11-27 [2] CRAN (R 4.0.2)	resources/chapt_screen_images/matrix-1.2-18-2019-11-27-2-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/memoise-2.0.1-2021-11-26-1-cran-r-4.0.html	5.41 memoise 2.0.1 2021-11-26 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/memoise-2.0.1-2021-11-26-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/ottrpal-1.0.1-2023-03-28-1-github-jhudslottrpal151e412.html	5.42 ottrpal 1.0.1 2023-03-28 [1] Github (jhudsl/ottrpal@151e412)	resources/chapt_screen_images/ottrpal-1.0.1-2023-03-28-1-github-jhudslottrpal151e412.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/pillar-1.9.0-2023-03-22-1-cran-r-4.0.html	5.43 pillar 1.9.0 2023-03-22 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/pillar-1.9.0-2023-03-22-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/pkgbuild-1.1.0-2020-07-13-1-rspm-r-4.0.html	5.44 pkgbuild 1.1.0 2020-07-13 [1] RSPM (R 4.0.2)	resources/chapt_screen_images/pkgbuild-1.1.0-2020-07-13-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/pkgconfig-2.0.3-2019-09-22-1-rspm-r-4.0.html	5.45 pkgconfig 2.0.3 2019-09-22 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/pkgconfig-2.0.3-2019-09-22-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/pkgload-1.1.0-2020-05-29-1-rspm-r-4.0.html	5.46 pkgload 1.1.0 2020-05-29 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/pkgload-1.1.0-2020-05-29-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/png-0.1-8-2022-11-29-1-cran-r-4.0.html	5.47 png 0.1-8 2022-11-29 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/png-0.1-8-2022-11-29-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/prettyunits-1.1.1-2020-01-24-1-rspm-r-4.0.html	5.48 prettyunits 1.1.1 2020-01-24 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/prettyunits-1.1.1-2020-01-24-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/processx-3.4.4-2020-09-03-1-rspm-r-4.0.html	5.49 processx 3.4.4 2020-09-03 [1] RSPM (R 4.0.2)	resources/chapt_screen_images/processx-3.4.4-2020-09-03-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/ps-1.4.0-2020-10-07-1-rspm-r-4.0.html	5.50 ps 1.4.0 2020-10-07 [1] RSPM (R 4.0.2)	resources/chapt_screen_images/ps-1.4.0-2020-10-07-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/r6-2.4.1-2019-11-12-1-rspm-r-4.0.html	5.51 R6 2.4.1 2019-11-12 [1] RSPM (R 4.0.0)	resources/chapt_screen_images/r6-2.4.1-2019-11-12-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/rcpp-1.0.10-2023-01-22-1-cran-r-4.0.html	5.52 Rcpp 1.0.10 2023-01-22 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/rcpp-1.0.10-2023-01-22-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/readr-1.4.0-2020-10-05-1-rspm-r-4.0.html	5.53 readr 1.4.0 2020-10-05 [1] RSPM (R 4.0.2)	resources/chapt_screen_images/readr-1.4.0-2020-10-05-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/remotes-2.2.0-2020-07-21-1-rspm-r-4.0.html	5.54 remotes 2.2.0 2020-07-21 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/remotes-2.2.0-2020-07-21-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/reticulate-1.28-2023-01-27-1-cran-r-4.0.html	5.55 reticulate 1.28 2023-01-27 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/reticulate-1.28-2023-01-27-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/rlang-1.1.0-2023-03-14-1-cran-r-4.0.html	5.56 rlang 1.1.0 2023-03-14 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/rlang-1.1.0-2023-03-14-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/rmarkdown-2.10-2023-03-28-1-github-rstudiormarkdown02d3c25.html	5.57 rmarkdown 2.10 2023-03-28 [1] Github (rstudio/rmarkdown@02d3c25)	resources/chapt_screen_images/rmarkdown-2.10-2023-03-28-1-github-rstudiormarkdown02d3c25.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/rprojroot-2.0.3-2022-04-02-1-cran-r-4.0.html	5.58 rprojroot 2.0.3 2022-04-02 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/rprojroot-2.0.3-2022-04-02-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/rstudioapi-0.11-2020-02-07-1-rspm-r-4.0.html	5.59 rstudioapi 0.11 2020-02-07 [1] RSPM (R 4.0.0)	resources/chapt_screen_images/rstudioapi-0.11-2020-02-07-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/sass-0.4.5-2023-01-24-1-cran-r-4.0.html	5.60 sass 0.4.5 2023-01-24 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/sass-0.4.5-2023-01-24-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/sessioninfo-1.1.1-2018-11-05-1-rspm-r-4.0.html	5.61 sessioninfo 1.1.1 2018-11-05 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/sessioninfo-1.1.1-2018-11-05-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/stringi-1.5.3-2020-09-09-1-rspm-r-4.0.html	5.62 stringi 1.5.3 2020-09-09 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/stringi-1.5.3-2020-09-09-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/stringr-1.4.0-2019-02-10-1-rspm-r-4.0.html	5.63 stringr 1.4.0 2019-02-10 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/stringr-1.4.0-2019-02-10-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/testthat-3.0.1-2023-03-28-1-github-r-libtestthate99155a.html	5.64 testthat 3.0.1 2023-03-28 [1] Github (R-lib/testthat@e99155a)	resources/chapt_screen_images/testthat-3.0.1-2023-03-28-1-github-r-libtestthate99155a.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/tibble-3.2.1-2023-03-20-1-cran-r-4.0.html	5.65 tibble 3.2.1 2023-03-20 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/tibble-3.2.1-2023-03-20-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/usethis-1.6.3-2020-09-17-1-rspm-r-4.0.html	5.66 usethis 1.6.3 2020-09-17 [1] RSPM (R 4.0.2)	resources/chapt_screen_images/usethis-1.6.3-2020-09-17-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/utf8-1.1.4-2018-05-24-1-rspm-r-4.0.html	5.67 utf8 1.1.4 2018-05-24 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/utf8-1.1.4-2018-05-24-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/vctrs-0.6.1-2023-03-22-1-cran-r-4.0.html	5.68 vctrs 0.6.1 2023-03-22 [1] CRAN (R 4.0.2)	resources/chapt_screen_images/vctrs-0.6.1-2023-03-22-1-cran-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/withr-2.3.0-2020-09-22-1-rspm-r-4.0.html	5.69 withr 2.3.0 2020-09-22 [1] RSPM (R 4.0.2)	resources/chapt_screen_images/withr-2.3.0-2020-09-22-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/xfun-0.26-2023-03-28-1-github-yihuixfun74c2a66.html	5.70 xfun 0.26 2023-03-28 [1] Github (yihui/xfun@74c2a66)	resources/chapt_screen_images/xfun-0.26-2023-03-28-1-github-yihuixfun74c2a66.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/yaml-2.2.1-2020-02-01-1-rspm-r-4.0.html	5.71 yaml 2.2.1 2020-02-01 [1] RSPM (R 4.0.3)	resources/chapt_screen_images/yaml-2.2.1-2020-02-01-1-rspm-r-4.0.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/section-1.html	5.72 	resources/chapt_screen_images/section-1.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/usrlocallibrsite-library.html	5.73 [1] /usr/local/lib/R/site-library	resources/chapt_screen_images/usrlocallibrsite-library.png
+https://andrew-bortvin.github.io/slimNotes/no_toc/usrlocallibrlibrary.html	5.74 [2] /usr/local/lib/R/library	resources/chapt_screen_images/usrlocallibrlibrary.png
 https://andrew-bortvin.github.io/slimNotes/no_toc/references.html	6 References	resources/chapt_screen_images/references.png
