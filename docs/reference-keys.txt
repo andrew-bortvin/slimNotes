@@ -72,9 +72,9 @@ week-5-assignment
 splitting-populations
 local-adaptation
 papers-of-interest
+week-5---population-splitting
 week-3---multiple-populations
 week-2---selection-and-sweeps
-week-3---multiple-populations-1
 lecture-slides
 slim-code-for-allele-frequency-and-local-adaptation
 session-info
