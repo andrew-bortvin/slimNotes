@@ -22,9 +22,9 @@ rmd_files: ["index.Rmd",
             "slimChapters/localAdapt.Rmd",
             "slimChapters/week5code.Rmd",
             "slimChapters/assignment5.Rmd",
+            "slimChapters/plotting_local_adaptation.Rmd",
             "slimChapters/papers.Rmd",
             "slimChapters/classSlides.Rmd",
-            "slimChapters/plotting_local_adaptation.Rmd",
             "About.Rmd",
             "References.Rmd"]
 #new_session: yes
