@@ -84,6 +84,8 @@ initialize(){
     // Update generation counter
     sim.setValue("generationCount", gen + 1);
 }
+```
+
 
 ## Plotting Allele Frequency Trajectories in R 
 
@@ -120,4 +122,3 @@ ggplot(data = af_trials_merged,
 ```
 
 
-```
