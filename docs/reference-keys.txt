@@ -71,11 +71,6 @@ code-from-week-5
 week-5-assignment
 splitting-populations
 local-adaptation
-papers-of-interest
-week-5---population-splitting
-week-3---multiple-populations
-week-2---selection-and-sweeps
-lecture-slides
 slim-code-for-allele-frequency-and-local-adaptation
 session-info
 setting-value
@@ -87,7 +82,7 @@ language-en
 collate-en_us.utf-8
 ctype-en_us.utf-8
 tz-etcutc
-date-2023-12-06
+date-2023-12-07
 section
 packages
 package-version-date-lib-source
