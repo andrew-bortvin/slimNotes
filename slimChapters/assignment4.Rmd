@@ -11,6 +11,7 @@ So far in class and for homework we've simulated a variety of evolutionary dynam
 ### R basics 
 
 A few coding terms:
+
 - function: code that is used to execute something (e.g., the `print()` function is the same in R as it is in SLiM)
 - package: a set of functions that already exist and can be loaded into your workspace
 - comment: in R, you indicate a comment with the pound (or hashtag) `#` 
